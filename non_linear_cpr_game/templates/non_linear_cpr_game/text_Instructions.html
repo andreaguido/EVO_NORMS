@@ -1,0 +1,82 @@
+{% load staticfiles %}
+
+{% block content %}
+	<div class="container-fluid">
+		{% if type == "reminder" %}
+			<br>
+			<br>
+			<div class="panel panel-default">
+		{% endif %}
+		{% if type != "reminder" %}
+			<div class="panel panel-primary">
+		{% endif %}
+				<div class="panel-body">
+					{% if type == "reminder" %}
+						<p><strong>You have missed <span style="color:blue">{{ player.inactive }} decision{% if player.inactive != 1 %}s{% endif %}</span> from the experiment so far. You will be excluded if you miss <span style="color:blue">{{ inactive_threshold }} decisions</span> and will not receive any payment for your participation.</strong></p>
+						<br>
+					{% endif %}
+
+
+					<h4>Instructions</h4>
+					<p>You are now starting Section 6 of the experiment. We kindly ask you to read the instructions concerning this section.</p>
+
+					<p><b>Groups and rounds</b>: You will make decisions for a total of {{ Constants.num_rounds }} days. Each day, you will be
+						matched in groups of six participants, including yourself. The group composition will change every day,
+						meaning that you will be matched with potentially five new participants.
+						You will not be told who the other five group members are.</p>
+
+					<p><b>How to make decisions</b>: In each period you will be provided with an endowment of 30 Tokens.
+						All other members of your group will also have an endowment of 30 Tokens. In each period you
+						will have to decide how to use your Tokens. You will make your decisions individually. All
+						group members make their own decisions at the same time.</p>
+
+					<p><b>Common account</b>: You can allocate in the Common account any whole number X of Tokens between 0 and
+						30. The Tokens allocated to the Common account by your group will be first increased by a certain
+						factor and then distributed back among all 6 group members in proportion to the amount each
+						individual allocates. The return on your investment decreases with the total amount of Tokens
+						your group allocates to the Common account. This means that your earnings from the Common account
+						depend not only on the amount of Tokens you allocate but on how much each of you as a group
+						allocate to it in a given round. You will find the earnings formula for the Common account below.</p>
+
+					<p><b>Personal account</b>: The tokens remaining after deciding how many Tokens to allocate to the
+						Common account are yours to keep.</p>
+
+					<p><b>Total earnings in each period</b>: Your total earnings per period are the sum of the tokens you kept and your earnings from the Common account.
+						<br><br>
+						To facilitate your decision task, you will have access to an interactive tool when you have to
+						make your decisions and a comprehensive table indicating your earnings, for each possible amount
+						allocated by you in Common account (X) and by the all five members in your group (Y).
+						To check the table now, click the link below</p>
+
+					<p><b>Period by period information</b>: After each period, you will get information on the individual decisions
+						of the other members of your group. In each period, after all participants have made their decisions you will get information on:</p>
+
+					<ol>
+						<li>your own allocation decision in the current round</li>
+						<li>the average amount of Tokens allocated to the Common account by the other members of your group in the current round</li>
+						<li>your earnings from the Common account in the current round</li>
+						<li>the amount you allocate to the Private account in the current round</li>
+						<li>the sum of your earnings in Common and Private account for that round</li>
+					</ol>
+
+					<p><b>Final Payment</b>: At the end of the experiment the system will randomly select five rounds, the first one from the first XXX rounds, the second one from the second XXX rounds,
+						..., the fifth one from the last XXX rounds.
+						The amount you have gained during those five decisions will be added to your final payment.
+						Each round is independent from each other in terms of your earnings.</p>
+
+					<p><b>Additional Questions and Points</b>: During each round there will be some additional questions that will allow you to gain extra points.
+						[Piece to possibly add: These questions will be displayed before you make your allocation decision in
+						the game and will be labeled as “XXX Additional Questions” throughout the game]
+					</p>
+
+					<p>At the end of the experiment, {{ num_subjects_win }} people who successfully complete it will be randomly selected to win a bonus. This bonus multiplies the earnings of those people in one randomly selected decision of Stage 6 by {{ win_multiplier }}. This means that the <strong>randomly selected people can earn up to €100 for one of their Stage 6 decisions</strong> in addition to the rest of their payoffs.</p>
+
+					<p>Remember, if you miss {{ inactive_threshold }} decisions during the experiment you will be permanently and automatically excluded. <strong>If a person does not make their decision in a round then a randomly chosen decision of another person in that group will be automatically implemented.</strong></p>
+
+					<p>Contact <a href="mailto:{{ email }}">{{ email }}</a> if you have any questions.</p>
+
+					{% if type != "reminder" %}<p>You will find these instructions at the bottom of every page. We will now go through some examples to ensure this is all clear for you.</p>{% endif %}
+				</div>
+			</div>
+	</div>
+{% endblock %}

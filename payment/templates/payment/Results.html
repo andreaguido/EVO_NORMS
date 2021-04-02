@@ -1,0 +1,75 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{% if player.inactive < inactive_threshold %}
+		Final Earnings
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% if player.inactive >= inactive_threshold %}
+		{% include Constants.text_Inactive %}			
+	{% endif %}
+
+	{% if player.inactive < inactive_threshold %}
+		<div class="container-fluid">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-sm-2" align="center"><strong>Stage</strong></div>
+						<div class="col-sm-6" align="left"><strong>Decision</strong></div>
+						<div class="col-sm-4" align="left"><strong>Earnings</strong></div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-2" align="center"><strong>Stage 2</strong></div>
+						<div class="col-sm-6" align="left">You chose <strong>Gamble {{ player.lottery_choice }}</strong>. The computer flipped a virtual coin and this came up {% if player.lottery_win == 1 %}<strong>HEADS</strong>{% else %}<strong>TAILS</strong>{% endif %}.</div>
+						<div class="col-sm-4" align="left">You earn <strong>{{ player.risk_lottery_payoff }}</strong> in Stage 2.</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-sm-2" align="center"><strong>Stage 5</strong></div>
+						<div class="col-sm-6" align="left">{% if player.self_paid == 1 %}Your <strong>decision {{ player.slider_paid }}</strong> was selected for payment.{% elif player.self_paid == 0 %}A decision of the person you were randomly matched with was implemented for payment.{% endif %}</div>
+						<div class="col-sm-4" align="left">You earn <strong>{{ player.payoff_svo }}</strong> in Stage 4.</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-sm-2" align="center"><strong>Stage 6</strong></div>
+						<div class="col-sm-6" align="left"><strong>Rounds {{ player.paying_round_week1 }}</strong>, <strong>{{ player.paying_round_week2 }}</strong>, <strong>{{ player.paying_round_week3 }}</strong>, and <strong>{{ player.paying_round_week4 }}</strong> were chosen for payment. You earned <strong>{{ player.contribution_payoff_week1 }}</strong>, <strong>{{ player.contribution_payoff_week2 }}</strong>, <strong>{{ player.contribution_payoff_week3 }}</strong>, and <strong>{{ player.contribution_payoff_week4 }}</strong> in these rounds. {% if player.winner == 1 %}<strong>You are one of the {{ num_subjects_win }} people randomly selected to receive a {{ win_multiplier }} times multiplier</strong> to a contribution decision and the payment from your week {{ player.win_week_var }} decision has been multiplied by {{ win_multiplier }}.{% else %} You are not among the people randomly selected to have your payment multiplied.{% endif %} You also received <strong>{{ player.expectations_payoff_week1 }}</strong>, <strong>{{ player.expectations_payoff_week2 }}</strong>, <strong>{{ player.expectations_payoff_week3 }}</strong>, <strong>{{ player.expectations_payoff_week4 }}</strong> as bonuses.</div>
+						<div class="col-sm-4" align="left">You earn <strong>{{ player.game_total_payoff }}</strong> in Stage 5.</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-sm-2" align="center"><strong>Stage 7</strong></div>
+						<div class="col-sm-6" align="left">
+						{% if player.timeout_MyPage1 == 0 %}
+							{% if player.pun_prefs_self_paid == 1 %}Your decision was implemented. The other person contributed {{ player.other_contribution }}
+							in round {{ Constants.num_rounds }} and you chose to reduce their earnings by
+							<strong>{{ player.punish }}</strong>{% else %} A decision of the other was implemented.
+							He or she reduced your earnings by <strong>{{ player.punish }}</strong>{% endif %}.
+						{% endif %}
+						{% if player.timeout_MyPage1 == 1 %}You missed your decisions in this stage and so you earn nothing.{% endif %}
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-sm-2" align="center"></div>
+						<div class="col-sm-6" align="left"></div>
+						<div class="col-sm-4" align="left"><strong>In total you earn {{ player.payoff }}.</strong> </div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-sm-12" align="left">You will receive payment to your PayPal account shortly. If you do not receive your money within a week, or if you have any questions, please contact us at <a href="mailto:{{ email }}">{{ email }}</a>.</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+		{% next_button %}
+	{% endif %}
+{% endblock %}
+
+

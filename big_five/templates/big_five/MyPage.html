@@ -1,0 +1,118 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	Stage 1
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<h4>Instructions</h4>
+				<p>Here are a number of characteristics that may or may not apply to you. For example, do you agree that you are someone who <i>likes to spend time with others</i>? Please indicate the extent to which you agree or disagree with each statement. 
+
+				<p>Contact <a href="mailto:{{ email }}">{{ email }}</a> if you have any questions.</p>
+			</div>
+		</div>
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<b>I see myself as someone who...</b>
+			</div>
+
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q1 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q2 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q3 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q4 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q5 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q6 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q7 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q8 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q9 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q10 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q11 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q12 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q13 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q14 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q15 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q16 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q17 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q18 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q19 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q20 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q21 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q22 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q23 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q24 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q25 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q26 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q27 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q28 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q29 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q30 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q31 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q32 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q33 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q34 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q35 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q36 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q37 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q38 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q39 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q40 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q41 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q42 %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6" align="left">{% formfield player.q43 %}</div>
+					<div class="col-sm-6" align="left">{% formfield player.q44 %}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{% next_button %}
+{% endblock %}

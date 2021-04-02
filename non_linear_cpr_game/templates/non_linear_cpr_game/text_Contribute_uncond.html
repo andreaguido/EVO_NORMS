@@ -1,0 +1,97 @@
+{% load staticfiles otree_tags %}
+
+{% block content %}
+<style>
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: blue;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: blue;
+  cursor: pointer;
+}
+</style>
+
+	<div class="container-fluid">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<b>It's time to make your contribution decision</b>
+			</div>
+
+			<div class="panel-body">
+				<p>How much will you contribute?</p>
+				<div class="row">
+					<div class="col-sm-12">{% formfield player.contribution with label="" %}</div>
+				</div>
+				<div class="row mx-auto">
+					<div class="col-lg-4" >
+						<img class="img-responsive" src="{% static "non_linear_cpr_game/Contribute.png" %}" width="250">
+					</div>
+					<div class="col-lg-8">
+						<h3 style="text-align:center;">Simulator</h3>
+						<label for="mycontribution"><b>Your Contribution</b>: <span id="print_mycontribution"></span></label> <br>
+						<input type="range" min="0" max="30" value="15" step=1 	class="slider" id="mycontribution">
+						<label for="othcontribution" class="pull-left"><b>Others' total contributions</b>: <span id="print_othcontribution"></span></label> <br>
+						<input type="range" min="0" max="150" value="75" class="slider" id="othcontribution"> <br>
+						<p>Your earnings: <span id="print_payoff"></span></p>
+					</div>
+				</div>
+				Click <a href="">here</a> to open the table of earnings.
+			</div>
+		</div>
+		</div>
+	</div>
+{% endblock %}
+{% block scripts %}
+<script>
+var myVar = setInterval(function(){ myTask() }, 10);
+
+function round(value, decimals) {
+return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
+
+function myTask(){
+var slider = document.getElementById("mycontribution").value;
+var slider2 = document.getElementById("othcontribution").value;
+var sum = round((1*slider + 1*slider2), 2);
+var par_a = 15;
+var par_b = 0.083;
+var commonaccount = (par_a*sum - par_b*sum*sum)*(slider/sum);
+
+if (Number.isNaN(commonaccount)){
+	document.getElementById("print_payoff").innerHTML = 0;
+} else {
+	document.getElementById("print_payoff").innerHTML = round(commonaccount, 1);
+	document.getElementById("print_mycontribution").innerHTML = round(slider, 1);
+	document.getElementById("print_othcontribution").innerHTML = round(slider2, 1);
+}
+}
+</script>
+
+{% endblock %}

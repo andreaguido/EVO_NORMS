@@ -1,0 +1,69 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{% if player.inactive < inactive_threshold %}
+		Stage 6: Round {{ previous_round_number }} Outcome
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% if player.inactive >= inactive_threshold %}
+		{% include Constants.text_Inactive %}
+	{% endif %}
+
+	{% if player.inactive < inactive_threshold %}
+
+
+		<div class="container-fluid">
+			<div class="panel panel-primary">
+				<div class="panel-heading"><b>Contribution decision</b></div>
+				<div class="panel-body">
+					<p>You started with an endowment of <strong>{{ Constants.endowment }}</strong>. <strong>You contributed {{ previous_contribution }}</strong> to the collective pot and <strong>your group contributed a total of {{ previous_total_contribution }}</strong>. The full list of contributions in your group is shown below. Others' contributions are ordered randomly.</p>
+
+					<!--Table of results-->
+					<ul class="list-group">
+						<li class="list-group-item"><b>Contributions by your group members</b></li>
+						<li class="list-group-item text-success">{{ previous_contribution }} - Your contribution</li>
+					{% if previous_other_contribution0 != None and previous_other_inactive0 < inactive_threshold and previous_other_timeout_Contribute0 == 0 %}
+						<li class="list-group-item">{{ previous_other_contribution0 }}</li>
+					{% elif previous_other_inactive0 >= inactive_threshold or previous_other_timeout_Contribute0 == 1 %}
+						<li class="list-group-item disabled">{{ previous_other_contribution0 }} - Automatic decision</li>
+					{% endif %}
+					{% if previous_other_contribution1 != None and previous_other_inactive1 < inactive_threshold and previous_other_timeout_Contribute1 == 0 %}
+						<li class="list-group-item">{{ previous_other_contribution1 }}</li>
+					{% elif previous_other_inactive1 >= inactive_threshold or previous_other_timeout_Contribute1 == 1 %}
+						<li class="list-group-item disabled">{{ previous_other_contribution1 }} - Automatic decision</li>
+					{% endif %}
+					{% if previous_other_contribution2 != None and previous_other_inactive2 < inactive_threshold and previous_other_timeout_Contribute2 == 0 %}
+						<li class="list-group-item">{{ previous_other_contribution2 }}</li>
+					{% elif previous_other_inactive2 >= inactive_threshold or previous_other_timeout_Contribute2 == 1 %}
+						<li class="list-group-item disabled">{{ previous_other_contribution2 }} - Automatic decision</li>
+					{% endif %}
+					{% if previous_other_contribution3 != None and previous_other_inactive3 < inactive_threshold and previous_other_timeout_Contribute3 == 0 %}
+						<li class="list-group-item">{{ previous_other_contribution3 }}</li>
+					{% elif previous_other_inactive3 >= inactive_threshold or previous_other_timeout_Contribute3 == 1 %}
+						<li class="list-group-item disabled">{{ previous_other_contribution3 }} - Automatic decision</li>
+					{% endif %}
+					{% if previous_other_contribution4 != None and previous_other_inactive4 < inactive_threshold and previous_other_timeout_Contribute4 == 0 %}
+						<li class="list-group-item">{{ previous_other_contribution4 }}</li>
+					{% elif previous_other_inactive4 >= inactive_threshold or previous_other_timeout_Contribute4 == 1 %}
+						<li class="list-group-item disabled">{{ previous_other_contribution4 }} - Automatic decision</li>
+					{% endif %}
+					</ul>
+
+				</div>
+			</div>
+
+			<div class="panel panel-primary">
+				<div class="panel-body">
+						<p>Your earnings from your contribution decisions in this round are therefore <strong>{{ display_payoff }}</strong> (= {{ previous_unconditional_payoff }}).</p>
+						<p>Your earnings from your contribution decision in this round are therefore <strong>{{ previous_unconditional_payoff }}</strong>.</p>
+				</div>
+			</div>
+		</div>
+
+		{% next_button %}
+
+	{% endif %}
+{% endblock %}

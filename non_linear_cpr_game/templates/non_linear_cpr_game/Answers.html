@@ -1,0 +1,174 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{% if player.inactive < inactive_threshold %}
+		Stage 6: Answers
+	{% endif %}
+{% endblock %}
+{% block scripts %}
+<style>
+	.danger {
+		color:red;
+	}
+</style>
+{% endblock %}
+
+{% block content %}
+	{% if player.inactive >= inactive_threshold %}
+		{% include Constants.text_Inactive %}			
+	{% endif %}
+
+	{% if player.inactive < inactive_threshold %}
+		<div class="container-fluid">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<p>You answered <strong>{{ player.correct_answers }}</strong> out of <strong>8</strong> questions correctly.
+						Stage 6 of the experiment will start on the next screen.</p>
+				</div>
+			</div>
+
+			<div class="panel panel-primary">
+				<div class="panel-heading mb-4">
+					<b>If you allocate 5 Tokens to the Common Account, and the other 5 participants in your group allocate 0 Tokens overall:</b>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table">
+						<tr>
+							<th>Question</th>
+							<th>Your response</th>
+							<th>The correct answer</th>
+						</tr>
+						{% if player.question_1_1 == Constants.a1_1 %}
+							<tr class="success">
+						{% else %}
+							<tr class="danger">
+						{% endif %}
+								<td>{{ Constants.question_1_text }}</td>
+								<td>{{ q_1_1 }}</td>
+								<td>{{ a11 }}</td>
+							</tr>
+
+						{% if player.question_1_2 == Constants.a1_2 %}
+							<tr class="success">
+						{% else %}
+							<tr class="danger">
+						{% endif %}
+								<td>{{ Constants.question_2_text }}</td>
+								<td>{{ q_1_2 }}</td>
+								<td>{{ a12 }}</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading mb-4">
+					<b>If you allocate 5 Tokens to the Common Account, and the other 5 participants in your group allocate 150 Tokens overall:</b>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table">
+						<tr>
+							<th>Question</th>
+							<th>Your response</th>
+							<th>The correct answer</th>
+						</tr>
+						{% if player.question_2_1 == Constants.a2_1 %}
+							<tr class="success">
+						{% else %}
+							<tr class="danger">
+						{% endif %}
+								<td>{{ Constants.question_1_text }}</td>
+								<td>{{ q_2_1 }}</td>
+								<td>{{ a21 }}</td>
+							</tr>
+
+						{% if player.question_2_2 == Constants.a2_2 %}
+							<tr class="success">
+						{% else %}
+							<tr class="danger">
+						{% endif %}
+								<td>{{ Constants.question_2_text }}</td>
+								<td>{{ q_2_2 }}</td>
+								<td>{{ a22 }}</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading mb-4">
+					<b>If you allocate 28 Tokens to the Common Account, and the other 5 participants in your group allocate 0 Tokens overall:</b>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table">
+						<tr>
+							<th>Question</th>
+							<th>Your response</th>
+							<th>The correct answer</th>
+						</tr>
+						{% if player.question_3_1 == Constants.a3_1 %}
+							<tr class="success">
+						{% else %}
+							<tr class="danger">
+						{% endif %}
+								<td>{{ Constants.question_1_text }}</td>
+								<td>{{ q_3_1 }}</td>
+								<td>{{ a31 }}</td>
+							</tr>
+
+						{% if player.question_3_2 == Constants.a3_2 %}
+							<tr class="success">
+						{% else %}
+							<tr class="danger">
+						{% endif %}
+								<td>{{ Constants.question_2_text }}</td>
+								<td>{{ q_3_2 }}</td>
+								<td>{{ a32 }}</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading mb-4">
+					<b>If you allocate 28 Tokens to the Common Account, and the other 5 participants in your group allocate 150 Tokens overall:</b>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table">
+						<tr>
+							<th>Question</th>
+							<th>Your response</th>
+							<th>The correct answer</th>
+						</tr>
+						{% if player.question_4_1 == Constants.a1_1 %}
+							<tr class="success">
+						{% else %}
+							<tr class="danger">
+						{% endif %}
+								<td>{{ Constants.question_1_text }}</td>
+								<td>{{ q_4_1 }}</td>
+								<td>{{ a41 }}</td>
+							</tr>
+
+						{% if player.question_4_2 == Constants.a1_2 %}
+							<tr class="success">
+						{% else %}
+							<tr class="danger">
+						{% endif %}
+								<td>{{ Constants.question_2_text }}</td>
+								<td>{{ q_4_2 }}</td>
+								<td>{{ a42 }}</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		{% next_button %}
+
+		{% include Constants.text_Instructions with type="reminder" %}
+	{% endif %}
+	
+{% endblock %}

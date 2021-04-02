@@ -1,0 +1,112 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{% if player.inactive < inactive_threshold %}
+		Stage 6: Questions
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% if player.inactive >= inactive_threshold %}
+		{% include Constants.text_Inactive %}			
+	{% endif %}
+
+	{% if player.inactive < inactive_threshold %}
+		<div class="container-fluid">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<p>Please answer the questions below. These are here to help you understand Stage 6 better. Your answers do not affect your earnings in any way. Remember, you can find the full instructions of the experiment in a box at the bottom of your screen (scroll down if you do not see it).</p> 
+				</div>
+			</div>
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<b>If you allocate 5 Tokens to the Common Account, and the other 5 participants in your group allocate 0 Tokens overall:</b>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table">
+						<tr>
+							<td>{{ Constants.question_1_text }}</td>
+							<td>{% formfield player.question_1_1 with label="" %}</td>
+						</tr>
+						<tr>
+							<td>{{ Constants.question_2_text }}</td>
+							<td>{% formfield player.question_1_2 with label="" %}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<b>If you allocate 5 Tokens to the Common Account, and the other 5 participants in your group allocate 150 Tokens overall:</b>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table">
+						<tr>
+							<td>{{ Constants.question_1_text }}</td>
+							<td>{% formfield player.question_2_1 with label="" %}</td>
+						</tr>
+						<tr>
+							<td>{{ Constants.question_2_text }}</td>
+							<td>{% formfield player.question_2_2 with label="" %}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<b>If you allocate 28 Tokens to the Common Account, and the other 5 participants in your group allocate 0 Tokens overall:</b>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table">
+						<tr>
+							<td>{{ Constants.question_1_text }}</td>
+							<td>{% formfield player.question_3_1 with label="" %}</td>
+						</tr>
+						<tr>
+							<td>{{ Constants.question_2_text }}</td>
+							<td>{% formfield player.question_3_2 with label="" %}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<b>If you allocate 28 Tokens to the Common Account, and the other 5 participants in your group allocate 150 Tokens overall:</b>
+				</div>
+
+				<div class="table-responsive">
+					<table class="table">
+						<tr>
+							<td>{{ Constants.question_1_text }}</td>
+							<td>{% formfield player.question_4_1 with label="" %}</td>
+						</tr>
+						<tr>
+							<td>{{ Constants.question_2_text }}</td>
+							<td>{% formfield player.question_4_2 with label="" %}</td>
+						</tr>
+						<tr>
+							<td>{{ Constants.question_2_text }}</td>
+							<td>{% formfield player.question_5 with label="" %}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		{% next_button %}
+
+		{% include Constants.text_Instructions with type="reminder"%}
+	{% endif %}
+{% endblock %}

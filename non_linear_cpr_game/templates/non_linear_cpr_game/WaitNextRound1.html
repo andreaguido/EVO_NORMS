@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{% if player.inactive < inactive_threshold %}
+		You have made your decisions for now
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% if player.inactive >= inactive_threshold %}
+		{% include Constants.text_Inactive %}
+	{% endif %}
+
+	{% if player.inactive < inactive_threshold %}
+
+		{% include Constants.text_Instructions with type="reminder"%}
+	{% endif %}
+{% endblock %}

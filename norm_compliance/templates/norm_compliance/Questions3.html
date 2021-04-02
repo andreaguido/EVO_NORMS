@@ -1,0 +1,55 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	Segunda parte
+{% endblock %}
+
+{% block content %}
+
+    <h4>Recibe la bola número {{ ball_number }}. 
+    Tiene <strong>10 segundos</strong> para tomar su decisión. 
+    Si no elige, la bola se perderá y no recibirá ningún dinero por ella.
+
+    <br>
+    <br>
+
+    <strong>Por cada pelota que coloque en la caja amarilla, recibirá 50 céntimos.
+        Por cada pelota que coloque en la caja azul, recibirá 1 euros.
+        La regla es que las pelotas se deben poner en la caja amarilla.</strong>
+    <br>
+    <br>
+
+    ¿Dónde quiere ponerla?
+    </h4>
+    
+    <div class="table-responsive">
+        <table class="table" style="table-layout:fixed">
+            <tr>
+                <td style="background-color:#FCBF49; text-align:center; width:50%">
+                    <strong>Caja amarilla</strong>
+                </td>
+                <td style="background-color:#0075C4; text-align:center; color:white; width:50%">
+                    <strong>Caja azul</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="background-color:#FCBF49; text-align:center; width:50%">
+                    {% formfield player.selectionYellow %}
+                </td>
+                <td style="background-color:#0075C4; text-align:center; color:white; width:50%">
+                    {% formfield player.selectionBlue %}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <br>
+    Pulse <u>Siguiente</u> para guardar su respuesta.
+
+    <br><br>
+    {% next_button %}
+
+{% endblock %}
+
+

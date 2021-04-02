@@ -1,0 +1,77 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{% if player.inactive < inactive_threshold %}
+		Stage 6: Examples	
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% if player.inactive >= inactive_threshold %}
+		{% include Constants.text_Inactive %}			
+	{% endif %}
+
+	{% if player.inactive < inactive_threshold %}
+		<div class="container-fluid">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<p>Recall that in each round, you are grouped with {{ Constants.other_players_per_group }} other participants. Each participant receives {{ Constants.endowment }}
+						Tokens each round. Below, we depict some possible situations that may happen during the game. The computations in each example refer to the table cell that indicates
+						the corresponding earnings. You can find the table of earnings <a href="https://drive.google.com/file/d/1DLo2SidZEiFhrayri_aISSFL_3n7giAd/view?usp=sharing" target="_blank">here</a>.
+					</p>
+
+					<h4>Example 1</h4>
+
+					<p>You allocated <b>0 tokens</b> to the Common account and the 5 other participants allocated <b>0 tokens</b>
+						overall. As a consequence, the total amount allocated in the Common account is <b>0 tokens</b>.
+						The amount that you allocated to your Private account is 30 (=30-0). Your final earnings are:</p>
+					<ul>
+						<li>Your earnings from the Common account = 0</li>
+						<li>Your earnings from the Private account = 30</li>
+						<li>Your total earnings (Private + Common) = 30 (see first column - first row of the table)</li>
+					</ul>
+
+					<h4>Example 2</h4>
+					<p>You allocated <b>0 tokens</b> to the Common account and the 5 other participants allocated <b>150 tokens</b>
+						overall (30 tokens each). As a consequence, the total amount allocated in the Common account is <b>150 tokens</b>.
+						The amount that you allocated to the Private account is 30 (=30-0). Your final earnings are:</p>
+					
+					<ul>
+						<li>Your earnings from the Common account = 0</li>
+						<li>Your earnings from the Private account = 30</li>
+						<li>Your total earnings (Private + Common) = 30 (see first column - last row of the table)</li>
+					</ul>
+
+
+					<h4>Example 3</h4>
+					<p>You allocated <b>30 tokens</b> to the Common account and the 5 other participants allocated <b>0 tokens</b> overall.
+						As a consequence, the total amount allocated in the Common account is 30 tokens. The amount that
+						you allocated to the Private account is 0 (=30-30). Your final earnings are:</p>
+
+					<ul>
+						<li>Your earnings from the Common account = 375.3</li>
+						<li>Your earnings from the Private account = 0</li>
+						<li>Your total earnings (Private + Common) = 375.3 (see last column - first row of the table)</li>
+					</ul>
+
+					<h4>Example 4</h4>
+					<p>You allocated <b>30 tokens</b> to the Common account and the 5 other participants allocated <b>150 tokens</b>
+						overall. As a consequence, the total amount allocated in the Common account is = 180 tokens.
+						The amount that you allocated to the Private account is 0 (=30-30). Your final earnings are:</p>
+
+					<ul>
+						<li>Your earnings from the Common account = 1.8</li>
+						<li>Your earnings from the Private account = 0</li>
+						<li>Your total earnings (Private + Common) = 0 (see last column - last row of the table)</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+
+		{% next_button %}
+		
+		{% include Constants.text_Instructions with type="reminder"%}
+	{% endif %}
+{% endblock %}

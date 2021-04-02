@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{% if player.inactive < inactive_threshold %}
+		Stage 6: Round {{ subsession.round_number }}
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% if player.inactive >= inactive_threshold %}
+		{% include Constants.text_Inactive %}			
+	{% endif %}
+	
+	{% if player.inactive < inactive_threshold %}
+
+		{% include Constants.text_EE %}
+
+		{% next_button %}
+
+		{% include Constants.text_Instructions with type="reminder" %}	
+	{% endif %}
+{% endblock %}

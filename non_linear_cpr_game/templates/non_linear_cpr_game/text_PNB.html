@@ -1,0 +1,21 @@
+{% load staticfiles otree_tags %}
+
+{% block content %}
+	<div class="container-fluid">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<p><b>In your opinion, how many Tokens should a participant in your group, including yourself, allocate to the Common account in the current round?</b></p>
+			</div>
+
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-4" align="left">{% formfield player.personal_normative_beliefs with label="" %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12" align="left"><img class="img-responsive" src="{% static "non_linear_cpr_game/PNB_spa.png" %}" width="400"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

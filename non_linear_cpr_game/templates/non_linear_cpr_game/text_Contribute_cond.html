@@ -1,0 +1,46 @@
+{% load staticfiles otree_tags %}
+
+{% block content %}
+	<div class="container-fluid">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<p>In this round we ask you to make another type of contribution decision for which you earn extra money. We call these <strong>Scenario specific contributions</strong>. In these Scenario specific contributions you decide how much to contribute based on <b>what your group members think</b> and <b>contribute</b>. There are four possible combinations that can occur and for each of these indicate what you will do.</p>
+
+				<p>Since we record what your group members think and actually contribute we can work out which scenario occurs. We know how much your group members think you should all contribute from their responses to a question in this round. The amount that your group contributes comes from their usual contribution decision in this round. We will then implement your decision in the <strong>scenario that really occurs</strong> and you will receive the resulting payoffs. 
+
+				<p>Consider the following example. You choose to contribute 5 in Scenario 1, 10 in Scenario 2, 15 in Scenario 3, and 20 in Scenario 4. In the usual contribution decision in this round, the other people in your group contribute 10, 10, 10, 10, and 20 and think that you should all contribute 50, 50, 50, 50, and 50. This means that all of the others contribute less than 50 and all think that you should each contribute 50 or more. Thus, your decision in Scenario 3, of 15 points, is implemented. Combined with your group members contributions this means that you do not reach the threshold. In this example the computer rolls a 3 so you all lose your points.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<b>How much will you contribute if most ({{ half_players|floatformat:"0" }} or more) of the other people in your group:</b>
+			</div>
+
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-2" align="left">Scenario 1</div>
+					<div class="col-sm-6" align="left">contribute <strong>at least</strong> {{ half_spending }} and <br>think that you should each contribute <strong>at least</strong> {{ half_spending }}</div>
+					<div class="col-sm-4" align="left">{% formfield player.contribution_hh with label="" %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2" align="left">Scenario 2</div>
+					<div class="col-sm-6" align="left">contribute <strong>at least</strong> {{ half_spending }} and <br>think that you should each contribute <strong>less than</strong> {{ half_spending }}</div>
+					<div class="col-sm-4" align="left">{% formfield player.contribution_hl with label="" %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2" align="left">Scenario 3</div>
+					<div class="col-sm-6" align="left">contribute <strong>less than</strong> {{ half_spending }} and <br>think that you should each contribute <strong>at least</strong> {{ half_spending }}</div>
+					<div class="col-sm-4" align="left">{% formfield player.contribution_lh with label="" %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2" align="left">Scenario 4</div>
+					<div class="col-sm-6" align="left">contribute <strong>less than</strong> {{ half_spending }} and <br>think that you should each contribute <strong>less than</strong> {{ half_spending }}</div>
+					<div class="col-sm-4" align="left">{% formfield player.contribution_ll with label="" %}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

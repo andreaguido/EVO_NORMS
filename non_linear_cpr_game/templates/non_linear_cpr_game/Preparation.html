@@ -1,0 +1,52 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{% if player.inactive < inactive_threshold %}
+		Stage 6: Round {{ subsession.round_number }}
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% if player.inactive >= inactive_threshold %}
+		{% include Constants.text_Inactive %}			
+	{% endif %}
+
+	<div class="container-fluid">
+		{% if player.inactive < inactive_threshold %}
+
+
+
+				<div class="panel panel-primary">
+					<div class="panel-body">
+						<p>Your are about to start round {{ subsession.round_number }} of {{ Constants.num_rounds }} rounds. This means that you are on day {{ days_completed|floatformat:"0" }} of {{ days_total|floatformat:"0" }} of the experiment.</p>
+						<p><strong>You are randomly grouped with {{ Constants.other_players_per_group }} new people</strong>.</p>
+						<br>
+						{% if subsession.round_number == 1 %}
+						<img class="img-responsive" src="{% static "non_linear_cpr_game/Slide1.jpg" %}" width="500">
+						{% elif subsession.round_number in Constants.rounds_picture2 %}
+						<img class="img-responsive" src="{% static "non_linear_cpr_game/Slide2.jpg" %}" width="500">
+						{% elif subsession.round_number in Constants.rounds_picture3 %}
+						<img class="img-responsive" src="{% static "non_linear_cpr_game/Slide3.jpg" %}" width="500">
+						{% elif subsession.round_number in Constants.rounds_picture4 %}
+						<img class="img-responsive" src="{% static "non_linear_cpr_game/Slide4.jpg" %}" width="500">
+						{% elif subsession.round_number in Constants.rounds_picture5 %}
+						<img class="img-responsive" src="{% static "non_linear_cpr_game/Slide5.jpg" %}" width="500">
+						{% elif subsession.round_number in Constants.rounds_picture6 %}
+						<img class="img-responsive" src="{% static "non_linear_cpr_game/Slide6.jpg" %}" width="500">
+						{% elif subsession.round_number in Constants.rounds_picture7 %}
+						<img class="img-responsive" src="{% static "non_linear_cpr_game/Slide7.jpg" %}" width="500">
+						{% elif subsession.round_number in Constants.rounds_picture8 %}
+						<img class="img-responsive" src="{% static "non_linear_cpr_game/Slide8.jpg" %}" width="500">
+						{% elif subsession.round_number in Constants.rounds_picture9 %}
+						<img class="img-responsive" src="{% static "non_linear_cpr_game/Slide9.jpg" %}" width="500">
+						{% endif %}
+					</div>
+				</div>
+		</div>
+
+		{% next_button %}
+
+		{% include Constants.text_Instructions with type="reminder" %}
+	{% endif %}
+{% endblock %}

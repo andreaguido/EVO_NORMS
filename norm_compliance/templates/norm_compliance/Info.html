@@ -1,0 +1,41 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Segunda parte
+{% endblock %}
+
+{% block content %}
+
+    {% comment %}<p>{% endcomment %}
+        {% comment %}In the following part, you will be asked to put 20 balls in one of two boxes, a yellow box and a blue box.{% endcomment %}
+        {% comment %}<br>{% endcomment %}
+        {% comment %}<br>{% endcomment %}
+        {% comment %}For every ball that you put in the yellow box you will receive 50 cents. For every ball that you put in the blue box you will receive 1 euro.{% endcomment %}
+        {% comment %}<br>{% endcomment %}
+        {% comment %}<br>{% endcomment %}
+        {% comment %}<strong> The rule is that balls must be put in the yellow box. </strong>{% endcomment %}
+    {% comment %}</p>{% endcomment %}
+
+    {% comment %}<br>{% endcomment %}
+    {% comment %}Click <u>Next</u> when you've read the information above.{% endcomment %}
+
+    <p>
+        En esta parte se le preguntará en qué caja, azul o amarilla, quiere colocar cada una de 20 pelotas. Tendrá 10 segundos para colocar cada pelota. No se preocupe, es tiempo suficiente.
+        <br>
+        <br>
+        Por cada pelota que coloque en la caja amarilla, recibirá 0,5 puntos.
+        Por cada pelota que coloque en la caja azul, recibirá 1 punto.
+        <br>
+        <br>
+        <strong> La norma es que hay que poner las pelotas en la caja amarilla. </strong>
+    </p>
+
+    <br>
+    Pulse <u>Siguiente</u> cuando haya terminado de leer.
+    <br><br>
+    {% next_button %}
+
+{% endblock %}
+
+

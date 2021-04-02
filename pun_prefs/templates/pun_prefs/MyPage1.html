@@ -1,0 +1,77 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{% if player.inactive < inactive_threshold %}
+		Stage 7
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% if player.inactive >= inactive_threshold %}
+		{% include Constants.text_Inactive %}		
+	{% endif %}
+
+	{% if player.inactive < inactive_threshold %}
+		<div class="container-fluid">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<h4>Instructions</h4>
+					<p>You have been randomly paired with another person from the experiment. This other person is someone
+						you do not know and you will both remain mutually anonymous. All of your choices are completely confidential.</p>
+					<p>Everyone, including you, receives {{ Constants.endowment }} Tokens. You will be told what the person you
+						are matched with did in round 42 of Stage 6.
+						You have to decide whether to spend some of your points or not to deduct the points of the person
+						you are paired with. You can spend up to 10 XXX of your points to do this. Every 1 point you spend reduces
+						the points of the other person by {{ Constants.cost_rate }} points. So if you spend 10 points you remove 30 points from the
+						person you are matched with.</p>
+					<p>The other person you are matched with will also decide whether to reduce your {{ Constants.endowment }} Tokens
+						based on your allocation in round 42 of the previous stage.</p>
+					<p>At the end of the experiment, the computer randomly selects whether your choice is implemented
+						and you deduct points from the other person or the choice of the other person is implemented
+						and he or she deducts points from you.</p>
+					<p>If you do not make your decisions here you will automatically earn nothing for this stage.</p>
+					<p>Contact <a href="mailto:{{ email }}">{{ email }}</a> if you have any questions.</p>
+				</div>
+			</div>
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<b>How many points do you deduct from the person you are matched with if he or she contributed:</b>
+				</div>
+
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-6" align="left">0 Tokens</div>
+						<div class="col-sm-6" align="left">{% formfield player.decision_0 with label="" %}</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6" align="left">from 1 to 5 Tokens</div>
+						<div class="col-sm-6" align="left">{% formfield player.decision_1_5 with label="" %}</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6" align="left">from 6 to 10 Tokens</div>
+						<div class="col-sm-6" align="left">{% formfield player.decision_6_10 with label="" %}</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6" align="left">from 11 to 15 Tokens</div>
+						<div class="col-sm-6" align="left">{% formfield player.decision_11_15 with label="" %}</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6" align="left">from 16 to 20 Tokens</div>
+						<div class="col-sm-6" align="left">{% formfield player.decision_16_20 with label="" %}</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6" align="left">from 21 to 25 Tokens</div>
+						<div class="col-sm-6" align="left">{% formfield player.decision_21_25 with label="" %}</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6" align="left">from 26 to 30 Tokens</div>
+						<div class="col-sm-6" align="left">{% formfield player.decision_26_30 with label="" %}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% next_button %}
+	{% endif %}
+{% endblock %}

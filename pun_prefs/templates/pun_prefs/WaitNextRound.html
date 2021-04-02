@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{% if player.inactive < inactive_threshold %}
+		You have finished the experiment
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% if player.inactive >= inactive_threshold %}
+		{% include Constants.text_Inactive %}
+	{% endif %}
+
+	{% if player.inactive < inactive_threshold %}
+		<div class="container-fluid">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<p>You have now finished the experiment. However, we have to wait for everyone else to also finish before we calculate your results and earnings.</p>
+					<p><strong>Please return tomorrow to find out your results and earnings</strong>.</p>
+				
+					<p>Contact <a href="mailto:{{ email }}">{{ email }}</a> if you have any questions.</p>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}

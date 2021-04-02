@@ -1,0 +1,10 @@
+{% load staticfiles otree_tags %}
+
+<div class="panel panel-danger">
+	<div class="panel-heading"><b>There is one change in the experiment.</b></div>
+	<div class="panel-body">
+		<p><strong>From {% if subsession.round_number == Constants.round_probability_change %}this round{% else %} round {{ Constants.round_probability_change }} {% endif %} onwards until the end of the experiment</strong>, we make one change: <strong>the probability that you all lose your points if your group does not reach the threshold is {{ Constants.disaster_probability_100_second|floatformat:"0" }}%</strong>. All of the other features of the situations remain exactly the same. Put differently, {{ Constants.disaster_probability_10_second|floatformat:"0" }} out of 10 times you will all lose your points if your group does not collect sufficient points. In exactly the same procedure as before, if your group does not reach the threshold the computer will draw a number from 1 to 10. If this number is less than or equal to {{ Constants.disaster_probability_10_second|floatformat:"0" }} then you all lose your points. If it is larger than {{ Constants.disaster_probability_10_second|floatformat:"0" }} you all keep what you did not contribute.</p>
+
+		<p>We will keep this text displayed for a number of rounds as a reminder. The instructions below have now updated to reflect this change in the experiment.</p>
+	</div>
+</div>

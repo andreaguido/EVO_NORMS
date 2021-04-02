@@ -1,0 +1,40 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	Stage 4
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-12" align="left">{% formfield player.age %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12" align="left">{% formfield player.gender %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12" align="left">{% formfield player.student %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12" align="left">{% formfield player.discipline %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12" align="left">{% formfield player.experience %}</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12" align="centre"><strong>Where do you place yourself on a political spectrum from left to right wing?</strong></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2" align="centre">Left wing</div>
+					<div class="col-sm-4" align="centre">{% formfield player.left_right with label="" %}</div>
+					<div class="col-sm-2" align="centre">Right wing</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% next_button %}
+
+{% endblock %}

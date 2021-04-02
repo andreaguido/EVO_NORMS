@@ -1,0 +1,20 @@
+{% load staticfiles %}
+
+{% block styles %}
+	<style>
+		.otree-timer {
+	    	display: none;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<h4>You have been excluded from the experiment</h4>
+				<p>Since you did not submit your decisions in {{ inactive_threshold }} or more days of the experiment you have been automatically excluded from this experiment. Consequently you will only receive your show-up fee. Although we thank you for signing up for this experiment, in the future please ensure that you do make your decisions.</p>
+			</div>
+		</div>
+	<div class="container-fluid">
+{% endblock %}

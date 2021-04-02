@@ -1,0 +1,47 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	Segunda parte
+{% endblock %}
+
+{% block content %}
+
+    <h4>Recibe la bola número {{ ball_number }}. 
+    Tiene <strong>10 segundos</strong> para tomar su decisión. 
+    Si no elige, la bola se perderá y no recibirá ningún dinero por ella.
+
+    <br>
+    <br>
+
+        Por cada pelota que coloque en la caja <font color = "#FCBF49">amarilla</font>, recibirá <font color = "#FCBF49">50 céntimos</font>.
+        Por cada pelota que coloque en la caja <font color = "#0075C4">azul</font>, recibirá <font color="#0075C4">1 euro</font>. <br>
+        <strong>La regla es que las pelotas se deben poner en la caja amarilla.</strong>
+    <br>
+    <br>
+
+    ¿Dónde quiere ponerla? (Haga clic en la caja para colocar la pelota y pasar
+    a la siguiente)
+    </h4>
+
+ <div class="table-responsive">
+     <div class= "center">
+            <tr>
+              <button
+                  style="width:200px;height:200px;background-color:#FCBF49"
+                  name="selectionYellow" value="1">Caja Amarilla</button>
+              <button
+                  style="width:200px;height:200px;background-color:#0075C4"
+                  name="selectionBlue" value="1">Caja azul</button>
+              <br>
+
+            </tr>
+        </div>
+    </div>
+ 
+
+
+{% endblock %}
+
+
+

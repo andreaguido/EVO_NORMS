@@ -1,0 +1,29 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	You have made your decisions for today
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<p>This experiment consists of six stages that will take place over XXX days. You will begin by completing the first four stages today which will take approximately 20 minutes. Do this after reading the instructions. These stages are manadatory and you will be automatically excluded if you do not complete them. You will have until tomorrow at <b>10:00am</b> to make your decisions in the first four stages. After, you will move to the fifth stage. You can make your first choice in stage five tomorrow. Subsequently you will participate in one round of stage five every day. You will have until the <b>10:00am</b> the following day to make your decisions. Your decisions in this stage will take a few minutes each day. A final sixth stage will take a few minutes to complete.</p>
+
+				<h4>Important rules</h4>
+				<ul>
+					<li>Your participation is voluntary and you are free to leave the experiment at any point. In that case however you will not receive payment.</li>
+					<li>We ask you not to communicate with the other participants and generally to make your decisions independently. Please do not share your code with anyone else.</li>
+					<li>The answers you provide will be kept confidential. The researchers who process the data from the experiment will not be able to match your name to your choices.</li>
+					<li>There is absolutely no deception at any point in this experiment: what we say, we will do.</li>
+				</ul>
+
+				<h4>Payment</h4>
+				<p>You will be paid at the end of this experiment. Your payment will be the sum of what you earn in each stage. Every <b>10 points that you earn will be turned into €1</b>. The amount you earn will depend partly on your choices, partly on the choices of the other participants, and partly on chance. You will be paid directly on your PayPal account so that none of the other participants will know how much you earned. There will be additional instructions about your earnings.</p>
+
+				<p>If you do not finish your choices today or you miss {{ inactive_threshold }} decisions during the experiment you will be <b>automatically and permanently</b> excluded from the experiment. If you are excluded you will not be paid. Contact <a href="mailto:{{ email }}">{{ email }}</a> if you have any questions.</p>
+			</div>
+		</div>
+	</div>
+{% endblock %}

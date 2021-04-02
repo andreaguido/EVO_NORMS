@@ -1,0 +1,50 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{% if player.inactive < inactive_threshold %}
+		Stage 7
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% if player.inactive >= inactive_threshold %}
+		{% include Constants.text_Inactive %}		
+	{% endif %}
+
+	{% if player.inactive < inactive_threshold %}
+		<div class="container-fluid">
+			<div class="panel panel-primary">
+				<div class="panel-body">
+					<h4>Instructions</h4>
+					<p>We now ask you to <strong>think about how other people in this experiment responded to previous question</strong>. Specifically, we would like you to answer <strong>how much you think on average other people in this experiment spent on reducing the earnings of the person they were matched</strong>. Remember, everyone received {{ Constants.endowment }} and each of you was asked if you would like to spend money reducing the earnings of a person you are matched with based on what he or she did in round 28 of Stage 6.</p>
+					<p>Each of your responses will be compared to the actual average spending of people in this experiment and if you estimate this amount correctly you will receive an extra {{ Constants.belief_correct_pay }}. You can earn this for each response. The closer your response is to the actual average the more you earn.</p> 
+					<p>If you do not make your decisions here you will automatically earn nothing for this stage.</p>
+					<p>Contact <a href="mailto:{{ email }}">{{ email }}</a> if you have any questions.</p>
+				</div>
+			</div>
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<b>How many points do you think that others in this experiment deducted from the person they are matched with if he or she contributed:</b>
+				</div>
+
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-6" align="left">less than 50 points</div>
+						<div class="col-sm-6" align="left">{% formfield player.others_decision_less_50 with label="" %}</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6" align="left">50 points</div>
+						<div class="col-sm-6" align="left">{% formfield player.others_decision_50 with label="" %}</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-6" align="left">more than 50 points</div>
+						<div class="col-sm-6" align="left">{% formfield player.others_decision_more_50 with label="" %}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% next_button %}
+	{% endif %}
+{% endblock %}
