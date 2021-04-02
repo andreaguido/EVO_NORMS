@@ -30,9 +30,15 @@
 					</div>
 					<br>
 					<div class="row">
+						<div class="col-sm-2" align="center"><strong>Stage 4</strong></div>
+						<div class="col-sm-6" align="left">You missed {{ player.missed_decisions_norm_compliance }} </div>
+						<div class="col-sm-4" align="left">You earn <strong>{{ player.payoff_norm_compliance }}</strong> in Stage 4.</div>
+					</div>
+					<br>
+					<div class="row">
 						<div class="col-sm-2" align="center"><strong>Stage 5</strong></div>
 						<div class="col-sm-6" align="left">{% if player.self_paid == 1 %}Your <strong>decision {{ player.slider_paid }}</strong> was selected for payment.{% elif player.self_paid == 0 %}A decision of the person you were randomly matched with was implemented for payment.{% endif %}</div>
-						<div class="col-sm-4" align="left">You earn <strong>{{ player.payoff_svo }}</strong> in Stage 4.</div>
+						<div class="col-sm-4" align="left">You earn <strong>{{ player.payoff_svo }}</strong> in Stage 5.</div>
 					</div>
 					<br>
 					<div class="row">
@@ -67,7 +73,7 @@
 			</div>
 			
 		</div>
-
+<br>
 		{% next_button %}
 	{% endif %}
 {% endblock %}

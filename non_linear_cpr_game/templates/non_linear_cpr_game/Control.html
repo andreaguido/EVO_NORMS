@@ -96,8 +96,19 @@
 							<td>{{ Constants.question_2_text }}</td>
 							<td>{% formfield player.question_4_2 with label="" %}</td>
 						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<b>If you miss more than {{ inactive_threshold }} decisions in this stage: </b>
+				</div>
+			</div>
+				<div class="table-responsive">
+					<table class="table">
 						<tr>
-							<td>{{ Constants.question_2_text }}</td>
+							<td>What happens to your participation in this experiment? </td>
 							<td>{% formfield player.question_5 with label="" %}</td>
 						</tr>
 					</table>

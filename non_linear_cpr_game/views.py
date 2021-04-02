@@ -175,7 +175,6 @@ class Answers(Page):
 		elif self.player.question_3_2 == 2:
 			question_3_2 = "14"
 
-
 		if self.player.question_4_1 == 0:
 			question_4_1 = "2"
 		elif self.player.question_4_1 == 1:
@@ -190,6 +189,10 @@ class Answers(Page):
 		elif self.player.question_4_2 == 2:
 			question_4_2 = "14"
 
+		if self.player.question_5 == 0:
+			question_5 = "Nothing"
+		elif self.player.question_5 == 1:
+			question_5 = "I will be excluded"
 
 		return {
 			'q_1_1': question_1_1,
@@ -200,6 +203,7 @@ class Answers(Page):
 			'q_3_2': question_3_2,
 			'q_4_1': question_4_1,
 			'q_4_2': question_4_2,
+			'q_5': question_5,
 			'a11': 25,
 			'a12': 72.9,
 			'a21': 25,
@@ -208,6 +212,7 @@ class Answers(Page):
 			'a32': 354.9,
 			'a41': 2,
 			'a42': 6.3,
+			'a5': "I will be excluded from the experiment",
 			'inactive_threshold': self.session.config['inactive_threshold'],
 			'email': self.session.config['email'],
 			'num_subjects_win': self.session.config['num_subjects_win'],

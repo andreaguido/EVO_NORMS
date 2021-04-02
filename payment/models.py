@@ -45,6 +45,7 @@ class Group(BaseGroup):
 
 			# payoff from Norm Compliance
 			p.payoff_norm_compliance = p.participant.vars['payoffNormCompliance']
+			p.missed_decisions_norm_compliance = p.participant.vars['normcompliancemisseddecisions']
 
 			# payoff from Lottery
 			p.lottery_choice = p.participant.vars['lottery_choice'] + 1
@@ -136,6 +137,7 @@ class Player(BasePlayer):
 	contribution_payoff_week5 = models.CurrencyField()
 
 	payoff_norm_compliance = models.CurrencyField()
+	missed_decisions_norm_compliance = models.IntegerField()
 
 	game_total_payoff = models.CurrencyField()
 

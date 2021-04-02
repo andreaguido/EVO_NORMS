@@ -142,7 +142,7 @@
 							<th>Your response</th>
 							<th>The correct answer</th>
 						</tr>
-						{% if player.question_4_1 == Constants.a1_1 %}
+						{% if player.question_4_1 == Constants.a4_1 %}
 							<tr class="success">
 						{% else %}
 							<tr class="danger">
@@ -152,7 +152,7 @@
 								<td>{{ a41 }}</td>
 							</tr>
 
-						{% if player.question_4_2 == Constants.a1_2 %}
+						{% if player.question_4_2 == Constants.a4_2 %}
 							<tr class="success">
 						{% else %}
 							<tr class="danger">
@@ -160,6 +160,24 @@
 								<td>{{ Constants.question_2_text }}</td>
 								<td>{{ q_4_2 }}</td>
 								<td>{{ a42 }}</td>
+							</tr>
+					</table>
+				</div>
+				<div class="table-responsive">
+					<table class="table">
+						<tr>
+							<th>Question</th>
+							<th>Your response</th>
+							<th>The correct answer</th>
+						</tr>
+						{% if player.question_5 == Constants.a5 %}
+							<tr class="success">
+						{% else %}
+							<tr class="danger">
+						{% endif %}
+								<td>If you miss more than 10 decisions in this stage: What happens to your participation in this experiment</td>
+								<td>{{ q_5 }}</td>
+								<td>{{ a5 }}</td>
 							</tr>
 					</table>
 				</div>

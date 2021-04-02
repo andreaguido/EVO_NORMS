@@ -3,10 +3,19 @@ from .models import Constants
 from ._builtin import Page
 from otree.db.models import BooleanField as m
 import otree.forms
+import datetime
 
 
 class Info(Page):
-    timeout_seconds = 32
+
+    def get_timeout_seconds(self):
+        self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(
+            seconds=self.session.config['seconds_per_round'])
+        print("This is EXPIRY ", self.participant.vars['expiry'])
+        print("this is TIME now ", datetime.datetime.utcnow())
+        print("This is what is DISPLAYED ",
+              (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds())
+        return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
     def is_displayed(self):
         return self.subsession.round_number == 1
@@ -15,6 +24,7 @@ class Info(Page):
 class Questions(Page):
 
     timeout_seconds = 12
+
 
     form_model = models.Player
     form_fields = ['selectionYellow', 'selectionBlue']
@@ -49,18 +59,19 @@ class Questions(Page):
         self.player.storePayments()
         if self.timeout_happened:
             self.player.timeout_Questions = 1
+            self.player.missed_decisions += 1
 
 
-class Final(Page):
-    def is_displayed(self):
-        return self.round_number == 20
+#class Final(Page):
+#    def is_displayed(self):
+#        return self.round_number == 20
 
-    def vars_for_template(self):
+#    def vars_for_template(self):
         # global_payoff = self.participant.vars['global_payoff']
         # global_payoff += sum([p.payoff for p in self.player.in_all_rounds()])
-        return {'global_payoff': self.participant.vars['payoffNormCompliance']
+#        return {'global_payoff': self.participant.vars['payoffNormCompliance']
                 #'total_payoff': self.participant.vars['total_pay']
-                }
+#                }
 
 
 page_sequence = [

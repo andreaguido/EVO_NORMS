@@ -57,6 +57,7 @@ class Constants(BaseConstants):
     a3_2 = 1
     a4_1 = 0
     a4_2 = 0
+    a5 = 1
     # set here the right answers to the questions
 
     text_Instructions = 'non_linear_cpr_game/text_Instructions.html'
@@ -86,8 +87,6 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
 
     total_contribution = models.IntegerField()
-    fraction_contribution = models.FloatField()
-    common_account_earnings = models.FloatField()
 
 ##REVISE BELOW: ALL THESE FUNCTIONS MAY BE SUPERFLUOUS
 #    def norm_calc(self): ##REVISE##
@@ -189,6 +188,9 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     inactive = models.IntegerField()  # check in each round if player is active. it adds up to var. score.
+
+    fraction_contribution = models.FloatField()
+    common_account_earnings = models.FloatField()
 
     timeout_already_happened = models.IntegerField(initial=0)
     timeout_Instructions = models.IntegerField(initial=0)
@@ -313,7 +315,7 @@ class Player(BasePlayer):
     question_5 = models.PositiveIntegerField(
         choices=[
             [0, "Nothing"],
-            [1, "I will be excluded from the experiment"],
+            [1, "I will be excluded from the experiment"]
         ]
     )
 
@@ -366,6 +368,8 @@ class Player(BasePlayer):
         if self.question_4_1 == Constants.a4_1:
             self.correct_answers += 1
         if self.question_4_2 == Constants.a4_2:
+            self.correct_answers += 1
+        if self.question_5 == Constants.a5:
             self.correct_answers += 1
 
     # define contributions of inactive players

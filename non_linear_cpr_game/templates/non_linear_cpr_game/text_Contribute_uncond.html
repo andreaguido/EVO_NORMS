@@ -79,7 +79,7 @@ return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 function myTask(){
 var slider = document.getElementById("mycontribution").value;
 var slider2 = document.getElementById("othcontribution").value;
-var sum = round((1*slider + 1*slider2), 2);
+var sum = 1*slider + 1*slider2;
 var par_a = 15;
 var par_b = 0.083;
 var commonaccount = (par_a*sum - par_b*sum*sum)*(slider/sum);
@@ -87,7 +87,7 @@ var commonaccount = (par_a*sum - par_b*sum*sum)*(slider/sum);
 if (Number.isNaN(commonaccount)){
 	document.getElementById("print_payoff").innerHTML = 0;
 } else {
-	document.getElementById("print_payoff").innerHTML = round(commonaccount, 1);
+	document.getElementById("print_payoff").innerHTML = round(round(commonaccount, 2), 1);
 	document.getElementById("print_mycontribution").innerHTML = round(slider, 1);
 	document.getElementById("print_othcontribution").innerHTML = round(slider2, 1);
 }
