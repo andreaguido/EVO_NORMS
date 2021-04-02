@@ -219,8 +219,6 @@ class Answers(Page):
 		if self.timeout_happened:
 			self.player.timeout_Answers = 1
 
-########
-# LATER #
 class PreviousResults(Page):
 	timer_text = Constants.timer_text
 
@@ -238,15 +236,7 @@ class PreviousResults(Page):
 			'previous_round_number': self.participant.vars['previous_round_number'],
 			'previous_contribution': self.participant.vars['contribution'],
 			'previous_total_contribution': self.participant.vars['total_contribution'],
-			#'previous_unconditional_disaster_value': self.participant.vars['unconditional_disaster_value'],
-			#'previous_unconditional_disaster_value_display': self.participant.vars['unconditional_disaster_value_display'],
-			#'previous_disaster_probability': self.participant.vars['disaster_probability'],
-#			'previous_conditional_contribution': self.participant.vars['conditional_contribution'],
-#			'previous_conditional_total_contribution': self.participant.vars['conditional_total_contribution'],
-#			'previous_conditional_disaster_value': self.participant.vars['conditional_disaster_value'],
-#			'previous_conditional_disaster_value_display': self.participant.vars['conditional_disaster_value_display'],
 			'previous_unconditional_payoff': self.participant.vars['unconditional_payoff'],
-#			'previous_conditional_payoff': self.participant.vars['conditional_payoff'],
 			'previous_other_contribution0': self.participant.vars['other_contribution0'],
 			'previous_other_contribution1': self.participant.vars['other_contribution1'],
 			'previous_other_contribution2': self.participant.vars['other_contribution2'],
@@ -267,9 +257,7 @@ class PreviousResults(Page):
 			'win_multiplier': self.session.config['win_multiplier'],
 			'rounds': self.round_number
 			}
-#########
 
-# OK
 class Preparation(Page):
 	timer_text = Constants.timer_text
 
@@ -293,7 +281,6 @@ class Preparation(Page):
 		if self.timeout_happened:
 			self.player.timeout_Preparation = 1
 
-# OK
 class Beliefs_before_PNB(Page):
 	form_model = models.Player
 	form_fields = ['personal_normative_beliefs']
@@ -316,7 +303,6 @@ class Beliefs_before_PNB(Page):
 			self.player.timeout_Beliefs_before_PNB = 1
 			self.player.inactive_pnb()
 
-# OK
 class Beliefs_before_EE(Page):
 	form_model = models.Player
 	timer_text = Constants.timer_text
@@ -363,7 +349,6 @@ class Beliefs_before_EE(Page):
 			if values["empirical_expectations0"] < values["empirical_expectations1"] or values["empirical_expectations0"] < values["empirical_expectations2"] or values["empirical_expectations0"] < values["empirical_expectations3"] or values["empirical_expectations0"] < values["empirical_expectations4"] or values["empirical_expectations1"] < values["empirical_expectations2"] or values["empirical_expectations1"] < values["empirical_expectations3"] or values["empirical_expectations1"] < values["empirical_expectations4"] or values["empirical_expectations2"] < values["empirical_expectations3"] or values["empirical_expectations2"] < values["empirical_expectations4"] or values["empirical_expectations3"] < values["empirical_expectations4"]:
 				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
 
-# OK
 class Beliefs_before_NE(Page):
 	form_model = models.Player
 	timer_text = Constants.timer_text
@@ -410,7 +395,6 @@ class Beliefs_before_NE(Page):
 			if values["normative_expectations0"] < values["normative_expectations1"] or values["normative_expectations0"] < values["normative_expectations2"] or values["normative_expectations0"] < values["normative_expectations3"] or values["normative_expectations0"] < values["normative_expectations4"] or values["normative_expectations1"] < values["normative_expectations2"] or values["normative_expectations1"] < values["normative_expectations3"] or values["normative_expectations1"] < values["normative_expectations4"] or values["normative_expectations2"] < values["normative_expectations3"] or values["normative_expectations2"] < values["normative_expectations4"] or values["normative_expectations3"] < values["normative_expectations4"]:
 				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
 
-# OK
 class Contribute_uncond(Page):
 	form_model = models.Player
 	form_fields = ['contribution']
@@ -589,7 +573,6 @@ class Contribute_uncond(Page):
 #			if values["normative_expectations0"] < values["normative_expectations1"] or values["normative_expectations0"] < values["normative_expectations2"] or values["normative_expectations0"] < values["normative_expectations3"] or values["normative_expectations0"] < values["normative_expectations4"] or values["normative_expectations1"] < values["normative_expectations2"] or values["normative_expectations1"] < values["normative_expectations3"] or values["normative_expectations1"] < values["normative_expectations4"] or values["normative_expectations2"] < values["normative_expectations3"] or values["normative_expectations2"] < values["normative_expectations4"] or values["normative_expectations3"] < values["normative_expectations4"]:
 #				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
 
-# OK
 class WaitNextRound1(Page):
 	timer_text = 'Thank you for making your decisions. You will be able to proceed with the experiment in:'
 
@@ -659,9 +642,6 @@ class Results(Page):
 		self.participant.vars['inactive'] = self.player.inactive
 		self.participant.vars['contribution'] = self.player.contribution
 		self.participant.vars['total_contribution'] = self.group.total_contribution
-		#self.participant.vars['unconditional_disaster_value'] = self.group.unconditional_disaster_value
-		#self.participant.vars['unconditional_disaster_value_display'] = self.group.unconditional_disaster_value_display
-		#self.participant.vars['conditional_total_contribution'] = self.player.conditional_total_contribution
 		self.participant.vars['unconditional_payoff'] = self.player.unconditional_payoff
 		self.participant.vars['other_contribution0'] = self.player.other_contribution0
 		self.participant.vars['other_contribution1'] = self.player.other_contribution1
@@ -680,7 +660,6 @@ class Results(Page):
 		self.participant.vars['other_timeout_Contribute4'] = self.player.other_timeout_Contribute4
 		self.participant.vars['num_rounds'] = Constants.num_rounds
 		self.participant.vars['endowment'] = Constants.endowment
-		#self.participant.vars['uncond_cond_rounds'] = Constants.uncond_cond_rounds
 
 
 page_sequence = [
@@ -696,10 +675,6 @@ page_sequence = [
 	Beliefs_before_EE,
 	Beliefs_before_NE,
 	Contribute_uncond,
-	#Contribute_cond,
-	#Beliefs_after_PNB,
-	#Beliefs_after_EE,
-	#Beliefs_after_NE,
 	WaitNextRound1,
 	ResultsWaitPage1,
 	WaitNextRound2,
