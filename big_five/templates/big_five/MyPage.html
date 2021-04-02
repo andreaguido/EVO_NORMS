@@ -2,7 +2,11 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
+{% if lang == "EN" %}
 	Stage 1
+{% elif lang == "ES" %}
+	Parte 1
+{% endif %}
 {% endblock %}
 
 {% block content %}

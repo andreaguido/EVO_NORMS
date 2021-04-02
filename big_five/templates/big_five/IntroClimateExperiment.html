@@ -6,39 +6,39 @@
 {% endblock %}
 
 {% block content %}
-	<div class="container-fluid">
-		<div class="panel panel-primary">
-			<div class="panel-body" style="text-align:justify">
-				<p>Welcome and thank you for participating in this experiment.
-					This experiment consists of <b>seven stages</b> that will take place over <b>{{ days }} days</b>.
-					You will begin by completing the first <b>five stages</b> today which will take approximately 20 minutes.
-					Do this after reading the instructions. These stages are mandatory and you will be automatically excluded
-					if you do not complete them. You will have until tomorrow at <b>10:00am</b> to make your decisions in the
-					first five stages. After, you will move to the sixth stage. You can make your first choice in stage six tomorrow.
-					Subsequently you will participate in one round of stage six every day. You will have until the <b>10:00am</b>
-					the following day to make your decisions. Your decisions in this stage will take a few minutes each day.</p>
+		<div class="container-fluid">
+			<div class="panel panel-primary">
+				<div class="panel-body" style="text-align:justify">
+					<p>Welcome and thank you for participating in this experiment.
+						This experiment consists of <b>seven stages</b> that will take place over <b>{{ days }} days</b>.
+						You will begin by completing the first <b>five stages</b> today which will take approximately 20 minutes.
+						Do this after reading the instructions. These stages are mandatory and you will be automatically excluded
+						if you do not complete them. You will have until tomorrow at <b>10:00am</b> to make your decisions in the
+						first five stages. After, you will move to the sixth stage. You can make your first choice in stage six tomorrow.
+						Subsequently you will participate in one round of stage six every day. You will have until the <b>10:00am</b>
+						the following day to make your decisions. Your decisions in this stage will take a few minutes each day.</p>
 
-				<h4>Important rules</h4>
-				<ul>
-					<li>Your participation is voluntary and you are free to leave the experiment at any point. In that case however you will not receive payment.</li>
-					<li>We ask you not to communicate with the other participants and generally to make your decisions independently. Please do not share your link with anyone else.</li>
-					<li>The answers you provide will be kept confidential. The researchers who process the data from the experiment will not be able to match your name to your choices.</li>
-					<li>There is absolutely no deception at any point in this experiment: what we say, we will do.</li>
-				</ul>
+					<h4>Important rules</h4>
+					<ul>
+						<li>Your participation is voluntary and you are free to leave the experiment at any point. In that case however you will not receive payment.</li>
+						<li>We ask you not to communicate with the other participants and generally to make your decisions independently. Please do not share your link with anyone else.</li>
+						<li>The answers you provide will be kept confidential. The researchers who process the data from the experiment will not be able to match your name to your choices.</li>
+						<li>There is absolutely no deception at any point in this experiment: what we say, we will do.</li>
+					</ul>
 
-				<h4>Payment</h4>
-				<p>You will be paid at the end of this experiment. Your payment will be the sum of what you earn in each stage.
-					Every <b>10 points that you earn will be turned into €1</b>. The amount you earn will depend partly on your choices,
-					partly on the choices of the other participants, and partly on chance. You will be paid directly on your PayPal account so that none of the other participants will know how much you earned. Additional instructions about your earnings will follow.</p>
+					<h4>Payment</h4>
+					<p>You will be paid at the end of this experiment. Your payment will be the sum of what you earn in each stage.
+						Every <b>10 points that you earn will be turned into €1</b>. The amount you earn will depend partly on your choices,
+						partly on the choices of the other participants, and partly on chance. You will be paid directly on your PayPal account so that none of the other participants will know how much you earned. Additional instructions about your earnings will follow.</p>
 
-				<p>If you do not finish your choices today or you miss <b>{{ inactive_threshold }} decisions</b> during the experiment you will be <b>automatically and permanently</b> excluded from the experiment. If you are excluded you will not be paid.</p>
+					<p>If you do not finish your choices today or you miss <b>{{ inactive_threshold }} decisions</b> during the experiment you will be <b>automatically and permanently</b> excluded from the experiment. If you are excluded you will not be paid.</p>
 
-				<p>At the end of the experiment, {{ num_subjects_win }} people who successfully complete it will be randomly selected to win a bonus. This bonus multiplies the earnings of those people by {{ win_multiplier }}. This means that the <strong>randomly selected people can earn up to €100 for their decision</strong> in addition to the rest of their payoffs.</p>
-					
-				<h4>Further information</h4>
-				<p>Once you click 'Next' on a screen you will not be able to go back to the previous screen so please read the instructions carefully. However, we will show you relevant instructions throughout the experiment. If you have any questions during the experiment contact <a href="mailto:{{ email }}">{{ email }}</a>. When you are ready to proceed, click 'Next' below.</p>
+					<p>At the end of the experiment, {{ num_subjects_win }} people who successfully complete it will be randomly selected to win a bonus. This bonus multiplies the earnings of those people by {{ win_multiplier }}. This means that the <strong>randomly selected people can earn up to €100 for their decision</strong> in addition to the rest of their payoffs.</p>
+
+					<h4>Further information</h4>
+					<p>Once you click 'Next' on a screen you will not be able to go back to the previous screen so please read the instructions carefully. However, we will show you relevant instructions throughout the experiment. If you have any questions during the experiment contact <a href="mailto:{{ email }}">{{ email }}</a>. When you are ready to proceed, click 'Next' below.</p>
+				</div>
 			</div>
 		</div>
-	</div>
 	{% next_button %}
 {% endblock %}

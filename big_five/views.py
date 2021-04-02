@@ -21,12 +21,14 @@ class IntroClimateExperiment(Page):
 			'email': self.session.config['email'],
 			'num_subjects_win': self.session.config['num_subjects_win'],
 			'win_multiplier': self.session.config['win_multiplier'],
-			'days': self.session.config['days']
+			'days': self.session.config['days'],
+			'lang': self.session.config['lang']
 			}
 
 	def before_next_page(self):
 		if self.timeout_happened:
 			self.player.timeout_IntroClimateExperiment = 1
+			self.player.lang = self.session.config['lang']
 
 
 class MyPage(Page):
@@ -38,7 +40,9 @@ class MyPage(Page):
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
-		return {'email': self.session.config['email']}
+		return {'email': self.session.config['email'],
+				'lang': self.session.config['lang']
+				}
 
 	def before_next_page(self):
 		self.player.calc_score()

@@ -24,7 +24,6 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
 	pass
 
-
 class Group(BaseGroup):
 	pass
 
@@ -35,14 +34,14 @@ class Player(BasePlayer):
 
 	q1 = models.PositiveIntegerField(
 			verbose_name="Is talkative:",
-		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
-		]
-	)
+			choices=[
+				[1, "Disagree strongly"],
+				[2, "Disagree a little"],
+				[3, "Neither agree nor disagree"],
+				[4, "Agree a little"],
+				[5, "Agree strongly"],
+			]
+		)
 
 	q2 = models.PositiveIntegerField(
 		verbose_name="Tends to find fault with others:",
