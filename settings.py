@@ -13,7 +13,7 @@ SESSION_CONFIGS = [
         seconds_per_round = 86400,
         inactive_threshold = 10,
         email = 'cnr.ibsen@gmail.com',
-        num_subjects_win = 1,
+        num_subjects_win = 2,
         win_multiplier = 10,
         days = 43
     ),
