@@ -15,7 +15,7 @@ SESSION_CONFIGS = [
         email = 'cnr.ibsen@gmail.com',
         num_subjects_win = 1,
         win_multiplier = 10,
-        days = 43
+        days = 36
     ),
     dict(
         name='CPR',
