@@ -16,15 +16,16 @@
 		<div class="container-fluid">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<h4>Instructions</h4>
-					<p>Se le ha emparejado aleatoriamente con otro participante en el experimento. Esa otra persona es alguien que usted no conoce ni tampoco ella sabe quién es usted. Todas sus decisiones serán confidenciales.</p>
+					<h4></h4>
+					<p>Se le ha emparejado aleatoriamente con otro participante en el experimento. Esa otra persona es
+						alguien que usted no conoce ni tampoco ella sabe quién es usted. Todas sus decisiones serán
+						confidenciales.</p>
 					<p>
-
-
 						Todos los participantes, incluido usted, reciben {{ Constants.endowment }} puntos.
 
 						Se le mostrarán 6 posibles distribuciones de sus puntos (por ejemplo, de 0 a 5, de 6 a 10, …,
-						30) que la persona con la que se le ha emparejado podría haber elegido en la ronda {{ last_round }} de la Parte 6.
+						30) que la persona con la que se le ha emparejado podría haber elegido en la ronda {{ last_round }}
+						de la Parte 6.
 
 						Para cada posible franja de decisiones, usted deberá decidir si quiere gastar algunos de sus
 						puntos o no en restar puntos de las ganancias de la persona con la que se le ha emparejado.
@@ -35,10 +36,17 @@
 						{{ Constants.cost_rate }} puntos.
 						Es decir, si usted gasta 10 puntos le restará 30 puntos a la persona con la que se le ha emparejado.
 
-						La otra persona con la que se le ha emparejado también decidirá si reducir o no sus ganancias de usted basándose en su decisión de la ronda {{ last_round }} de la Parte 6.
+						La otra persona con la que se le ha emparejado también decidirá si reduce o no sus ganancias de
+						usted basándose en su decisión de la ronda {{ last_round }} de la Parte 6.
 
+						Al final del experimento, el ordenador selecciona aleatoriamente si se aplica su decisión y le resta usted puntos a la otra persona o se aplica la elección de la otra persona y le resta puntos a usted.
 
+						Los puntos de la otra persona se reducirán en función de lo que usted haya decidido aquí y de lo
+						que hubiera decidido la otra persona en la ronda {{ last_round }} de la Parte 6.
 
+						Por ejemplo, si la persona con la que se le ha emparejado ha destinado X puntos, sus puntos serán reducidos
+						por la cantidad que usted decidió destinar a dicha decisión.
+					</p>
 
 						<!--You have to decide whether to spend some of your points or not to deduct the points of the person
 						you are paired with. You can spend up to 10 XXX of your points to do this. Every 1 point you spend reduces
@@ -50,7 +58,7 @@
 						and you deduct points from the other person or the choice of the other person is implemented
 						and he or she deducts points from you.</p>-->
 					<p>Si no tomas tus decisiones aquí, automáticamente no ganarás nada por esta parte.</p>
-					<p>Escriba a <a href="mailto:{{ email }}">{{ email }}</a> si tiene alguna pregunta.</p>
+
 				</div>
 			</div>
 
@@ -92,5 +100,8 @@
 			</div>
 		</div>
 		{% next_button %}
+
+		<p>Escriba a <a href="mailto:{{ email }}">{{ email }}</a> si tiene alguna pregunta.</p>
+
 	{% endif %}
 {% endblock %}

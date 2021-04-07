@@ -198,9 +198,10 @@ class Player(BasePlayer):
     timeout_Control = models.IntegerField(initial=0)
     timeout_Answers = models.IntegerField(initial=0)
     timeout_Preparation = models.IntegerField(initial=0)
-    timeout_Beliefs_before_EE = models.IntegerField(initial=0)
     timeout_Beliefs_before_PNB = models.IntegerField(initial=0)
+    timeout_Beliefs_before_EE = models.IntegerField(initial=0)
     timeout_Beliefs_before_NE = models.IntegerField(initial=0)
+    timeout_Reminder = models.IntegerField(initial=0)
     timeout_Contribute_uncond = models.IntegerField(initial=0)
 
     score = models.FloatField()

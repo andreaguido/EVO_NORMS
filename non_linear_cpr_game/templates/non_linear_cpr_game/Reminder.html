@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{% if player.inactive < inactive_threshold %}
+		Parte 6: Ronda {{ subsession.round_number }}
+		<br>
+		Mensaje importante
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	{% if player.inactive >= inactive_threshold %}
+		{% include Constants.text_Inactive %}			
+	{% endif %}
+
+	<div class="container-fluid">
+		{% if player.inactive < inactive_threshold %}
+
+		<p>Por favor tenga en cuenta que la ganancia total del grupo es máxima si cada jugador contribuye 14 puntos a la Cuenta Común.</p>
+
+		<p>Nota: este mensaje se está comunicando a todos los participantes en el experimento</p>
+
+		<p>Pulse “Siguiente” para tomar su decisión.</p>
+
+		{% next_button %}
+
+		{% include Constants.text_Instructions with type="reminder" %}
+	{% endif %}
+{% endblock %}

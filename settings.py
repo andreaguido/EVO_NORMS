@@ -9,13 +9,23 @@ SESSION_CONFIGS = [
         num_demo_participants = 6,
         app_sequence= ['big_five', 'risk_lottery_eg', 'norm_compliance', 'questionnaire', 'svotree', 'non_linear_cpr_game', 'pun_prefs', 'payment'],
         use_browser_bots = False,
-        start_datetime = datetime.datetime.utcnow(),#datetime.datetime(2021, 3, 23, 15, 44),
+        start_datetime = datetime.datetime(2021, 4, 7, 10, 43), # datetime.datetime.utcnow() # UCT time -2hr recall time diff
         seconds_per_round = 86400,
-        inactive_threshold = 10,
+        inactive_threshold = 5,
         email = 'cnr.ibsen@gmail.com',
         num_subjects_win = 2,
         win_multiplier = 10,
-        days = 36
+        days = 36,
+        treatment = "N",
+        doc = """ <h1>Checklist</h1><ul> <li>Treatmet setup: N if baseline, A if authority message; </li> 
+                       <li> seconds per round should be set to 86400 (1 day); </li>
+                       <li> inactive threshold should be set to 5 </li>
+                       <li> days should be set to 36 </li>
+                       <li> number subjects win ?? </li>
+                   </ul>
+        
+        """
+
     ),
     dict(
         name='CPR',

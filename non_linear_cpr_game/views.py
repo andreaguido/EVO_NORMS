@@ -516,8 +516,15 @@ class Results(Page):
 
 class Reminder(Page):
 
+	def get_timeout_seconds(self):
+		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+
 	def is_displayed(self):
-		return self.subsession.treatment == "A"
+		return self.session.config['treatment'] == "A"
+
+	def before_next_page(self):
+		if self.timeout_happened:
+			self.player.timeout_Reminder = 1
 	pass
 
 

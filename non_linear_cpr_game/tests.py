@@ -47,7 +47,8 @@ class PlayerBot(Bot):
 													   'normative_expectations3': 2,
 													   'normative_expectations4': 2,
 													   'normative_expectations5': 2}, check_html=False)
-
+				if self.session.config['treatment'] == "A":
+					yield Submission(views.Reminder, timeout_happened=True, check_html=False)
 				yield (views.Contribute_uncond, {'contribution': random.randint(0, Constants.endowment)})
 
 			yield Submission(views.WaitNextRound1, timeout_happened=True, check_html=False)
@@ -61,6 +62,8 @@ class PlayerBot(Bot):
 			yield Submission(views.Beliefs_before_PNB, timeout_happened=True, check_html=False)
 			yield Submission(views.Beliefs_before_EE, timeout_happened=True, check_html=False)
 			yield Submission(views.Beliefs_before_NE, timeout_happened=True, check_html=False)
+			if self.session.config['treatment'] == "A":
+				yield Submission(views.Reminder, timeout_happened=True, check_html=False)
 			yield Submission(views.Contribute_uncond, timeout_happened=True, check_html=False)
 			yield Submission(views.WaitNextRound1, timeout_happened=True, check_html=False)
 			# yield Submission(views.ResultsWaitPage1, timeout_happened=True, check_html=False)
