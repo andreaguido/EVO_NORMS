@@ -1,5 +1,5 @@
 from otree.api import (
-    models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer, #BaseLink,
+    models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer, BaseLink,
     Currency as c, currency_range,
 )
 
@@ -40,12 +40,12 @@ class Constants(BaseConstants):
     players_per_group_display = players_per_group				#set variable equal to 'players_per_group' when running experiment
     other_players_per_group = players_per_group_display-1
 
-    inactive_threshold = 10
+    inactive_threshold = 5
     #Manually set inactive threshold to match that in settings.py. Used only for question_5_text
 
     #question_1_text = "What are your earnings from the Common account?"
     question_1_text = "¿Cuánto gana de su Cuenta Personal?"#What are your earnings from your Private account?"
-    question_2_text = "¿Cuánto son sus ganancias totales de ambas Cuentas, Personal y Común?"#What are your total earnings from both Private and Common account?"
+    question_2_text = "¿Cuánto gana de su Cuenta Común?"#What are your total earnings from both Private and Common account?"
     # set here the text of the questions
 
     a1_1 = 0
@@ -67,20 +67,20 @@ class Constants(BaseConstants):
     text_Inactive = 'non_linear_cpr_game/text_Inactive.html'
 
     # XXX
-    rounds_picture2 = [2, 10, 18, 26]
-    rounds_picture3 = [3, 11, 19, 27]
-    rounds_picture4 = [4, 12, 20, 28]
-    rounds_picture5 = [5, 13, 21]
-    rounds_picture6 = [6, 14, 22]
-    rounds_picture7 = [7, 15, 23]
-    rounds_picture8 = [8, 16, 24]
-    rounds_picture9 = [9, 17, 25]
+    rounds_picture2 = [2, 10, 18, 26, 34]
+    rounds_picture3 = [3, 11, 19, 27, 35]
+    rounds_picture4 = [4, 12, 20, 28, 36]
+    rounds_picture5 = [5, 13, 21, 29]
+    rounds_picture6 = [6, 14, 22, 30]
+    rounds_picture7 = [7, 15, 23, 31]
+    rounds_picture8 = [8, 16, 24, 32]
+    rounds_picture9 = [9, 17, 25, 33]
     #for correct images in Preparation.html
+
 
 class Subsession(BaseSubsession):
 
-    def creating_session(self):
-            self.session.vars['diff_group_rounds'] = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+    pass
 
 
 class Group(BaseGroup):
@@ -536,5 +536,5 @@ class Player(BasePlayer):
         self.total_payoff = sum([p.payoff for p in self.in_all_rounds()])
         self.participant.vars['game_total_payoff'] = self.total_payoff
 
-#class Link(BaseLink):
-#	pass
+class Link(BaseLink):
+	pass

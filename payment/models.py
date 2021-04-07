@@ -1,5 +1,5 @@
 from otree.api import (
-	models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
+	models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer, BaseLink,
 	Currency as c, currency_range
 )
 
@@ -18,7 +18,7 @@ class Constants(BaseConstants):
 	name_in_url = 'page_pa'
 	players_per_group = None
 	num_rounds = 1
-	timer_text = 'Time left to complete your decisions:'
+	timer_text = ''
 	text_Inactive = 'payment/text_Inactive.html'
 	endowment = c(30)
 
@@ -103,6 +103,7 @@ class Group(BaseGroup):
 			else:
 				p.payoff = p.payoff_svo + p.risk_lottery_payoff + p.payoff_norm_compliance +\
 						   p.game_total_payoff + p.punishment_payoff
+				p.payoff_euros = round(p.payoff/30, 0)
 
 class Player(BasePlayer):
 	inactive = models.PositiveIntegerField()
@@ -146,3 +147,9 @@ class Player(BasePlayer):
 	belief_payoff = models.CurrencyField()
 	timeout_MyPage1 = models.PositiveIntegerField()
 	timeout_MyPage2 = models.PositiveIntegerField()
+
+	payoff_euros = models.IntegerField()
+
+
+class Link(BaseLink):
+	pass

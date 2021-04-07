@@ -17,57 +17,67 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<div class="row">
-						<div class="col-sm-2" align="center"><strong>Stage</strong></div>
-						<div class="col-sm-6" align="left"><strong>Decision</strong></div>
-						<div class="col-sm-4" align="left"><strong>Earnings</strong></div>
+						<div class="col-sm-2" align="center"><strong>Parte</strong></div>
+						<div class="col-sm-6" align="left"><strong>Decisione</strong></div>
+						<div class="col-sm-4" align="left"><strong>Pago</strong></div>
 					</div>
 				</div>
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-sm-2" align="center"><strong>Stage 2</strong></div>
-						<div class="col-sm-6" align="left">You chose <strong>Gamble {{ player.lottery_choice }}</strong>. The computer flipped a virtual coin and this came up {% if player.lottery_win == 1 %}<strong>HEADS</strong>{% else %}<strong>TAILS</strong>{% endif %}.</div>
-						<div class="col-sm-4" align="left">You earn <strong>{{ player.risk_lottery_payoff }}</strong> in Stage 2.</div>
+						<div class="col-sm-2" align="center"><strong>Parte 2</strong></div>
+						<div class="col-sm-6" align="left">Usted elige <strong>Apuesta {{ player.lottery_choice }}</strong>. El ordenador tiró una moneda virtual que resultó {% if player.lottery_win == 1 %}<strong>CARA</strong>{% else %}<strong>CRUZ</strong>{% endif %}.</div>
+						<div class="col-sm-4" align="left">Usted gana <strong>{{ player.risk_lottery_payoff }}</strong> en la Parte 2.</div>
 					</div>
 					<br>
 					<div class="row">
-						<div class="col-sm-2" align="center"><strong>Stage 4</strong></div>
-						<div class="col-sm-6" align="left">You missed {{ player.missed_decisions_norm_compliance }} </div>
-						<div class="col-sm-4" align="left">You earn <strong>{{ player.payoff_norm_compliance }}</strong> in Stage 4.</div>
+						<div class="col-sm-2" align="center"><strong>Parte 4</strong></div>
+						<div class="col-sm-6" align="left">Usted ha dejado de tomar {{ player.missed_decisions_norm_compliance }} decisiones.</div>
+						<div class="col-sm-4" align="left">Usted gana <strong>{{ player.payoff_norm_compliance }}</strong> en la Parte 4.</div>
 					</div>
 					<br>
 					<div class="row">
-						<div class="col-sm-2" align="center"><strong>Stage 5</strong></div>
+						<div class="col-sm-2" align="center"><strong>Parte 5</strong></div>
 						<div class="col-sm-6" align="left">{% if player.self_paid == 1 %}Your <strong>decision {{ player.slider_paid }}</strong> was selected for payment.{% elif player.self_paid == 0 %}A decision of the person you were randomly matched with was implemented for payment.{% endif %}</div>
-						<div class="col-sm-4" align="left">You earn <strong>{{ player.payoff_svo }}</strong> in Stage 5.</div>
+						<div class="col-sm-4" align="left">Usted gana <strong>{{ player.payoff_svo }}</strong> en la Parte 5.</div>
 					</div>
 					<br>
 					<div class="row">
-						<div class="col-sm-2" align="center"><strong>Stage 6</strong></div>
-						<div class="col-sm-6" align="left"><strong>Rounds {{ player.paying_round_week1 }}</strong>, <strong>{{ player.paying_round_week2 }}</strong>, <strong>{{ player.paying_round_week3 }}</strong>, and <strong>{{ player.paying_round_week4 }}</strong> were chosen for payment. You earned <strong>{{ player.contribution_payoff_week1 }}</strong>, <strong>{{ player.contribution_payoff_week2 }}</strong>, <strong>{{ player.contribution_payoff_week3 }}</strong>, and <strong>{{ player.contribution_payoff_week4 }}</strong> in these rounds. {% if player.winner == 1 %}<strong>You are one of the {{ num_subjects_win }} people randomly selected to receive a {{ win_multiplier }} times multiplier</strong> to a contribution decision and the payment from your week {{ player.win_week_var }} decision has been multiplied by {{ win_multiplier }}.{% else %} You are not among the people randomly selected to have your payment multiplied.{% endif %} You also received <strong>{{ player.expectations_payoff_week1 }}</strong>, <strong>{{ player.expectations_payoff_week2 }}</strong>, <strong>{{ player.expectations_payoff_week3 }}</strong>, <strong>{{ player.expectations_payoff_week4 }}</strong> as bonuses.</div>
-						<div class="col-sm-4" align="left">You earn <strong>{{ player.game_total_payoff }}</strong> in Stage 5.</div>
+						<div class="col-sm-2" align="center"><strong>Parte 6</strong></div>
+						<div class="col-sm-6" align="left"><strong>Las rondas {{ player.paying_round_week1 }}</strong>,
+							<strong>{{ player.paying_round_week2 }}</strong>,
+							<strong>{{ player.paying_round_week3 }}</strong>, <strong>{{ player.paying_round_week4 }}</strong> y <strong>{{ player.paying_round_week5 }}</strong>,
+							se seleccionaron para el pago. Usted gana <strong>{{ player.contribution_payoff_week1 }}</strong>, <strong>{{ player.contribution_payoff_week2 }}</strong>, <strong>{{ player.contribution_payoff_week3 }}</strong>, and <strong>{{ player.contribution_payoff_week4 }}</strong> in these rounds. {% if player.winner == 1 %}<strong>You are one of the {{ num_subjects_win }} people randomly selected to receive a {{ win_multiplier }} times multiplier</strong> to a contribution decision and the payment from your week {{ player.win_week_var }} decision has been multiplied by {{ win_multiplier }}.{% else %} You are not among the people randomly selected to have your payment multiplied.{% endif %} You also received <strong>{{ player.expectations_payoff_week1 }}</strong>, <strong>{{ player.expectations_payoff_week2 }}</strong>, <strong>{{ player.expectations_payoff_week3 }}</strong>, <strong>{{ player.expectations_payoff_week4 }}</strong> como bono.</div>
+						<div class="col-sm-4" align="left">Usted gana <strong>{{ player.game_total_payoff }}</strong> en la Parte 5.</div>
 					</div>
 					<br>
 					<div class="row">
-						<div class="col-sm-2" align="center"><strong>Stage 7</strong></div>
+						<div class="col-sm-2" align="center"><strong>Parte 7</strong></div>
 						<div class="col-sm-6" align="left">
 						{% if player.timeout_MyPage1 == 0 %}
-							{% if player.pun_prefs_self_paid == 1 %}Your decision was implemented. The other person contributed {{ player.other_contribution }}
-							in round {{ Constants.num_rounds }} and you chose to reduce their earnings by
-							<strong>{{ player.punish }}</strong>{% else %} A decision of the other was implemented.
-							He or she reduced your earnings by <strong>{{ player.punish }}</strong>{% endif %}.
+							{% if player.pun_prefs_self_paid == 1 %}Su decisión se seleccionó. La otra persona gastó {{ player.other_contribution }}
+							en la ronda {{ Constants.num_rounds }} y usted elige de deducir sus ganancias de
+							<strong>{{ player.punish }}</strong>{% else %} La decision de la otra persona se seleccionó. Dicha persona dedujo sus ganancias de
+							<strong>{{ player.punish }}</strong>{% endif %}.
 						{% endif %}
-						{% if player.timeout_MyPage1 == 1 %}You missed your decisions in this stage and so you earn nothing.{% endif %}
+						{% if player.timeout_MyPage1 == 1 %}No tomó sus decisiones en esta Fase y por eso no gana nada.{% endif %}
 						</div>
+						<div class="col-sm-4" align="left">Usted gana <strong>{{ player.punishment_payoff }}</strong> en la Fase 7.</div>
 					</div>
 					<br>
 					<div class="row">
 						<div class="col-sm-2" align="center"></div>
 						<div class="col-sm-6" align="left"></div>
-						<div class="col-sm-4" align="left"><strong>In total you earn {{ player.payoff }}.</strong> </div>
+						<div class="col-sm-4" align="left"><strong>En total usted gana {{ player.payoff }}.</strong> </div>
 					</div>
 					<br>
 					<div class="row">
-						<div class="col-sm-12" align="left">You will receive payment to your PayPal account shortly. If you do not receive your money within a week, or if you have any questions, please contact us at <a href="mailto:{{ email }}">{{ email }}</a>.</div>
+						<div class="col-sm-12" align="left">
+							Puesto que cada 30 puntos se convierten en 1€ y recibe también 5€ para su participación, su
+							<strong>pago total es de {{ player.payoff_euros }}€.</strong>
+							En breve recibirá este pago en su cuenta PayPal. Si no recibe su dinero en dos semanas, o si tiene alguna pregunta, por favor contáctenos a <a href="mailto:{{ email }}">{{ email }}</a>.
+<!--							You will receive payment to your PayPal account shortly.
+							If you do not receive your money within a week, or if you have any questions, please contact us at <a href="mailto:{{ email }}">{{ email }}</a>.-->
+						</div>
 					</div>
 				</div>
 			</div>

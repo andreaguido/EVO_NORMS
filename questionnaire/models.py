@@ -1,5 +1,5 @@
 from otree.api import (
-	models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
+	models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer, BaseLink,
 	Currency as c, currency_range
 )
 
@@ -54,7 +54,7 @@ class Player(BasePlayer):
 		]
 	)
 
-	discipline = models.StringField(
+	discipline = models.CharField(
 		verbose_name="Si ha respondido afirmativamente a la pregunta anterior, qué estudia?",
 		blank=True,
 	)
@@ -78,3 +78,6 @@ class Player(BasePlayer):
 		min=0,
 		max=100,
 		)
+
+class Link(BaseLink):
+	pass

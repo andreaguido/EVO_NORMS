@@ -55,7 +55,7 @@ class PreviousResults(Page):
 		}
 
 class Results(Page):
-	timer_text = 'Time left to confirm your earnings:'
+	timer_text = ''
 
 	def get_timeout_seconds(self):
 		self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.participant.vars['num_rounds']+3))

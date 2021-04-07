@@ -44,7 +44,7 @@ class SliderPrimaryContinuous(Page):
                    'slider5',
                    'slider6',
                 ]
-    #timer_text = 'Time left to complete your decisions:'
+    timer_text = 'Tiempo restante para completar sus decisiones:'
 
     def get_timeout_seconds(self):
         return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
@@ -125,7 +125,7 @@ class Results(Page):
 
 class WaitNextRound(Page):
 
-    #timer_text = 'Thank you for making your decisions. You will be able to proceed with the experiment in:'
+    timer_text = 'Gracias por tomar sus decisiones. Podrá continuar con el experimento en:'
 
     def get_timeout_seconds(self):
         return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()

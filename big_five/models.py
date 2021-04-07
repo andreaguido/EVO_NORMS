@@ -1,5 +1,5 @@
 from otree.api import (
-	models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer, #BaseLink,
+	models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer, BaseLink,
 	Currency as c, currency_range
 )
 
@@ -530,5 +530,5 @@ class Player(BasePlayer):
 		self.openness = self.q5 + self.q10 + self.q15 + self.q20 + self.q25 + self.q30 + (6-self.q35) + self.q40 + (6-self.q41) + self.q44
 
 
-#class Link(BaseLink):
-#	pass
+class Link(BaseLink):
+	pass

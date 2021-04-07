@@ -1,5 +1,5 @@
 from otree.api import (
-	models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer, #BaseLink,
+	models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer, BaseLink,
 	Currency as c, currency_range
 )
 
@@ -158,7 +158,9 @@ class Player(BasePlayer):
 	score = models.FloatField()
 
 	# email for PayPal
-	email_paypal = models.StringField()
+	email_paypal = models.CharField(
+		verbose_name="Correo PayPal", blank=True
+	)
 
 	def creating_score(self):
 		if self.inactive >= self.session.config['inactive_threshold']:
@@ -166,5 +168,5 @@ class Player(BasePlayer):
 		else:
 			self.score = random.random()
 
-#class Link(BaseLink):
-#	pass
+class Link(BaseLink):
+	pass

@@ -1,5 +1,5 @@
 from otree.api import (
-	models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
+	models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer, BaseLink,
 	Currency as c, currency_range
 )
 
@@ -73,3 +73,6 @@ class Player(BasePlayer):
 			self.payoff = list_low[self.choice]
 
 		self.participant.vars['risk_lottery_payoff'] = self.payoff
+
+class Link(BaseLink):
+	pass

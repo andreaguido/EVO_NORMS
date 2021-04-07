@@ -1,5 +1,5 @@
 from otree.api import (
-	models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
+	models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer, BaseLink,
 	Currency as c, currency_range
 )
 
@@ -128,3 +128,7 @@ class Player(BasePlayer):
 	nine_item_tdm_individualistic = models.IntegerField()
 	nine_item_tdm_competitive = models.IntegerField()
 	nine_item_tdm_classification = models.CharField()
+
+
+class Link(BaseLink):
+	pass

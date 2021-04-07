@@ -43,7 +43,7 @@ class ShuffleWaitPage(WaitPage):
 
 # OK
 class Instructions(Page):
-	#timer_text = Constants.timer_text
+	timer_text = Constants.timer_text
 
 	def is_displayed(self):
 		return self.round_number == 1
@@ -68,7 +68,7 @@ class Instructions(Page):
 
 # OK
 class Example(Page):
-	#timer_text = Constants.timer_text
+	timer_text = Constants.timer_text
 
 	def is_displayed(self):
 		return self.round_number == 1
@@ -100,7 +100,7 @@ class Example(Page):
 class Control(Page):
 	form_model = models.Player
 	form_fields = ['question_1_1', 'question_1_2', 'question_2_1', 'question_2_2', 'question_3_1', 'question_3_2', 'question_4_1', 'question_4_2', 'question_5']
-	#timer_text = Constants.timer_text
+	timer_text = Constants.timer_text
 
 	def is_displayed(self):
 		return self.round_number == 1
@@ -124,7 +124,7 @@ class Control(Page):
 
 # OK
 class Answers(Page):
-	#timer_text = Constants.timer_text
+	timer_text = Constants.timer_text
 
 	def is_displayed(self):
 		return self.round_number == 1
@@ -190,9 +190,9 @@ class Answers(Page):
 			question_4_2 = "14"
 
 		if self.player.question_5 == 0:
-			question_5 = "Nothing"
+			question_5 = "Usted podrá continuar participando en el experimento sin ningún problema."
 		elif self.player.question_5 == 1:
-			question_5 = "I will be excluded"
+			question_5 = "Usted será automática y permanentemente expulsado/a del experimento y, en ese caso, no recibirá ningún pago."
 
 		return {
 			'q_1_1': question_1_1,
@@ -212,7 +212,7 @@ class Answers(Page):
 			'a32': 354.9,
 			'a41': 2,
 			'a42': 6.3,
-			'a5': "I will be excluded from the experiment",
+			'a5': "Usted será automática y permanentemente expulsado/a del experimento y, en ese caso, no recibirá ningún pago.",
 			'inactive_threshold': self.session.config['inactive_threshold'],
 			'email': self.session.config['email'],
 			'num_subjects_win': self.session.config['num_subjects_win'],
@@ -225,7 +225,7 @@ class Answers(Page):
 			self.player.timeout_Answers = 1
 
 class PreviousResults(Page):
-	#timer_text = Constants.timer_text
+	timer_text = Constants.timer_text
 
 	def is_displayed(self):
 		return self.round_number > 1 
@@ -264,17 +264,17 @@ class PreviousResults(Page):
 			}
 
 class Preparation(Page):
-	#timer_text = Constants.timer_text
+	timer_text = Constants.timer_text
 
 	def get_timeout_seconds(self):
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
 			return {
-				'diff_group_rounds': self.session.vars['diff_group_rounds'],
+				#'diff_group_rounds': self.session.vars['diff_group_rounds'],
 				'inactive_threshold': self.session.config['inactive_threshold'],
-				'days_completed': (self.round_number + 1)/2,
-				'days_total': (Constants.num_rounds + 2)/2,
+				'days_completed': (self.round_number + 1),
+				'days_total': (Constants.num_rounds + 1),
 				'email': self.session.config['email'],
 				'num_subjects_win': self.session.config['num_subjects_win'],
 				'win_multiplier': self.session.config['win_multiplier'],
@@ -289,7 +289,7 @@ class Preparation(Page):
 class Beliefs_before_PNB(Page):
 	form_model = models.Player
 	form_fields = ['personal_normative_beliefs']
-	#timer_text = Constants.timer_text
+	timer_text = Constants.timer_text
 
 	def get_timeout_seconds(self):
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
@@ -310,7 +310,7 @@ class Beliefs_before_PNB(Page):
 
 class Beliefs_before_EE(Page):
 	form_model = models.Player
-	#timer_text = Constants.timer_text
+	timer_text = Constants.timer_text
 	
 	def get_form_fields(self):
 		return ['empirical_expectations{}'.format(i) for i in range(0, Constants.other_players_per_group)]
@@ -356,7 +356,7 @@ class Beliefs_before_EE(Page):
 
 class Beliefs_before_NE(Page):
 	form_model = models.Player
-	#timer_text = Constants.timer_text
+	timer_text = Constants.timer_text
 
 	def get_form_fields(self):
 		return ['normative_expectations{}'.format(i) for i in range(0, Constants.other_players_per_group)]
@@ -403,7 +403,7 @@ class Beliefs_before_NE(Page):
 class Contribute_uncond(Page):
 	form_model = models.Player
 	form_fields = ['contribution']
-	#timer_text = Constants.timer_text
+	timer_text = Constants.timer_text
 
 	def get_timeout_seconds(self):
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
@@ -426,7 +426,7 @@ class Contribute_uncond(Page):
 			self.player.inactive_contribution()
 
 class WaitNextRound1(Page):
-	#timer_text = 'Thank you for making your decisions. You will be able to proceed with the experiment in:'
+	timer_text = 'Gracias por tomar sus decisiones. Podrá continuar con el experimento en:'
 
 	def get_timeout_seconds(self):
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
@@ -450,7 +450,7 @@ class ResultsWaitPage1(WaitPage):
 
 
 class WaitNextRound2(Page):
-	#timer_text = 'Thank you for making your decisions. You will be able to proceed with the experiment in:'
+	timer_text = ''
 	timeout_seconds = 1
 
 	def vars_for_template(self):
@@ -515,6 +515,7 @@ class Results(Page):
 
 
 class Reminder(Page):
+	timer_text = Constants.timer_text
 
 	def vars_for_template(self):
 		return {

@@ -48,9 +48,13 @@ Decisión
 			</div>
 
 			<div class="panel-body">
-				<p>¿Cuántos puntos quiere poner en la cuenta común en esta ronda?</p>
-				<p>Puede hacer una simulación de sus ganancias dependiendo de su decisión y de la decisión de los
-					otros {{ Constants.other_players_per_group }} participantes en el grupo en esta ronda debajo.</p>
+				<p>¿Cuántos puntos quiere poner en la Cuenta Común en esta ronda?</p>
+				<p>Para facilitar su decisión, puede hacer una simulación de sus ganancias dependiendo de su decisión y
+					de la decisión de los otros {{ Constants.other_players_per_group }} participantes en el grupo en
+					esta ronda debajo.
+				</p>
+
+				<p>Si prefiere ver el fichero .pdf de la tabla de ganancias, pulse <a href="https://drive.google.com/file/d/1DLo2SidZEiFhrayri_aISSFL_3n7giAd/view?usp=sharing" target="_blank">aquí</a>.</p>
 
 				<p>Pulse “Siguiente” para confirmar su decisión.</p>
 				<div class="row">
@@ -62,14 +66,15 @@ Decisión
 					</div>
 					<div class="col-lg-8">
 						<h3 style="text-align:center;">Simulador</h3>
-						<label for="mycontribution"><b>Su contribución:</b>: <span id="print_mycontribution"></span></label> <br>
+						<label for="mycontribution"><b>Su contribución</b>: <span id="print_mycontribution"></span></label> <br>
 						<input type="range" min="0" max="30" value="15" step=1 	class="slider" id="mycontribution">
-						<label for="othcontribution" class="pull-left"><b>Contribución total de los otros:</b>: <span id="print_othcontribution"></span></label> <br>
+						<label for="othcontribution" class="pull-left"><b>Contribución total de los otros</b>: <span id="print_othcontribution"></span></label> <br>
 						<input type="range" min="0" max="150" value="75" class="slider" id="othcontribution"> <br>
-						<p>Sus ganancias: <span id="print_payoff"></span></p>
+						<p>Sus ganancias de la Cuenta Común: <span id="print_payoff_accountcommon"></span></p>
+						<p>Sus ganancias totales de la Cuenta Personal: <span id="print_payoff_accountpersonal"></span></p>
+						<p>Sus ganancias totales: <span id="print_payoff"></span></p>
 					</div>
 				</div>
-				Pulse <a href="">aquí</a> para ver el fichero .pdf de la tabla de ganancias.
 			</div>
 		</div>
 		</div>
@@ -90,11 +95,15 @@ var sum = 1*slider + 1*slider2;
 var par_a = 15;
 var par_b = 0.083;
 var commonaccount = (par_a*sum - par_b*sum*sum)*(slider/sum);
+var personalaccount = 30-slider;
+var tot = commonaccount + (30 -slider)
 
 if (Number.isNaN(commonaccount)){
 	document.getElementById("print_payoff").innerHTML = 0;
 } else {
-	document.getElementById("print_payoff").innerHTML = round(round(commonaccount, 2), 1);
+	document.getElementById("print_payoff_accountcommon").innerHTML = round(round(commonaccount, 2), 1);
+	document.getElementById("print_payoff_accountpersonal").innerHTML = round(round(personalaccount, 2), 1);
+	document.getElementById("print_payoff").innerHTML = round(round(tot, 2), 1);
 	document.getElementById("print_mycontribution").innerHTML = round(slider, 1);
 	document.getElementById("print_othcontribution").innerHTML = round(slider2, 1);
 }

@@ -1,6 +1,6 @@
 from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
-    #BaseLink,
+    BaseLink,
     Currency as c, currency_range
 )
 from otree.db.models import BooleanField as m
@@ -57,6 +57,6 @@ class Player(BasePlayer):
     # otree-core/otree/db/models.py:        return super(BooleanField, self).clean(value, model_instance)
 
 
-#class Link(BaseLink):
+class Link(BaseLink):
      #class Link():
-#    pass
+    pass
