@@ -516,6 +516,14 @@ class Results(Page):
 
 class Reminder(Page):
 
+	def vars_for_template(self):
+		return {
+			'inactive_threshold': self.session.config['inactive_threshold'],
+			'email': self.session.config['email'],
+			'num_subjects_win': self.session.config['num_subjects_win'],
+			'win_multiplier': self.session.config['win_multiplier'],
+
+		}
 	def get_timeout_seconds(self):
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 

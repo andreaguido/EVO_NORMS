@@ -12,9 +12,8 @@ doc = """
 An implementation of a non-linear Common Pool Resource game.
 Features:
 - Group sizes maximum of 6 because of tables of player contributions, empirical expectations elicitation, and normative expectation elicitation.
-    Apart from that group sizes must be even numbers (for instruction legibility minimum is 4 per group)
-- same or different groupings must be fully specified except for round 1 
-- current setup for 28 rounds. Minimum number is 4. Number of rounds/stages must be divisible into whole numbers
+    Apart from that group sizes must be even numbers (for instruction legibility minimum is 4 per group) 
+- current setup for 35 rounds. Minimum number is 5. Number of rounds/stages must be divisible into whole numbers
 """
 
 
@@ -34,7 +33,7 @@ class Constants(BaseConstants):
     # payment correct beliefs
     p_a = 15
     p_b = 0.083
-    timer_text = 'Time left to complete your decisions:'
+    timer_text = 'Tiempo restante para completar sus decisiones:' #'Time left to complete your decisions:'
     #Text used in most, but not all, places
     ##################################
 
