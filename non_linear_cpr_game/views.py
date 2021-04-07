@@ -58,9 +58,13 @@ class Instructions(Page):
             'rounds': Constants.num_rounds,
 		}
 
-	def get_timeout_seconds(self):
-		self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1))
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']) - datetime.datetime.utcnow()).total_seconds()
+
+#	XXX def get_timeout_seconds(self):
+#		self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1))
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def before_next_page(self):
 		if self.timeout_happened:
@@ -89,8 +93,12 @@ class Example(Page):
             'rounds': Constants.num_rounds
 		}
 
-	def get_timeout_seconds(self):
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']) - datetime.datetime.utcnow()).total_seconds()
+
+#	XXX def get_timeout_seconds(self):
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def before_next_page(self):
 		if self.timeout_happened:
@@ -119,8 +127,11 @@ class Control(Page):
 		if self.timeout_happened:
 			self.player.timeout_Control = 1
 
-	def get_timeout_seconds(self):
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1)) - datetime.datetime.utcnow()).total_seconds()
+
+#	def get_timeout_seconds(self):
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 # OK
 class Answers(Page):
@@ -129,8 +140,11 @@ class Answers(Page):
 	def is_displayed(self):
 		return self.round_number == 1
 
-	def get_timeout_seconds(self):
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1)) - datetime.datetime.utcnow()).total_seconds()
+
+#	def get_timeout_seconds(self):
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
 		if self.player.question_1_1 == 0:
@@ -229,10 +243,13 @@ class PreviousResults(Page):
 
 	def is_displayed(self):
 		return self.round_number > 1 
-	
-	def get_timeout_seconds(self):	
-		self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1))
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1)) - datetime.datetime.utcnow()).total_seconds()
+
+#	XXX def get_timeout_seconds(self):
+#		self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1))
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
 		return {
@@ -266,8 +283,11 @@ class PreviousResults(Page):
 class Preparation(Page):
 	timer_text = Constants.timer_text
 
-	def get_timeout_seconds(self):
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1)) - datetime.datetime.utcnow()).total_seconds()
+
+#	def get_timeout_seconds(self):
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
 			return {
@@ -291,8 +311,11 @@ class Beliefs_before_PNB(Page):
 	form_fields = ['personal_normative_beliefs']
 	timer_text = Constants.timer_text
 
-	def get_timeout_seconds(self):
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1)) - datetime.datetime.utcnow()).total_seconds()
+
+#	def get_timeout_seconds(self):
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
 		return {
@@ -314,9 +337,12 @@ class Beliefs_before_EE(Page):
 	
 	def get_form_fields(self):
 		return ['empirical_expectations{}'.format(i) for i in range(0, Constants.other_players_per_group)]
-	
-	def get_timeout_seconds(self):
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1)) - datetime.datetime.utcnow()).total_seconds()
+
+#	def get_timeout_seconds(self):
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 	
 	def vars_for_template(self):
 		return {
@@ -361,8 +387,11 @@ class Beliefs_before_NE(Page):
 	def get_form_fields(self):
 		return ['normative_expectations{}'.format(i) for i in range(0, Constants.other_players_per_group)]
 
-	def get_timeout_seconds(self):
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1)) - datetime.datetime.utcnow()).total_seconds()
+
+#	def get_timeout_seconds(self):
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
 		return {
@@ -405,8 +434,11 @@ class Contribute_uncond(Page):
 	form_fields = ['contribution']
 	timer_text = Constants.timer_text
 
-	def get_timeout_seconds(self):
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1)) - datetime.datetime.utcnow()).total_seconds()
+
+#	def get_timeout_seconds(self):
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
 		return {
@@ -428,8 +460,11 @@ class Contribute_uncond(Page):
 class WaitNextRound1(Page):
 	timer_text = 'Gracias por tomar sus decisiones. Podrá continuar con el experimento en:'
 
-	def get_timeout_seconds(self):
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1)) - datetime.datetime.utcnow()).total_seconds()
+
+#	def get_timeout_seconds(self):
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
 		return {
@@ -525,8 +560,13 @@ class Reminder(Page):
 			'win_multiplier': self.session.config['win_multiplier'],
 
 		}
-	def get_timeout_seconds(self):
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+
+
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1)) - datetime.datetime.utcnow()).total_seconds()
+
+#	def get_timeout_seconds(self):
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def is_displayed(self):
 		return self.session.config['treatment'] == "A"
