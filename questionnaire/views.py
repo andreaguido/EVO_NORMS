@@ -8,7 +8,7 @@ import datetime
 class MyPage(Page):
 	form_model = models.Player
 	form_fields = ["age", "gender", "student", "discipline", "left_right", "experience"]
-	timer_text = 'Time left respond:'
+	#timer_text = 'Time left respond:'
 
 	def get_timeout_seconds(self):
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()

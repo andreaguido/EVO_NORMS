@@ -124,7 +124,7 @@ class Control(Page):
 
 # OK
 class Answers(Page):
-	timer_text = Constants.timer_text
+	#timer_text = Constants.timer_text
 
 	def is_displayed(self):
 		return self.round_number == 1
@@ -225,7 +225,7 @@ class Answers(Page):
 			self.player.timeout_Answers = 1
 
 class PreviousResults(Page):
-	timer_text = Constants.timer_text
+	#timer_text = Constants.timer_text
 
 	def is_displayed(self):
 		return self.round_number > 1 
@@ -425,159 +425,6 @@ class Contribute_uncond(Page):
 			self.player.timeout_Contribute_uncond = 1
 			self.player.inactive_contribution()
 
-## NOT USED ##  DELETE
-#class Contribute_cond(Page):
-#	form_model = models.Player
-#	form_fields = ['contribution_hh', 'contribution_hl', 'contribution_lh', 'contribution_ll']
-#	timer_text = Constants.timer_text
-#
-#	def is_displayed(self):
-#		return self.round_number in Constants.uncond_cond_rounds
-#
-#	def get_timeout_seconds(self):
-#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
-#
-#	def vars_for_template(self):
-#		return {
-#			'half_spending': Constants.endowment*1/2,
-#			'half_players': Constants.players_per_group/2,
-#			'inactive_threshold': self.session.config['inactive_threshold'],
-#			'email': self.session.config['email'],
-#			'num_subjects_win': self.session.config['num_subjects_win'],
-#			'win_multiplier': self.session.config['win_multiplier'],
-#			'rounds': self.round_number
-#		}
-#
-#	def before_next_page(self):
-#		if self.timeout_happened:
-#			self.player.timeout_already_happened = 1
-#			self.player.timeout_Contribute_cond = 1
-
-
-#class Beliefs_after_PNB(Page):
-#	form_model = models.Player
-#	form_fields = ['personal_normative_beliefs']
-#	timer_text = Constants.timer_text
-#
-#	def is_displayed(self):
-#		return self.player.belief_elicit_before == 0 and self.round_number in Constants.PNB_NE_rounds
-#
-#	def get_timeout_seconds(self):
-#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
-#
-#	def vars_for_template(self):
-#		return {
-#			'inactive_threshold': self.session.config['inactive_threshold'],
-#			'email': self.session.config['email'],
-#			'num_subjects_win': self.session.config['num_subjects_win'],
-#			'win_multiplier': self.session.config['win_multiplier'],
-#		}
-#
-#	def before_next_page(self):
-#		if self.timeout_happened:
-#			self.player.timeout_already_happened = 1
-#			self.player.timeout_Beliefs_after_PNB = 1
-#			self.player.inactive_pnb()
-#
-#class Beliefs_after_EE(Page):
-#	form_model = models.Player
-#	timer_text = Constants.timer_text
-#
-#	def get_form_fields(self):
-#		return ['empirical_expectations{}'.format(i) for i in range(0, Constants.other_players_per_group)]
-#
-#	def is_displayed(self):
-#		return self.player.belief_elicit_before == 0
-#
-#	def get_timeout_seconds(self):
-#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
-#
-#	def vars_for_template(self):
-#		return {
-#			'inactive_threshold': self.session.config['inactive_threshold'],
-#			'max_ee_earning': Constants.belief_correct_pay * Constants.other_players_per_group,
-#			'email': self.session.config['email'],
-#			'num_subjects_win': self.session.config['num_subjects_win'],
-#			'win_multiplier': self.session.config['win_multiplier'],
-#			}
-#
-#	def before_next_page(self):
-#		if self.timeout_happened:
-#			self.player.empirical_expectations0 = 0
-#			self.player.empirical_expectations1 = 0
-#			self.player.empirical_expectations2 = 0
-#			self.player.empirical_expectations3 = 0
-#			self.player.empirical_expectations4 = 0
-#			self.player.timeout_already_happened = 1
-#			self.player.timeout_Beliefs_after_EE = 1
-#
-#	def error_message(self, values):
-#		if Constants.other_players_per_group == 2:
-#			if values["empirical_expectations0"] < values["empirical_expectations1"]:
-#				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
-#
-#		if Constants.other_players_per_group == 3:
-#			if values["empirical_expectations0"] < values["empirical_expectations1"] or values["empirical_expectations0"] < values["empirical_expectations2"] or values["empirical_expectations1"] < values["empirical_expectations2"]:
-#				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
-#
-#		if Constants.other_players_per_group == 4:
-#			if values["empirical_expectations0"] < values["empirical_expectations1"] or values["empirical_expectations0"] < values["empirical_expectations2"] or values["empirical_expectations0"] < values["empirical_expectations3"] or values["empirical_expectations1"] < values["empirical_expectations2"]	or values["empirical_expectations1"] < values["empirical_expectations3"] or values["empirical_expectations2"] < values["empirical_expectations3"]:
-#				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
-#
-#		if Constants.other_players_per_group == 5:
-#			if values["empirical_expectations0"] < values["empirical_expectations1"] or values["empirical_expectations0"] < values["empirical_expectations2"] or values["empirical_expectations0"] < values["empirical_expectations3"] or values["empirical_expectations0"] < values["empirical_expectations4"] or values["empirical_expectations1"] < values["empirical_expectations2"] or values["empirical_expectations1"] < values["empirical_expectations3"] or values["empirical_expectations1"] < values["empirical_expectations4"] or values["empirical_expectations2"] < values["empirical_expectations3"] or values["empirical_expectations2"] < values["empirical_expectations4"] or values["empirical_expectations3"] < values["empirical_expectations4"]:
-#				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
-#
-#
-#class Beliefs_after_NE(Page):
-#	form_model = models.Player
-#	timer_text = Constants.timer_text
-#
-#	def get_form_fields(self):
-#		return ['normative_expectations{}'.format(i) for i in range(0, Constants.other_players_per_group)]
-#
-#	def is_displayed(self):
-#		return self.player.belief_elicit_before == 0 and self.round_number in Constants.PNB_NE_rounds
-#
-#	def get_timeout_seconds(self):
-#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
-#
-#	def vars_for_template(self):
-#		return {
-#			'inactive_threshold': self.session.config['inactive_threshold'],
-#			'max_ne_earning': Constants.belief_correct_pay * Constants.other_players_per_group,
-#			'email': self.session.config['email'],
-#			'num_subjects_win': self.session.config['num_subjects_win'],
-#			'win_multiplier': self.session.config['win_multiplier'],
-#		}
-#
-#	def before_next_page(self):
-#		if self.timeout_happened:
-#			self.player.normative_expectations0 = 0
-#			self.player.normative_expectations1 = 0
-#			self.player.normative_expectations2 = 0
-#			self.player.normative_expectations3 = 0
-#			self.player.normative_expectations4 = 0
-#			self.player.timeout_already_happened = 1
-#			self.player.timeout_Beliefs_after_NE = 1
-#
-#	def error_message(self, values):
-#		if Constants.other_players_per_group == 2:
-#			if values["normative_expectations0"] < values["normative_expectations1"]:
-#				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
-#
-#		if Constants.other_players_per_group == 3:
-#			if values["normative_expectations0"] < values["normative_expectations1"] or values["normative_expectations0"] < values["normative_expectations2"] or values["normative_expectations1"] < values["normative_expectations2"]:
-#				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
-#
-#		if Constants.other_players_per_group == 4:
-#			if values["normative_expectations0"] < values["normative_expectations1"] or values["normative_expectations0"] < values["normative_expectations2"] or values["normative_expectations0"] < values["normative_expectations3"] or values["normative_expectations1"] < values["normative_expectations2"]	or values["normative_expectations1"] < values["normative_expectations3"] or values["normative_expectations2"] < values["normative_expectations3"]:
-#				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
-#
-#		if Constants.other_players_per_group == 5:
-#			if values["normative_expectations0"] < values["normative_expectations1"] or values["normative_expectations0"] < values["normative_expectations2"] or values["normative_expectations0"] < values["normative_expectations3"] or values["normative_expectations0"] < values["normative_expectations4"] or values["normative_expectations1"] < values["normative_expectations2"] or values["normative_expectations1"] < values["normative_expectations3"] or values["normative_expectations1"] < values["normative_expectations4"] or values["normative_expectations2"] < values["normative_expectations3"] or values["normative_expectations2"] < values["normative_expectations4"] or values["normative_expectations3"] < values["normative_expectations4"]:
-#				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
-
 class WaitNextRound1(Page):
 	#timer_text = 'Thank you for making your decisions. You will be able to proceed with the experiment in:'
 
@@ -597,7 +444,7 @@ class WaitNextRound1(Page):
 		if self.timeout_happened and self.player.timeout_already_happened == 1:
 			self.player.inactive = self.player.inactive + 1
 
-# OK : need to have a waiting page here cause we need to wait for all participants to arrive.
+# need to have a waiting page here cause we need to wait for all participants to arrive.
 class ResultsWaitPage1(WaitPage):
 	pass
 
@@ -667,6 +514,13 @@ class Results(Page):
 		self.participant.vars['endowment'] = Constants.endowment
 
 
+class Reminder(Page):
+
+	def is_displayed(self):
+		return self.subsession.treatment == "A"
+	pass
+
+
 page_sequence = [
 	Initialisation,
 	ShuffleWaitPage,
@@ -679,6 +533,7 @@ page_sequence = [
 	Beliefs_before_PNB,
 	Beliefs_before_EE,
 	Beliefs_before_NE,
+	Reminder,
 	Contribute_uncond,
 	WaitNextRound1,
 	ResultsWaitPage1,
