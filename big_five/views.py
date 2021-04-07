@@ -10,9 +10,9 @@ class IntroClimateExperiment(Page):
 
 	def get_timeout_seconds(self):
 		self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round'])
-		print("This is EXPIRY ", self.participant.vars['expiry'])
-		print("this is TIME now ", datetime.datetime.utcnow())
-		print("This is what is DISPLAYED ", (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds())
+		#print("This is EXPIRY ", self.participant.vars['expiry'])
+		#print("this is TIME now ", datetime.datetime.utcnow())
+		#print("This is what is DISPLAYED ", (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds())
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
