@@ -2,30 +2,32 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-	You have made your decisions for today
+	Ha tomado sus decisiones para hoy.
 {% endblock %}
 
 {% block content %}
 	<div class="container-fluid">
 		<div class="panel panel-primary">
 			<div class="panel-body">
-				<p>We remind you that this experiment consists of six stages that will take place over 36 days.
-					You have completed the first 5 stages today.
-					Come back tomorrow at <b>10:00am</b> to make your decisions in the sixth stage.
-					It will take a few minutes a day to complete.</p>
+				<p>Gracias por participar en este experimento. El experimento consta de siete partes o fases. Ha completado las primeras cinco fases. Pasará a la sexta fase mañana a las <b>10:00 (hora de Madrid)</b> y participará en una ronda de la sexta fase todos los siguientes días. Tendrá hasta las <b>10:00 (hora de Madrid)</b> del día siguiente para tomar sus decisiones por cada ronda. Sus decisiones en esta fase le llevarán unos minutos cada día. La fase final, la septima, tardará unos minutos en completarse.</p>
 
-				<h4>Important rules</h4>
+				<h4>Reglas importantes</h4>
 				<ul>
-					<li>Your participation is voluntary and you are free to leave the experiment at any point. In that case however you will not receive payment.</li>
-					<li>We ask you not to communicate with the other participants and generally to make your decisions independently. Please do not share your code with anyone else.</li>
-					<li>The answers you provide will be kept confidential. The researchers who process the data from the experiment will not be able to match your name to your choices.</li>
-					<li>There is absolutely no deception at any point in this experiment: what we say, we will do.</li>
+					<li>Su participación es voluntaria y es usted libre de abandonar el experimento en cualquier momento. En tal caso, sin embargo, no recibirá ningun pago.</li>
+					<li>Le pedimos que no se comunique con los otros participantes y que, en general, tome sus decisiones de forma independiente. Por favor, no comparta su enlace con nadie más.</li>
+					<li>Sus respuestas a nuestras preguntas serán confidenciales. Los investigadores que trabajarán con los datos del experimento no podrán relacionar su nombre con ellos.</li>
+					<li>En este experimento no hay ninguna mentira ni engaño; todo lo que decimos, lo hacemos.</li>
 				</ul>
 
-				<h4>Payment</h4>
-				<p>You will be paid at the end of this experiment. Your payment will be the sum of what you earn in each stage. Every <b>10 points that you earn will be turned into €1</b>. The amount you earn will depend partly on your choices, partly on the choices of the other participants, and partly on chance. You will be paid directly on your PayPal account so that none of the other participants will know how much you earned. There will be additional instructions about your earnings.</p>
+				<h4>Pago</h4>
+				<p>Se le pagará al final del experimento. Su pago será la suma de lo que gane en cada fase, mas 5€ para su participación. Por cada <strong>30 puntos que gane recibirá 1€</strong>, redondeado al importe entero más próximo. Lo que gane dependerá en parte de sus elecciones, en parte de las elecciones de otros participantes, y en parte del azar. Se le pagará de manera individual y tramite su cuenta de PayPal, de manera que ninguno de los otros participantes podrá conocer lo que ha ganado usted. Instrucciones adicionales sobre como puede ganar puntos seguirán.</p>
 
-				<p>If you do not finish your choices today or you miss {{ inactive_threshold }} decisions during the experiment you will be <b>automatically and permanently</b> excluded from the experiment. If you are excluded you will not be paid. Contact <a href="mailto:{{ email }}">{{ email }}</a> if you have any questions.</p>
+				<p>Si no termina sus elecciones de hoy o pierdes {{ inactive_threshold }} decisiones durante la fase seis será <b>automáticamente y permanentemente</b> excluido del experimento. <strong>Si se le excluye no se le pagará.</strong></p>
+
+				<p><span style="color:blue">Al final del experimento, una persona entre todos los que terminan el experimento será seleccionada al azar para ganar un bonus. El bonus del sorteo multiplica todas las ganancias de esa persona por {{ win_multiplier }}. Nos aseguraremos de que <strong>la persona seleccionada al azar gane al menos 100€ y un maximo de 200€</strong>.</span></p>				
+					
+				<h4>Información adicional</h4>
+				<p>Por favor, lea cuidadosamente las instrucciones. Sin embargo, le mostraremos las instrucciones pertinentes a lo largo del experimento. Si tiene alguna pregunta durante el experimento, póngase en contacto con nosotros (<a href="mailto:{{ email }}">{{ email }}</a>).</p>
 			</div>
 		</div>
 	</div>

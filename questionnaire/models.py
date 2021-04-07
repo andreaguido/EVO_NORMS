@@ -32,35 +32,35 @@ class Player(BasePlayer):
 	timeout_MyPage = models.PositiveIntegerField(initial=0)
 	
 	age = models.PositiveIntegerField(
-		verbose_name="What is your age?",
+		verbose_name="Cuál es su edad?",
 		min=16,
 		max=100,
 		)
 
 	gender = models.PositiveIntegerField(
-		verbose_name="What gender do you identify as?",
+		verbose_name="Con qué género se identifica?",
 		choices=[
-			[0, "Male"],
-			[1, "Female"],
-			[2, "Other"],
+			[0, "Masculino"],
+			[1, "Femenino"],
+			[2, "Otro"],
 		]
 	)
 
 	student = models.PositiveIntegerField(
-		verbose_name="Are you currently a student?",
+		verbose_name="Es usted actualmente un estudiante?",
 		choices=[
 			[0, "No"],
-			[1, "Yes"],
+			[1, "Si"],
 		]
 	)
 
 	discipline = models.StringField(
-		verbose_name="If you answered yes to the above question, what subject do you study?",
+		verbose_name="Si ha respondido afirmativamente a la pregunta anterior, qué estudia?",
 		blank=True,
 	)
 
 	left_right = models.IntegerField(
-		verbose_name="Where do you place yourself on a political spectrum from left to right wing?",
+		verbose_name="Dónde se sitúa en un espectro político de izquierda a derecha?",
 		choices=[
 			[1, ""],
 			[2, ""],
@@ -74,7 +74,7 @@ class Player(BasePlayer):
 	)
 	
 	experience = models.PositiveIntegerField(
-		verbose_name="How many other experiments of this kind have you participated in?",
+		verbose_name="En cuántos otros experimentos de este tipo ha participado?",
 		min=0,
 		max=100,
 		)

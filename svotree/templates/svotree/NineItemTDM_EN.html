@@ -1,0 +1,61 @@
+{% extends "svotree/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% include Constants.instructions_9tdm %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                     <div class="panel-heading"><strong>PANEL TITLE</strong></div>
+                     <div class="panel-body">
+                        <div class="row">
+                            {% for decision in nine_item_tdm_decisions %}
+                            <div class="col-sm-4 tdm-item">
+                                <table>
+                                    <tr>
+                                        <th class="tdm-cell">{{ decision.number }}</th>
+                                        <th class="tdm-cell tdm-choice"><strong>A</strong></th>
+                                        <th class="tdm-cell tdm-choice"><strong>B</strong></th>
+                                        <th class="tdm-cell tdm-choice"><strong>C</strong></th>
+                                    </tr>
+                                    <tr>
+                                        <td class="tdm-cell"><strong>You receive</strong></td>
+                                        <td class="tdm-cell tdm-choice">{{ decision.A.self }}</td>
+                                        <td class="tdm-cell tdm-choice">{{ decision.B.self }}</td>
+                                        <td class="tdm-cell tdm-choice">{{ decision.C.self }}</td>
+                                    </tr>                                    <tr>
+                                    <td class="tdm-cell"><strong>Other receives</strong></td>
+                                        <td class="tdm-cell tdm-choice">{{ decision.A.other }}</td>
+                                        <td class="tdm-cell tdm-choice">{{ decision.B.other }}</td>
+                                        <td class="tdm-cell tdm-choice">{{ decision.C.other }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tdm-cell"></td>
+                                        <td class="tdm-cell tdm-choice"><input type="radio" name="nine_item_tdm_{{ decision.number }}" value="A" /></td>
+                                        <td class="tdm-cell tdm-choice"><input type="radio" name="nine_item_tdm_{{ decision.number }}" value="B" /></td>
+                                        <td class="tdm-cell tdm-choice"><input type="radio" name="nine_item_tdm_{{ decision.number }}" value="C" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            {% endfor %}
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary btn-large" id="continue_button" >Continue</button>
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

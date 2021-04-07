@@ -4,16 +4,29 @@
 	<div class="container-fluid">
 		<div class="panel panel-success">
 			<div class="panel-body">
-				<p>You have the chance to earn additional points below. You will be told at the end of the experiment whether you earned these points.</p>
+				<p>Ahora tiene la oportunidad de ganar puntos adicionales. Se le informará al final del experimento de si los ha ganado o no.</p>
 			</div>
 		</div>
 
 		<div class="panel panel-success">
 			<div class="panel-heading">
-				<p><b>How much will the other {{ Constants.other_players_per_group }} people in your group contribute in this round?</b></p>
+				<p><b>¿Cuántos puntos pondrán los otros {{ Constants.other_players_per_group }} participantes de su grupo en la Cuenta Común en esta ronda?</b></p>
 			</div>
 			<div class="panel-body">
-				<p>Use the boxes below to indicate <strong>how much you think the other people in your group contribute</strong> in this round. Put the highest value in the box at the top and then rank the contributions in descending order. You can input the same value for multiple people. In that case the ordering for those people does not matter. We will rank the contribution of the other people in your group in this round and compare each of them to your respones. For every reponse that you estimate completely correctly you get {{ Constants.belief_correct_pay }}. This means that you can earn up a maximum of {{ max_ee_earning }}. The less accurate your response is the less points you receive. If your response differs from the true values by more than {{ Constants.belief_correct_pay }} then you receive 0.
+				<p>Use las cajas mostradas debajo para indicar <b>cuántos puntos cree que los pondrán los otros
+					participantes de su grupo en la Cuenta Común en esta ronda.</b>
+					Por favor, ponga el valor más alto en la caja superior y luego ordene las cantidades con las que
+					responda de mayor a menor. Puede repetir cantidades si quiere, y en ese caso el orden no importa.
+					Ordenaremos lo que pongan los otros participantes de su grupo en esta ronda y compararemos con su
+					respuesta.
+
+					Por cada respuesta que coincida exactamente con una suya usted recibirá {{ Constants.belief_correct_pay }}.
+					Esto quiere decir que puede usted ganar un máximo de {{ max_ee_earning }}.
+					Cuánto menos se acerque su respuesta a la decisión de los otros participantes, menos puntos recibirá.
+					Si su respuesta difiere de los valores verdaderos en más de {{ Constants.belief_correct_pay }} recibirá
+					0 puntos. Por ejemplo, si usted cree que uno de los otros participantes en su grupo asignará X puntos
+					a la Cuenta Común, y ese participante contribuye realmente X puntos, ganará
+					{{ Constants.belief_correct_pay }} adicionales por dicha respuesta.
 				<br>
 				{% for field in form %}
 					<div class="row">

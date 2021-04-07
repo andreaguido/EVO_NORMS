@@ -3,7 +3,7 @@
 
 {% block title %}
 	{% if player.inactive < inactive_threshold %}
-		Stage 6: Answers
+		Parte 6: Respuestas
 	{% endif %}
 {% endblock %}
 {% block scripts %}
@@ -23,22 +23,21 @@
 		<div class="container-fluid">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<p>You answered <strong>{{ player.correct_answers }}</strong> out of <strong>8</strong> questions correctly.
-						Stage 6 of the experiment will start on the next screen.</p>
+					<p>Usted ha respondido <strong>{{ player.correct_answers }}</strong> preguntas de 5 correctamente. La parte 6 del experimento empieza en la siguiente pantalla.</p>
 				</div>
 			</div>
 
 			<div class="panel panel-primary">
 				<div class="panel-heading mb-4">
-					<b>If you allocate 5 Tokens to the Common Account, and the other 5 participants in your group allocate 0 Tokens overall:</b>
+					<b>Pregunta 1: Si usted pone 5 puntos en la Cuenta Común, y los otros participantes ponen 0 puntos entre todos:</b>
 				</div>
 
 				<div class="table-responsive">
 					<table class="table">
 						<tr>
-							<th>Question</th>
-							<th>Your response</th>
-							<th>The correct answer</th>
+							<th>Pregunta</th>
+							<th>Su respuesta</th>
+							<th>La respuesta correcta</th>
 						</tr>
 						{% if player.question_1_1 == Constants.a1_1 %}
 							<tr class="success">
@@ -64,15 +63,15 @@
 			</div>
 			<div class="panel panel-primary">
 				<div class="panel-heading mb-4">
-					<b>If you allocate 5 Tokens to the Common Account, and the other 5 participants in your group allocate 150 Tokens overall:</b>
+					<b>Pregunta 2: Si usted pone 5 puntos en la cuenta común, y los otros participantes ponen 150 puntos entre todos:</b>
 				</div>
 
 				<div class="table-responsive">
 					<table class="table">
 						<tr>
-							<th>Question</th>
+							<th>Pregunta</th>
 							<th>Your response</th>
-							<th>The correct answer</th>
+							<th>La respuesta correcta</th>
 						</tr>
 						{% if player.question_2_1 == Constants.a2_1 %}
 							<tr class="success">
@@ -98,15 +97,15 @@
 			</div>
 			<div class="panel panel-primary">
 				<div class="panel-heading mb-4">
-					<b>If you allocate 28 Tokens to the Common Account, and the other 5 participants in your group allocate 0 Tokens overall:</b>
+					<b>Pregunta 3: Si usted pone 28 puntos en la cuenta común, y los otros participantes ponen 150 puntos entre todos:</b>
 				</div>
 
 				<div class="table-responsive">
 					<table class="table">
 						<tr>
-							<th>Question</th>
+							<th>Pregunta</th>
 							<th>Your response</th>
-							<th>The correct answer</th>
+							<th>La respuesta correcta</th>
 						</tr>
 						{% if player.question_3_1 == Constants.a3_1 %}
 							<tr class="success">
@@ -132,15 +131,15 @@
 			</div>
 			<div class="panel panel-primary">
 				<div class="panel-heading mb-4">
-					<b>If you allocate 28 Tokens to the Common Account, and the other 5 participants in your group allocate 150 Tokens overall:</b>
+					<b>Pregunta 4: Si usted pone 28 puntos en la cuenta común, y los otros participantes ponen 5 puntos entre todos:</b>
 				</div>
 
 				<div class="table-responsive">
 					<table class="table">
 						<tr>
-							<th>Question</th>
-							<th>Your response</th>
-							<th>The correct answer</th>
+							<th>Pregunta</th>
+							<th>Su respuesta</th>
+							<th>La respuesta correcta</th>
 						</tr>
 						{% if player.question_4_1 == Constants.a4_1 %}
 							<tr class="success">
@@ -166,16 +165,16 @@
 				<div class="table-responsive">
 					<table class="table">
 						<tr>
-							<th>Question</th>
-							<th>Your response</th>
-							<th>The correct answer</th>
+							<th>Pregunta</th>
+							<th>Su respuesta</th>
+							<th>La respuesta correcta</th>
 						</tr>
 						{% if player.question_5 == Constants.a5 %}
 							<tr class="success">
 						{% else %}
 							<tr class="danger">
 						{% endif %}
-								<td>If you miss more than 10 decisions in this stage: What happens to your participation in this experiment</td>
+								<td>Si usted deja de tomar {{ inactive_threshold }} decisiones durante esta parte</td>
 								<td>{{ q_5 }}</td>
 								<td>{{ a5 }}</td>
 							</tr>

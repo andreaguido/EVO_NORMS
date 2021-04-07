@@ -31,7 +31,7 @@ class ShuffleWaitPage(WaitPage):
 
 
 class PreviousResults(Page):
-	timer_text = 'Time left to complete your decisions:'
+	#timer_text = 'Time left to complete your decisions:'
 	def get_timeout_seconds(self):
 		self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.participant.vars['num_rounds']+2))
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
@@ -70,7 +70,7 @@ class PreviousResults(Page):
 class MyPage1(Page):
 	form_model = models.Player
 	form_fields = ['decision_0', 'decision_1_5', 'decision_6_10', 'decision_11_15', 'decision_16_20', 'decision_21_25', 'decision_26_30']
-	timer_text = 'Time left to complete your decisions:'
+	#timer_text = 'Time left to complete your decisions:'
 
 	def get_timeout_seconds(self):
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
@@ -79,6 +79,8 @@ class MyPage1(Page):
 		return {
 			'inactive_threshold': self.session.config['inactive_threshold'],
 			'email': self.session.config['email'],
+			'last_round': self.participant.vars['num_rounds'],
+			'max_expenditure': Constants.endowment/Constants.cost_rate
 		}
 
 	def before_next_page(self):
@@ -118,7 +120,9 @@ class MyPage2(Page):
 ##
 
 class WaitNextRound(Page):
-	timer_text = 'Thank you for making your decisions. You will be shown your earnings in:'
+	#timer_text = 'Thank you for making your decisions. You will be shown your earnings in:'
+	form_model = models.Player
+	form_fields = ['email_paypal']
 
 	def get_timeout_seconds(self):
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()

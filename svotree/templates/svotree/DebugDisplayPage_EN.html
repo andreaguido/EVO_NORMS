@@ -1,0 +1,18 @@
+{% extends "svotree/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+    Slider angle: {{ angle }}<br>
+    Slider classification: {{ classification_slider }}<br>
+    9-item TDM prosocial: {{ tdm_prosocial }}<br>
+    9-item TDM individualistic: {{ tdm_individualistic }}<br>
+    9-item TDM competitive: {{ tdm_competitive }}<br>
+    9-item TDM classification: {{ classification_tdm }}
+
+    {%  next_button %}
+{% endblock %}

@@ -3,7 +3,7 @@
 
 {% block title %}
 	{% if player.inactive < inactive_threshold %}
-		Stage 6: Examples	
+		Parte 6: Ejemplos
 	{% endif %}
 {% endblock %}
 
@@ -16,54 +16,60 @@
 		<div class="container-fluid">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<p>Recall that in each round, you are grouped with {{ Constants.other_players_per_group }} other participants. Each participant receives {{ Constants.endowment }}
-						Tokens each round. Below, we depict some possible situations that may happen during the game. The computations in each example refer to the table cell that indicates
-						the corresponding earnings. You can find the table of earnings <a href="https://drive.google.com/file/d/1DLo2SidZEiFhrayri_aISSFL_3n7giAd/view?usp=sharing" target="_blank">here</a>.
+					<p>Recuerde que en cada ronda será usted agrupado con otros {{ Constants.other_players_per_group }} participantes.
+						Cada participante recibe {{ Constants.endowment }} puntos en cada ronda.
+						A continuación le mostramos ejemplos de situaciones que pueden producirse durante el experimento.
+						Los cálculos en cada ejemplo están referidos a la casilla de la tabla que indica las
+						correspondientes ganancias. Puede ver la tabla de ganancias <a href="https://drive.google.com/file/d/1DLo2SidZEiFhrayri_aISSFL_3n7giAd/view?usp=sharing" target="_blank">aqui</a>.
 					</p>
 
-					<h4>Example 1</h4>
+					<h4>Ejemplo 1</h4>
 
-					<p>You allocated <b>0 tokens</b> to the Common account and the 5 other participants allocated <b>0 tokens</b>
-						overall. As a consequence, the total amount allocated in the Common account is <b>0 tokens</b>.
-						The amount that you allocated to your Private account is 30 (=30-0). Your final earnings are:</p>
+					<p>Usted pone <b>0 puntos</b> en la Cuenta Común y los <b>otros cinco</b> participantes ponen también <b>0 puntos</b>.
+						Por tanto, la cantidad total en la Cuenta Común es de <b>0 puntos</b>.
+						La cantidad que usted ha dejado en su Cuenta Personal es <b>30 puntos</b> (30 - 0). Sus ganancias finales son:</p>
 					<ul>
-						<li>Your earnings from the Common account = 0</li>
-						<li>Your earnings from the Private account = 30</li>
-						<li>Your total earnings (Private + Common) = 30 (see first column - first row of the table)</li>
+						<li>Sus ganancias de la Cuenta Común: 0 puntos </li>
+						<li>Sus ganancias de su Cuenta Personal: 30 puntos</li>
+						<li>Sus ganancias totales en la ronda (Personal + Común): 30 puntos (observe la casilla de la primera fila y primera columna de la tabla)</li>
 					</ul>
 
-					<h4>Example 2</h4>
-					<p>You allocated <b>0 tokens</b> to the Common account and the 5 other participants allocated <b>150 tokens</b>
-						overall (30 tokens each). As a consequence, the total amount allocated in the Common account is <b>150 tokens</b>.
-						The amount that you allocated to the Private account is 30 (=30-0). Your final earnings are:</p>
-					
+					<h4>Ejemplo 2</h4>
+					<p>Usted pone <b>0 puntos</b> en la Cuenta Común y los <b>otros cinco</b> participantes ponen
+						<b>150 puntos</b> entre todos (30 cada uno).
+						Por tanto, la cantidad total en la Cuenta Común es de <b>150 puntos</b>.
+						La cantidad que usted ha dejado en su Cuenta Personal es <b>30 puntos</b> (30 - 0).
+						Sus ganancias finales son:</p>
+
 					<ul>
-						<li>Your earnings from the Common account = 0</li>
-						<li>Your earnings from the Private account = 30</li>
-						<li>Your total earnings (Private + Common) = 30 (see first column - last row of the table)</li>
+						<li>Sus ganancias de la Cuenta Común: 0 puntos </li>
+						<li>Sus ganancias de su Cuenta Personal: 30 puntos</li>
+						<li>Sus ganancias totales en la ronda (Personal + Común): 30 puntos (observe la casilla de la última fila y primera columna de la tabla)</li>
 					</ul>
 
 
-					<h4>Example 3</h4>
-					<p>You allocated <b>30 tokens</b> to the Common account and the 5 other participants allocated <b>0 tokens</b> overall.
-						As a consequence, the total amount allocated in the Common account is 30 tokens. The amount that
-						you allocated to the Private account is 0 (=30-30). Your final earnings are:</p>
+					<h4>Ejemplo 3</h4>
+					<p>Usted pone <b>30 puntos</b> en la Cuenta Común y los <b>otros cinco</b> participantes ponen <b>0 puntos</b> entre todos.
+						Por tanto, la cantidad total en la Cuenta Común es de <b>30 puntos</b>.
+						La cantidad que usted ha dejado en su Cuenta Personal es <b>0 puntos</b> (30 - 30).
+						Sus ganancias finales son:</p>
 
 					<ul>
-						<li>Your earnings from the Common account = 375.3</li>
-						<li>Your earnings from the Private account = 0</li>
-						<li>Your total earnings (Private + Common) = 375.3 (see last column - first row of the table)</li>
+						<li>Sus ganancias de la Cuenta Común:  375.3</li>
+						<li>Sus ganancias de su Cuenta Personal: 0</li>
+						<li>Sus ganancias totales en la ronda (Personal + Común): 375.3 (observe la casilla de la primera fila y última columna de la tabla)</li>
 					</ul>
 
-					<h4>Example 4</h4>
-					<p>You allocated <b>30 tokens</b> to the Common account and the 5 other participants allocated <b>150 tokens</b>
-						overall. As a consequence, the total amount allocated in the Common account is = 180 tokens.
-						The amount that you allocated to the Private account is 0 (=30-30). Your final earnings are:</p>
+					<h4>Ejemplo 4</h4>
+					<p>Usted pone <b>30 puntos</b> en la Cuenta Común y los <b>otros cinco</b> participantes ponen también <b>150 puntos</b> entre todos (30 cada uno).
+						Por tanto, la cantidad total en la Cuenta Común es de <b>30 puntos</b>.
+						La cantidad que usted ha dejado en su Cuenta Personal es <b>0 puntos</b> (30 - 30).
+						Sus ganancias finales son:</p>
 
 					<ul>
-						<li>Your earnings from the Common account = 1.8</li>
-						<li>Your earnings from the Private account = 0</li>
-						<li>Your total earnings (Private + Common) = 0 (see last column - last row of the table)</li>
+						<li>Sus ganancias de la Cuenta Común: 1.8</li>
+						<li>us ganancias de su Cuenta Personal: 0</li>
+						<li>Sus ganancias totales en la ronda (Personal + Común): 0 (observe la casilla de la primera fila y primera columna de la tabla)</li>
 					</ul>
 
 				</div>

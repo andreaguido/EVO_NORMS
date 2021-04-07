@@ -6,7 +6,7 @@ import datetime
 
 
 class IntroClimateExperiment(Page):
-	timer_text = 'Time left to complete your decisions:'
+	#timer_text = 'Time left to complete your decisions:'
 
 	def get_timeout_seconds(self):
 		self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round'])
@@ -22,13 +22,11 @@ class IntroClimateExperiment(Page):
 			'num_subjects_win': self.session.config['num_subjects_win'],
 			'win_multiplier': self.session.config['win_multiplier'],
 			'days': self.session.config['days'],
-			'lang': self.session.config['lang']
 			}
 
 	def before_next_page(self):
 		if self.timeout_happened:
 			self.player.timeout_IntroClimateExperiment = 1
-			self.player.lang = self.session.config['lang']
 
 
 class MyPage(Page):
@@ -41,7 +39,6 @@ class MyPage(Page):
 
 	def vars_for_template(self):
 		return {'email': self.session.config['email'],
-				'lang': self.session.config['lang']
 				}
 
 	def before_next_page(self):

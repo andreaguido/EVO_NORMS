@@ -43,7 +43,7 @@ class ShuffleWaitPage(WaitPage):
 
 # OK
 class Instructions(Page):
-	timer_text = Constants.timer_text
+	#timer_text = Constants.timer_text
 
 	def is_displayed(self):
 		return self.round_number == 1
@@ -55,7 +55,7 @@ class Instructions(Page):
 			'num_subjects_win': self.session.config['num_subjects_win'],
 			'win_multiplier': self.session.config['win_multiplier'],
 			'type': "XXX",
-            'rounds': Constants.num_rounds
+            'rounds': Constants.num_rounds,
 		}
 
 	def get_timeout_seconds(self):
@@ -68,7 +68,7 @@ class Instructions(Page):
 
 # OK
 class Example(Page):
-	timer_text = Constants.timer_text
+	#timer_text = Constants.timer_text
 
 	def is_displayed(self):
 		return self.round_number == 1
@@ -100,7 +100,7 @@ class Example(Page):
 class Control(Page):
 	form_model = models.Player
 	form_fields = ['question_1_1', 'question_1_2', 'question_2_1', 'question_2_2', 'question_3_1', 'question_3_2', 'question_4_1', 'question_4_2', 'question_5']
-	timer_text = Constants.timer_text
+	#timer_text = Constants.timer_text
 
 	def is_displayed(self):
 		return self.round_number == 1
@@ -264,7 +264,7 @@ class PreviousResults(Page):
 			}
 
 class Preparation(Page):
-	timer_text = Constants.timer_text
+	#timer_text = Constants.timer_text
 
 	def get_timeout_seconds(self):
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
@@ -289,7 +289,7 @@ class Preparation(Page):
 class Beliefs_before_PNB(Page):
 	form_model = models.Player
 	form_fields = ['personal_normative_beliefs']
-	timer_text = Constants.timer_text
+	#timer_text = Constants.timer_text
 
 	def get_timeout_seconds(self):
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
@@ -310,7 +310,7 @@ class Beliefs_before_PNB(Page):
 
 class Beliefs_before_EE(Page):
 	form_model = models.Player
-	timer_text = Constants.timer_text
+	#timer_text = Constants.timer_text
 	
 	def get_form_fields(self):
 		return ['empirical_expectations{}'.format(i) for i in range(0, Constants.other_players_per_group)]
@@ -356,7 +356,7 @@ class Beliefs_before_EE(Page):
 
 class Beliefs_before_NE(Page):
 	form_model = models.Player
-	timer_text = Constants.timer_text
+	#timer_text = Constants.timer_text
 
 	def get_form_fields(self):
 		return ['normative_expectations{}'.format(i) for i in range(0, Constants.other_players_per_group)]
@@ -403,7 +403,7 @@ class Beliefs_before_NE(Page):
 class Contribute_uncond(Page):
 	form_model = models.Player
 	form_fields = ['contribution']
-	timer_text = Constants.timer_text
+	#timer_text = Constants.timer_text
 
 	def get_timeout_seconds(self):
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
@@ -579,7 +579,7 @@ class Contribute_uncond(Page):
 #				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
 
 class WaitNextRound1(Page):
-	timer_text = 'Thank you for making your decisions. You will be able to proceed with the experiment in:'
+	#timer_text = 'Thank you for making your decisions. You will be able to proceed with the experiment in:'
 
 	def get_timeout_seconds(self):
 		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
@@ -603,7 +603,7 @@ class ResultsWaitPage1(WaitPage):
 
 
 class WaitNextRound2(Page):
-	timer_text = 'Thank you for making your decisions. You will be able to proceed with the experiment in:'
+	#timer_text = 'Thank you for making your decisions. You will be able to proceed with the experiment in:'
 	timeout_seconds = 1
 
 	def vars_for_template(self):

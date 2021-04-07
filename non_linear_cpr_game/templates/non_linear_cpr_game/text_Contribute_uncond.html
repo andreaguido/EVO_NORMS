@@ -1,4 +1,7 @@
 {% load staticfiles otree_tags %}
+{% block title %}
+Decisión
+{% endblock %}
 
 {% block content %}
 <style>
@@ -41,11 +44,15 @@
 	<div class="container-fluid">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<b>It's time to make your contribution decision</b>
+				<b>Es el momento de decidir cómo distribuir sus puntos.</b>
 			</div>
 
 			<div class="panel-body">
-				<p>How much will you contribute?</p>
+				<p>¿Cuántos puntos quiere poner en la cuenta común en esta ronda?</p>
+				<p>Puede hacer una simulación de sus ganancias dependiendo de su decisión y de la decisión de los
+					otros {{ Constants.other_players_per_group }} participantes en el grupo en esta ronda debajo.</p>
+
+				<p>Pulse “Siguiente” para confirmar su decisión.</p>
 				<div class="row">
 					<div class="col-sm-12">{% formfield player.contribution with label="" %}</div>
 				</div>
@@ -54,15 +61,15 @@
 						<img class="img-responsive" src="{% static "non_linear_cpr_game/Contribute.png" %}" width="250">
 					</div>
 					<div class="col-lg-8">
-						<h3 style="text-align:center;">Simulator</h3>
-						<label for="mycontribution"><b>Your Contribution</b>: <span id="print_mycontribution"></span></label> <br>
+						<h3 style="text-align:center;">Simulador</h3>
+						<label for="mycontribution"><b>Su contribución:</b>: <span id="print_mycontribution"></span></label> <br>
 						<input type="range" min="0" max="30" value="15" step=1 	class="slider" id="mycontribution">
-						<label for="othcontribution" class="pull-left"><b>Others' total contributions</b>: <span id="print_othcontribution"></span></label> <br>
+						<label for="othcontribution" class="pull-left"><b>Contribución total de los otros:</b>: <span id="print_othcontribution"></span></label> <br>
 						<input type="range" min="0" max="150" value="75" class="slider" id="othcontribution"> <br>
-						<p>Your earnings: <span id="print_payoff"></span></p>
+						<p>Sus ganancias: <span id="print_payoff"></span></p>
 					</div>
 				</div>
-				Click <a href="">here</a> to open the table of earnings.
+				Pulse <a href="">aquí</a> para ver el fichero .pdf de la tabla de ganancias.
 			</div>
 		</div>
 		</div>

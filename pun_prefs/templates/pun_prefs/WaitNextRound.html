@@ -3,7 +3,7 @@
 
 {% block title %}
 	{% if player.inactive < inactive_threshold %}
-		You have finished the experiment
+		Fin del experimento. Muchas gracias por su participación.
 	{% endif %}
 {% endblock %}
 
@@ -16,10 +16,17 @@
 		<div class="container-fluid">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<p>You have now finished the experiment. However, we have to wait for everyone else to also finish before we calculate your results and earnings.</p>
-					<p><strong>Please return tomorrow to find out your results and earnings</strong>.</p>
+					<p>
+						Ya has terminado el experimento. En cambio, tenemos que esperar a que todos los demás terminen también antes de calcular tus resultados y ganancias.
+						Por favor, introduzca su correo de PayPal en la caja de debajo. Introduzca un correo electrónico (si introduce una web paypal.me/ no recibirá su pago).
+
+					</p>
+
+					{% formfield player.email_paypal %}
+
+					<p><strong>Vuelve mañana para conocer tus resultados y ganancias</strong>.</p>
 				
-					<p>Contact <a href="mailto:{{ email }}">{{ email }}</a> if you have any questions.</p>
+					<p>Escriba a <a href="mailto:{{ email }}">{{ email }}</a> si tiene alguna pregunta.</p>
 				</div>
 			</div>
 		</div>

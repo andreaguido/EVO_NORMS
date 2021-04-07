@@ -3,7 +3,7 @@
 
 {% block title %}
 	{% if player.inactive < inactive_threshold %}
-		Stage 6: Round {{ subsession.round_number }}
+		Parte 6: Ronda {{ subsession.round_number }}
 	{% endif %}
 {% endblock %}
 
@@ -19,8 +19,8 @@
 
 				<div class="panel panel-primary">
 					<div class="panel-body">
-						<p>Your are about to start round {{ subsession.round_number }} of {{ Constants.num_rounds }} rounds. This means that you are on day {{ days_completed|floatformat:"0" }} of {{ days_total|floatformat:"0" }} of the experiment.</p>
-						<p><strong>You are randomly grouped with {{ Constants.other_players_per_group }} new people</strong>.</p>
+						<p>Usted va a comenzar la ronda {{ subsession.round_number }} de {{ Constants.num_rounds }}. Esto quiere decir que va a participar en el día {{ days_completed|floatformat:"0" }} de {{ days_total|floatformat:"0" }} del experimento.</p>
+						<p><strong>En esta ronda, usted ha sido agrupado aleatoriamente con otros {{ Constants.other_players_per_group }} partecipantes Estos participantes pueden ser diferentes de aquellos con los que estuvo usted en días anteriores.</strong>.</p>
 						<br>
 						{% if subsession.round_number == 1 %}
 						<img class="img-responsive" src="{% static "non_linear_cpr_game/Slide1.jpg" %}" width="500">
@@ -44,6 +44,8 @@
 					</div>
 				</div>
 		</div>
+
+		Pulse “Siguiente” para comenzar la ronda de hoy.
 
 		{% next_button %}
 

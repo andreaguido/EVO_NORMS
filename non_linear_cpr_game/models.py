@@ -45,8 +45,8 @@ class Constants(BaseConstants):
     #Manually set inactive threshold to match that in settings.py. Used only for question_5_text
 
     #question_1_text = "What are your earnings from the Common account?"
-    question_1_text = "What are your earnings from your Private account?"
-    question_2_text = "What are your total earnings from both Private and Common account?"
+    question_1_text = "¿Cuánto gana de su Cuenta Personal?"#What are your earnings from your Private account?"
+    question_2_text = "¿Cuánto son sus ganancias totales de ambas Cuentas, Personal y Común?"#What are your total earnings from both Private and Common account?"
     # set here the text of the questions
 
     a1_1 = 0
@@ -314,8 +314,8 @@ class Player(BasePlayer):
 
     question_5 = models.PositiveIntegerField(
         choices=[
-            [0, "Nothing"],
-            [1, "I will be excluded from the experiment"]
+            [0, "Usted podrá continuar participando en el experimento sin ningún problema."],
+            [1, "Usted será automática y permanentemente expulsado/a del experimento y, en ese caso, no recibirá ningún pago."]
         ]
     )
 

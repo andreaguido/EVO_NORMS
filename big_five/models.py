@@ -33,486 +33,486 @@ class Player(BasePlayer):
 	timeout_MyPage = models.PositiveIntegerField(initial=0)
 
 	q1 = models.PositiveIntegerField(
-			verbose_name="Is talkative:",
-			choices=[
-				[1, "Disagree strongly"],
-				[2, "Disagree a little"],
-				[3, "Neither agree nor disagree"],
-				[4, "Agree a little"],
-				[5, "Agree strongly"],
-			]
-		)
+			verbose_name="Es muy hablador:",
+		choices=[
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
+		]
+	)
 
 	q2 = models.PositiveIntegerField(
-		verbose_name="Tends to find fault with others:",
+		verbose_name="Tiende a ser criticón:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q3 = models.PositiveIntegerField(
-		verbose_name="Does a thorough job:",
+		verbose_name="Es minucioso en el trabajo:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q4 = models.PositiveIntegerField(
-		verbose_name="Is depressed, blue:",
+		verbose_name="Es depresivo, melancólico:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q5 = models.PositiveIntegerField(
-		verbose_name="Is original, comes up with new ideas:",
+		verbose_name="Es original, se le ocurren ideas nuevas:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q6 = models.PositiveIntegerField(
-		verbose_name="Is reserved:",
+		verbose_name="Es reservado:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q7 = models.PositiveIntegerField(
-		verbose_name="Is helpful and unselfish with others:",
+		verbose_name="Es generoso y ayuda a los demás:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q8 = models.PositiveIntegerField(
-		verbose_name="Can be somewhat careless:",
+		verbose_name="Puede a veces ser algo descuidado:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q9 = models.PositiveIntegerField(
-		verbose_name="Is relaxed, handles stress well:",
+		verbose_name="Es calmado, controla bien el estrés:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q10 = models.PositiveIntegerField(
-		verbose_name="Is curious about many different things:",
+		verbose_name="Tiene intereses muy diversos:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q11 = models.PositiveIntegerField(
-		verbose_name="Is full of energy:",
+		verbose_name="Está lleno de energía:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q12 = models.PositiveIntegerField(
-		verbose_name="Starts quarrels with others:",
+		verbose_name="Inicia disputas con los demás:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q13 = models.PositiveIntegerField(
-		verbose_name="Is a reliable worker:",
+		verbose_name="Es un trabajador cumplidor, digno de confianza:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q14 = models.PositiveIntegerField(
-		verbose_name="Can be tense:",
+		verbose_name="Con frecuencia se pone tenso:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q15 = models.PositiveIntegerField(
-		verbose_name="Is ingenious, a deep thinker:",
+		verbose_name="Es ingenioso, analítico:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q16 = models.PositiveIntegerField(
-		verbose_name="Generates a lot of enthusiasm:",
+		verbose_name="Irradia entusiasmo:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q17 = models.PositiveIntegerField(
-		verbose_name="Has a forgiving nature:",
+		verbose_name="Es indulgente, no le cuesta perdonar:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q18 = models.PositiveIntegerField(
-		verbose_name="Tends to be disorganised:",
+		verbose_name="Tiende a ser desorganizado:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q19 = models.PositiveIntegerField(
-		verbose_name="Worries a lot:",
+		verbose_name="Se preocupa mucho por las cosas:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q20 = models.PositiveIntegerField(
-		verbose_name="Has an active imagination:",
+		verbose_name="Tiene una imaginación activa:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q21 = models.PositiveIntegerField(
-		verbose_name="Tends to be quiet:",
+		verbose_name="Tiene a ser callado:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q22 = models.PositiveIntegerField(
-		verbose_name="Is generally trusting:",
+		verbose_name="Es generalmente confiado:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q23 = models.PositiveIntegerField(
-		verbose_name="Tends to be lazy:",
+		verbose_name="Tiende a ser perezoso, vago:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q24 = models.PositiveIntegerField(
-		verbose_name="Is emotionally stable, not easily upset:",
+		verbose_name="Es emocionalmente estable, difícil de alterar:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q25 = models.PositiveIntegerField(
-		verbose_name="Is inventive:",
+		verbose_name="Es inventivo:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q26 = models.PositiveIntegerField(
-		verbose_name="Has an assertive personality:",
+		verbose_name="Es asertivo, no teme expresar lo que quiere:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q27 = models.PositiveIntegerField(
-		verbose_name="Can be cold and aloof:",
+		verbose_name="Es a veces frío y distante:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q28 = models.PositiveIntegerField(
-		verbose_name="Perseveres until the task is finished:",
+		verbose_name="Persevera hasta terminar el trabajo:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q29 = models.PositiveIntegerField(
-		verbose_name="Can be moody:",
+		verbose_name="Es temperamental, de humor cambiante:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q30 = models.PositiveIntegerField(
-		verbose_name="Values artistic, aesthetic experiences:",
+		verbose_name="Valora lo artístico, lo estético:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q31 = models.PositiveIntegerField(
-		verbose_name="Is sometimes shy, inhibited:",
+		verbose_name="Es a veces tímido, inhibido:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q32 = models.PositiveIntegerField(
-		verbose_name="Is considerate and kind to almost everyone:",
+		verbose_name="Es considerado y amable con casi todo el mundo:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q33 = models.PositiveIntegerField(
-		verbose_name="Does things efficiently:",
+		verbose_name="Hace las cosas de manera eficíente:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q34 = models.PositiveIntegerField(
-		verbose_name="Remains calm in tense situations:",
+		verbose_name="Mantiene la calma en situaciones difíciles:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q35 = models.PositiveIntegerField(
-		verbose_name="Prefers work that is routine:",
+		verbose_name="Prefiere trabajos que son rutinarios:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q36 = models.PositiveIntegerField(
-		verbose_name="Is outgoing, sociable:",
+		verbose_name="Es extrovertido, sociable:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q37 = models.PositiveIntegerField(
-		verbose_name="Is sometimes rude to others:",
+		verbose_name="Es a veces maleducado con los demás:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q38 = models.PositiveIntegerField(
-		verbose_name="Makes plans and follows through with them:",
+		verbose_name="Hace planes y los sigue cuidadosamente:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q39 = models.PositiveIntegerField(
-		verbose_name="Gets nervous easily:",
+		verbose_name="Se pone nervioso con facilidad:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q40 = models.PositiveIntegerField(
-		verbose_name="Likes to reflect, play with ideas:",
+		verbose_name="Le gusta reflexionar, jugar con las ideas:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q41 = models.PositiveIntegerField(
-		verbose_name="Has few artistic interests:",
+		verbose_name="Tiene pocos intereses artísticos:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q42 = models.PositiveIntegerField(
-		verbose_name="Likes to cooperate with others:",
+		verbose_name="Le gusta cooperar con los demás:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q43 = models.PositiveIntegerField(
-		verbose_name="Is easily distracted:",
+		verbose_name="Se distrae con facilidad:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 
 	q44 = models.PositiveIntegerField(
-		verbose_name="Is sophisticated in art, music, or literature:",
+		verbose_name="Es educado en arte, música, o literatura:",
 		choices=[
-			[1, "Disagree strongly"],
-			[2, "Disagree a little"],
-			[3, "Neither agree nor disagree"],
-			[4, "Agree a little"],
-			[5, "Agree strongly"],
+			[1, "Muy en desacuerdo"],
+			[2, "Ligeramente en desacuerdo"],
+			[3, "Ni de acuerdo ni en desacuerdo"],
+			[4, "Ligeramente de acuerdo"],
+			[5, "Muy de acuerdo"],
 		]
 	)
 

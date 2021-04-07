@@ -1,0 +1,82 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	Stage 2
+{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				<h4>Instructions</h4>
+
+				<p>For Stage 2 you will choose one gamble from among six different gambles. Each gamble has two possible outcomes <i>HEADS</i> or <i>TAILS</i> that occur with 50% probability. Your compensation for this part of the study will be determined by:</p>
+
+				<ul>
+					<li>which of the six gambles you select; and</li>
+					<li>which of the two possible events occur.</li>
+				</ul>
+
+				<p>For example, if you select Gamble 4 and <i>HEADS</i> occurs, you will receive {{ Constants.choice_4_high }} points. If <i>TAILS</i> occurs, you will receive {{ Constants.choice_4_low }} points.</p>
+
+				<p>At the end of the study, the computer will flip a virtual coin to determine which event will occur. If the coin comes up heads then the outcome is <i>HEADS</i> then you will get the payoff in that column. If the coin shows tails then the outcome is <i>TAILS</i> and you will get the outcome in that column. The six different gambles are listed below. Select one gamble using the input box at the bottom of the screen.</li></p>
+
+				<p>Contact <a href="mailto:{{ email }}">{{ email }}</a> if you have any questions.</p>
+
+				<div class="table-responsive">
+				<table class="table">
+					<tr>
+						<th style="text-align:center">GAMBLE</th>
+						<th style="text-align:center">HEADS</th>
+						<th style="text-align:center">TAILS</th>
+					</tr>
+					<tr>
+						<td style="text-align:center">Gamble 1</td>
+						<td style="text-align:center">{{ Constants.choice_1_high }} points</td>
+						<td style="text-align:center">{{ Constants.choice_1_low }} points</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">Gamble 2</td>
+						<td style="text-align:center">{{ Constants.choice_2_high }} points</td>
+						<td style="text-align:center">{{ Constants.choice_2_low }} points</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">Gamble 3</td>
+						<td style="text-align:center">{{ Constants.choice_3_high }} points</td>
+						<td style="text-align:center">{{ Constants.choice_3_low }} points</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">Gamble 4</td>
+						<td style="text-align:center">{{ Constants.choice_4_high }} points</td>
+						<td style="text-align:center">{{ Constants.choice_4_low }} points</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">Gamble 5</td>
+						<td style="text-align:center">{{ Constants.choice_5_high }} points</td>
+						<td style="text-align:center">{{ Constants.choice_5_low }} points</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">Gamble 6</td>
+						<td style="text-align:center">{{ Constants.choice_6_high }} points</td>
+						<td style="text-align:center">{{ Constants.choice_6_low }} points</td>
+					</tr>
+				</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<b>Make your selection below</b>
+			</div>
+
+			<div class="panel-body">
+				<p>{% formfield player.choice with label="" %}</p>
+			</div>
+		</div>
+	</div>
+	{% next_button %}
+{% endblock %}
+
+

@@ -3,7 +3,7 @@
 
 {% block title %}
 	{% if player.inactive < inactive_threshold %}
-		Stage 6: Questions
+		Parte 6: Cuestionario
 	{% endif %}
 {% endblock %}
 
@@ -16,13 +16,13 @@
 		<div class="container-fluid">
 			<div class="panel panel-primary">
 				<div class="panel-body">
-					<p>Please answer the questions below. These are here to help you understand Stage 6 better. Your answers do not affect your earnings in any way. Remember, you can find the full instructions of the experiment in a box at the bottom of your screen (scroll down if you do not see it).</p> 
+					<p>Por favor, conteste a las preguntas que le hacemos a continuación. Lo hacemos para ayudarle a entender mejor la parte 6. Sus respuestas aquí no afectan para nada a sus pagos. Recuerde, tiene las instrucciones completas del experimento en la caja al final de esta pantalla (desplace el curso hacia abajo si no la ve).</p>
 				</div>
 			</div>
 
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<b>If you allocate 5 Tokens to the Common Account, and the other 5 participants in your group allocate 0 Tokens overall:</b>
+					<b>Pregunta 1: Si usted pone 5 puntos en la Cuenta Común, y los otros participantes ponen 0 puntos entre todos:</b>
 				</div>
 
 				<div class="table-responsive">
@@ -43,7 +43,7 @@
 
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<b>If you allocate 5 Tokens to the Common Account, and the other 5 participants in your group allocate 150 Tokens overall:</b>
+					<b>Pregunta 2: Si usted pone 5 puntos en la cuenta común, y los otros participantes ponen 150 puntos entre todos:</b>
 				</div>
 
 				<div class="table-responsive">
@@ -64,7 +64,7 @@
 
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<b>If you allocate 28 Tokens to the Common Account, and the other 5 participants in your group allocate 0 Tokens overall:</b>
+					<b>Pregunta 3: Si usted pone 28 puntos en la cuenta común, y los otros participantes ponen 150 puntos entre todos:</b>
 				</div>
 
 				<div class="table-responsive">
@@ -83,7 +83,7 @@
 
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<b>If you allocate 28 Tokens to the Common Account, and the other 5 participants in your group allocate 150 Tokens overall:</b>
+					<b>Pregunta 4: Si usted pone 28 puntos en la cuenta común, y los otros participantes ponen 5 puntos entre todos:</b>
 				</div>
 
 				<div class="table-responsive">
@@ -102,13 +102,13 @@
 
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<b>If you miss more than {{ inactive_threshold }} decisions in this stage: </b>
+					<b>Seleccione la opción correcta:</b>
 				</div>
 			</div>
 				<div class="table-responsive">
 					<table class="table">
 						<tr>
-							<td>What happens to your participation in this experiment? </td>
+							<td>Si usted deja de tomar {{ inactive_threshold }} decisiones durante esta parte</td>
 							<td>{% formfield player.question_5 with label="" %}</td>
 						</tr>
 					</table>

@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block styles %}
+	<link href="{% static 'custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+    Stage 2
+{% endblock %}
+
+{% block content %}
+
+	<div class="panel panel-primary" id="info">
+		<p>You have completed Stage 2 of the experiment. You will now move to Stage 3.</p>
+	</div>
+
+    {% next_button %}
+{% endblock %}
+
+

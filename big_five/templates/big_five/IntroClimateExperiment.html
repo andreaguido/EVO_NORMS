@@ -2,41 +2,52 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-	Welcome
+	Bienvenido/a
 {% endblock %}
 
 {% block content %}
 		<div class="container-fluid">
 			<div class="panel panel-primary">
 				<div class="panel-body" style="text-align:justify">
-					<p>Welcome and thank you for participating in this experiment.
-						This experiment consists of <b>seven stages</b> that will take place over <b>{{ days }} days</b>.
-						You will begin by completing the first <b>five stages</b> today which will take approximately 20 minutes.
-						Do this after reading the instructions. These stages are mandatory and you will be automatically excluded
-						if you do not complete them. You will have until tomorrow at <b>10:00am</b> to make your decisions in the
-						first five stages. After, you will move to the sixth stage. You can make your first choice in stage six tomorrow.
-						Subsequently you will participate in one round of stage six every day. You will have until the <b>10:00am</b>
-						the following day to make your decisions. Your decisions in this stage will take a few minutes each day.</p>
+					<p>Bienvenido/a y gracias por participar en este experimento.
+						El experimento consta de siete partes que tendrán lugar durante {{ days }} días.
+						Usted comenzará por las cinco primeras partes, lo que le llevará aproximadamente 20 minutos.
+						Por favor, hágalo nada más leer estas instrucciones. Estas partes son obligatorias y si no las completa quedará excluido/a del experimento. Tiene hasta mañana a las 10 de la mañana, hora de verano penínsular de España (CEST), para completar las primeras cinco partes. Después de eso, pasará a la sexta parte. Tomará su primera decisión de la parte 6 mañana.
+						A partir de ahí, participará en una nueva ronda de la sexta parte el resto de días. Cada día tendrá hasta las 10 de la mañana, hora de verano penínsular de España (CEST) del día siguiente para tomar su decisión. Sus decisiones en esta parte le llevarán tan solo unos pocos minutos por día.
+						Finalmente, llegará usted a la última parte, la séptima.
 
-					<h4>Important rules</h4>
+					<h4>Reglas importantes</h4>
 					<ul>
-						<li>Your participation is voluntary and you are free to leave the experiment at any point. In that case however you will not receive payment.</li>
-						<li>We ask you not to communicate with the other participants and generally to make your decisions independently. Please do not share your link with anyone else.</li>
-						<li>The answers you provide will be kept confidential. The researchers who process the data from the experiment will not be able to match your name to your choices.</li>
-						<li>There is absolutely no deception at any point in this experiment: what we say, we will do.</li>
+						<li>Su participación es voluntaria y puede retirarse del experimento en cualquier momento. Eso sí, si se retira no recibirá ningún pago.</li>
+						<li>Le pedimos encarecidamente que no se comunique con ningún otro participante y, en general, que tome sus decisiones independientemente. Por favor, no comparta su enlace personal de participación con nadie. </li>
+						<li>Sus respuestas deben ser confidenciales. Los investigadores que analizarán los datos del experimento no podrán relacionar su identidad con sus decisiones de ninguna manera. </li>
+						<li>Durante todo el experimento no se le mentirá ni engañará en forma alguna: aquello que decimos, lo hacemos.</li>
 					</ul>
 
 					<h4>Payment</h4>
-					<p>You will be paid at the end of this experiment. Your payment will be the sum of what you earn in each stage.
-						Every <b>10 points that you earn will be turned into €1</b>. The amount you earn will depend partly on your choices,
-						partly on the choices of the other participants, and partly on chance. You will be paid directly on your PayPal account so that none of the other participants will know how much you earned. Additional instructions about your earnings will follow.</p>
+					<p>Se le pagará al final del experimento vía PayPal. Su pago será la suma de todas sus ganancias de
+						cada parte. Por cada 10 puntos que usted gane recibirá 1 euro. Sus ganancias dependerán en parte
+						de sus decisiones y en parte de las de otros participantes. Se le pagará directamente en su
+						cuenta de PayPal de manera que los otros participantes no podrán saber cuánto ha ganado. Se le
+						darán instrucciones adicionales sobre sus ganancias más adelante. </p>
 
-					<p>If you do not finish your choices today or you miss <b>{{ inactive_threshold }} decisions</b> during the experiment you will be <b>automatically and permanently</b> excluded from the experiment. If you are excluded you will not be paid.</p>
+					<p>Si no completa las decisiones de hoy o deja de tomar <b>{{ inactive_threshold }} decisiones</b> durante el experimento, será
+						automática y permanentemente expulsado/a del experimento y, en ese caso, no recibirá ningún pago.
 
-					<p>At the end of the experiment, {{ num_subjects_win }} people who successfully complete it will be randomly selected to win a bonus. This bonus multiplies the earnings of those people by {{ win_multiplier }}. This means that the <strong>randomly selected people can earn up to €100 for their decision</strong> in addition to the rest of their payoffs.</p>
+					<p>Al final del experimento, se seleccionará al azar a {{ num_subjects_win }} participantes entre
+					todos los que hayan
+					completado todas las partes del experimento. Los/as seleccionados/as recibirán un pago adicional,
+					consistente en que sus ganancias se multiplicarán por {{ win_multiplier }}. Garantizamos que esta
+					persona seleccionada
+					al azar ganará al menos 100 euros, a añadir al resto de sus pagos.
 
-					<h4>Further information</h4>
-					<p>Once you click 'Next' on a screen you will not be able to go back to the previous screen so please read the instructions carefully. However, we will show you relevant instructions throughout the experiment. If you have any questions during the experiment contact <a href="mailto:{{ email }}">{{ email }}</a>. When you are ready to proceed, click 'Next' below.</p>
+
+					<h4>Información adicional</h4>
+					<p>Una vez pinche en el botón “Siguiente” no podrá volver a la pantalla anterior, así que por favor,
+						lea cuidadosamente las instrucciones. En todo caso, le mostraremos instrucciones relevantes
+						durante el experimento. Si tiene alguna pregunta durante el experimento escriba a
+						<a href="mailto:{{ email }}">{{ email }}</a>. Cuando esté listo para continuar, pulse
+						en “Siguiente” abajo.</p>
 				</div>
 			</div>
 		</div>

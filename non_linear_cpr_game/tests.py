@@ -28,7 +28,7 @@ class PlayerBot(Bot):
 		if self.player.inactive < self.session.config['inactive_threshold']:
 
 			yield (views.Preparation)
-			if self.participant.id_in_session == 1:
+			if self.participant.id_in_session == 1 | self.participant.id_in_session == 9:
 				yield Submission(views.Beliefs_before_PNB, timeout_happened=True, check_html=False)
 				yield Submission(views.Beliefs_before_EE, timeout_happened=True, check_html=False)
 				yield Submission(views.Beliefs_before_NE, timeout_happened=True, check_html=False)

@@ -18,7 +18,9 @@ class PlayerBot(Bot):
 #			})
 #		assert self.player.slider2_self == 92		#slight rounding issue: to be sorted out
 #		assert self.player.slider2_other == 32
-		if self.participant.id_in_session == 999999999999999999999999:
+		if self.participant.id_in_session == 1:
+			yield Submission(views.SliderPrimaryContinuous, check_html=False, timeout_happened=True)
+		elif self.participant.id_in_session == 9:
 			yield Submission(views.SliderPrimaryContinuous, check_html=False, timeout_happened=True)
 		else:
 			yield (views.SliderPrimaryContinuous, {

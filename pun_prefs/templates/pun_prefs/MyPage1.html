@@ -3,7 +3,7 @@
 
 {% block title %}
 	{% if player.inactive < inactive_threshold %}
-		Stage 7
+		Parte 7
 	{% endif %}
 {% endblock %}
 
@@ -17,11 +17,30 @@
 			<div class="panel panel-primary">
 				<div class="panel-body">
 					<h4>Instructions</h4>
-					<p>You have been randomly paired with another person from the experiment. This other person is someone
-						you do not know and you will both remain mutually anonymous. All of your choices are completely confidential.</p>
-					<p>Everyone, including you, receives {{ Constants.endowment }} Tokens. You will be told what the person you
-						are matched with did in round 42 of Stage 6.
-						You have to decide whether to spend some of your points or not to deduct the points of the person
+					<p>Se le ha emparejado aleatoriamente con otro participante en el experimento. Esa otra persona es alguien que usted no conoce ni tampoco ella sabe quién es usted. Todas sus decisiones serán confidenciales.</p>
+					<p>
+
+
+						Todos los participantes, incluido usted, reciben {{ Constants.endowment }} puntos.
+
+						Se le mostrarán 6 posibles distribuciones de sus puntos (por ejemplo, de 0 a 5, de 6 a 10, …,
+						30) que la persona con la que se le ha emparejado podría haber elegido en la ronda {{ last_round }} de la Parte 6.
+
+						Para cada posible franja de decisiones, usted deberá decidir si quiere gastar algunos de sus
+						puntos o no en restar puntos de las ganancias de la persona con la que se le ha emparejado.
+						Por tanto, tomará usted 6 decisiones.
+
+						Por cada franja de decisión, usted puede destinar hasta {{ max_expenditure }} de sus puntos.
+						Cada punto que usted destine reducirá los puntos de la otra persona en
+						{{ Constants.cost_rate }} puntos.
+						Es decir, si usted gasta 10 puntos le restará 30 puntos a la persona con la que se le ha emparejado.
+
+						La otra persona con la que se le ha emparejado también decidirá si reducir o no sus ganancias de usted basándose en su decisión de la ronda {{ last_round }} de la Parte 6.
+
+
+
+
+						<!--You have to decide whether to spend some of your points or not to deduct the points of the person
 						you are paired with. You can spend up to 10 XXX of your points to do this. Every 1 point you spend reduces
 						the points of the other person by {{ Constants.cost_rate }} points. So if you spend 10 points you remove 30 points from the
 						person you are matched with.</p>
@@ -29,44 +48,44 @@
 						based on your allocation in round 42 of the previous stage.</p>
 					<p>At the end of the experiment, the computer randomly selects whether your choice is implemented
 						and you deduct points from the other person or the choice of the other person is implemented
-						and he or she deducts points from you.</p>
-					<p>If you do not make your decisions here you will automatically earn nothing for this stage.</p>
-					<p>Contact <a href="mailto:{{ email }}">{{ email }}</a> if you have any questions.</p>
+						and he or she deducts points from you.</p>-->
+					<p>Si no tomas tus decisiones aquí, automáticamente no ganarás nada por esta parte.</p>
+					<p>Escriba a <a href="mailto:{{ email }}">{{ email }}</a> si tiene alguna pregunta.</p>
 				</div>
 			</div>
 
 			<div class="panel panel-primary">
 				<div class="panel-heading">
-					<b>How many points do you deduct from the person you are matched with if he or she contributed:</b>
+					<b>¿Cuántos puntos quiere usted asignar a reducir las ganancias de la persona con la que se le ha emparejado si él/ella puso en el fondo común</b>
 				</div>
 
 				<div class="panel-body">
 					<div class="row">
-						<div class="col-sm-6" align="left">0 Tokens</div>
+						<div class="col-sm-6" align="left">0 puntos</div>
 						<div class="col-sm-6" align="left">{% formfield player.decision_0 with label="" %}</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-6" align="left">from 1 to 5 Tokens</div>
+						<div class="col-sm-6" align="left">de 1 a 5 puntos</div>
 						<div class="col-sm-6" align="left">{% formfield player.decision_1_5 with label="" %}</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-6" align="left">from 6 to 10 Tokens</div>
+						<div class="col-sm-6" align="left">de 6 a 10 puntos</div>
 						<div class="col-sm-6" align="left">{% formfield player.decision_6_10 with label="" %}</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-6" align="left">from 11 to 15 Tokens</div>
+						<div class="col-sm-6" align="left">de 11 a 15 puntos</div>
 						<div class="col-sm-6" align="left">{% formfield player.decision_11_15 with label="" %}</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-6" align="left">from 16 to 20 Tokens</div>
+						<div class="col-sm-6" align="left">de 16 a 20 puntos</div>
 						<div class="col-sm-6" align="left">{% formfield player.decision_16_20 with label="" %}</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-6" align="left">from 21 to 25 Tokens</div>
+						<div class="col-sm-6" align="left">de 21 a 25 puntos</div>
 						<div class="col-sm-6" align="left">{% formfield player.decision_21_25 with label="" %}</div>
 					</div>
 					<div class="row">
-						<div class="col-sm-6" align="left">from 26 to 30 Tokens</div>
+						<div class="col-sm-6" align="left">de 26 a 30 puntos</div>
 						<div class="col-sm-6" align="left">{% formfield player.decision_26_30 with label="" %}</div>
 					</div>
 				</div>

@@ -12,7 +12,10 @@
 		{% endif %}
 				<div class="panel-body">
 					{% if type == "reminder" %}
-						<p><strong>You have missed <span style="color:blue">{{ player.inactive }} decision{% if player.inactive != 1 %}s{% endif %}</span> from the experiment so far. You will be excluded if you miss <span style="color:blue">{{ inactive_threshold }} decisions</span> and will not receive any payment for your participation.</strong></p>
+						<p><strong>You have missed <span style="color:blue">{{ player.inactive }}
+							decision{% if player.inactive != 1 %}s{% endif %}</span> from the experiment so far.
+							You will be excluded if you miss <span style="color:blue">{{ inactive_threshold }} decisions</span>
+							and will not receive any payment for your participation.</strong></p>
 						<br>
 					{% endif %}
 

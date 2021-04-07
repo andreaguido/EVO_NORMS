@@ -3,7 +3,7 @@
 {% block styles %}
 	<style>
 		.otree-timer {
-	    	display: none;
+			display: none;
 		}
 	</style>
 {% endblock %}
@@ -12,9 +12,12 @@
 	<div class="container-fluid">
 		<div class="panel panel-primary">
 			<div class="panel-body">
-				<h4>You have been excluded from the experiment</h4>
-				<p>Since you did not submit your decisions in {{ inactive_threshold }} or more days of the experiment you have been automatically excluded from this experiment. Consequently you will only receive your show-up fee. Although we thank you for signing up for this experiment, in the future please ensure that you do make your decisions.</p>
+				<h4>Usted ha sido excluido/a del experimento</h4>
+				<p>O bien no tomó sus decisiones del primer día, o bien usted no tomó decisiones en {{ inactive_threshold }}
+					días del experimento, y ha sido excluido/a automáticamente. Desafortunadamente, esto quiere decir
+					que no recibirá ningún pago por su participación. Le agradecemos que se haya inscrito participar
+					y en futuros experimentos por favor asegúrese de tomar sus decisiones.</p>
 			</div>
 		</div>
-	<div class="container-fluid">
+	</div>
 {% endblock %}

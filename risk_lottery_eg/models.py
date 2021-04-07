@@ -46,12 +46,12 @@ class Player(BasePlayer):
 
 	choice = models.PositiveIntegerField(
 		choices=[
-			[0, "Gamble 1"],
-			[1, "Gamble 2"],
-			[2, "Gamble 3"],
-			[3, "Gamble 4"],
-			[4, "Gamble 5"],
-			[5, "Gamble 6"],
+			[0, "Apuesta 1"],
+			[1, "Apuesta 2"],
+			[2, "Apuesta 3"],
+			[3, "Apuesta 4"],
+			[4, "Apuesta 5"],
+			[5, "Apuesta 6"],
 		]
 	)
 

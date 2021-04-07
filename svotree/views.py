@@ -44,7 +44,7 @@ class SliderPrimaryContinuous(Page):
                    'slider5',
                    'slider6',
                 ]
-    timer_text = 'Time left to complete your decisions:'
+    #timer_text = 'Time left to complete your decisions:'
 
     def get_timeout_seconds(self):
         return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
@@ -70,7 +70,7 @@ class SliderPrimaryContinuous(Page):
         self.player.slider_classification = slider.svo_classification(svo_slider_angle)
         self.player.payoff_precursor()
         if self.timeout_happened:
-            self.player.inactive = self.session.config['inactive_threshold'] # should be uncommented when running
+            self.player.inactive = self.session.config['inactive_threshold']  # should be uncommented when running
             self.player.timeout_SliderPrimaryContinuous = 1
 
 
@@ -125,7 +125,7 @@ class Results(Page):
 
 class WaitNextRound(Page):
 
-    timer_text = 'Thank you for making your decisions. You will be able to proceed with the experiment in:'
+    #timer_text = 'Thank you for making your decisions. You will be able to proceed with the experiment in:'
 
     def get_timeout_seconds(self):
         return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
@@ -133,6 +133,7 @@ class WaitNextRound(Page):
     def vars_for_template(self):
         return {
             'email': self.session.config['email'],
+            'win_multiplier': self.session.config['win_multiplier'],
             'inactive_threshold': self.session.config['inactive_threshold']
             }
 

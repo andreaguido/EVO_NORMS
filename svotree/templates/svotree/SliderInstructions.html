@@ -5,29 +5,29 @@
 {% endblock %}
 
 <div class="panel panel-primary" id="info">
-		<h4>Instructions</h4>
+		<h4>Instrucciones</h4>
 
-			<p>You have been randomly paired with another person, whom we will refer to as <strong>the other</strong>. This other person is someone you do not know. Both of you will remain mutually anonymous and all of your choices are completely confidential.</p>
+			<p>Usted ha sido emparejado con otra persona elegida al azar, a la que nos referiremos como <strong>contraparte</strong>. Usted no conoce a su contraparte ni a la inversa, y continuarán sin conocerse tras el experimento. Todas sus elecciones son completamente confidenciales.</p>
 		
-			<p>You will be making a series of decisions about allocating resources between you and this other person. For each of the following questions, please indicate the distribution you prefer most by <strong>moving the slider along the scale to your preferred payoff allocation</strong>. You can only make one selection for each decision.</p>
+			<p>Va usted a tomar una serie de decisiones sobre distribución de recursos entre usted y su contraparte. Para cada una de las preguntas que verá a continuación, por favor indique la distribución que usted prefiere <strong>moviendo la correspondiente escala deslizante hasta la posición del reparto de su elección</strong>. Para cada pregunta sólo puede dar una respuesta, la elegida con la escala deslizante.</p>
 
-			<p>Your decisions will yield money for both yourself and the other person. In the example below, a person has chosen to distribute money so that he/she receives 50 points, while the anonymous other person receives 40 points.</p>
+			<p>Sus decisiones conllevan una asignación de dinero tanto para usted como para su contraparte. En el ejemplo que figura debajo, se ha elegido distribuir dinero de manera que el que hace la elección recibe 50 puntos, mientras que su contraparte recibe 40 puntos.</p>
 
-			<p>There are no right or wrong answers, this is all about personal preferences. After you have made your decision, <strong>make it final by pressing the Confirm button to the right of the scale.</strong> As you can see, your choices will influence both the amount of points you receive and the amount of points the other receives. When you have made all your decisions, <strong>press the 'Next' button at the bottom of the screen</strong> to complete this decision stage.</p>
+			<p>No hay respuestas correctas ni equivocadas, esto se refiere a sus preferencias. Tras hacer cada decisión, <strong>confírmela con el botón “Confirmar” a la derecha de la escala</strong>. Como puede ver, sus decisiones influirán tanto en la cantidad de puntos que recibe como en la cantidad de puntos que recibe su contraparte. Cuando haya tomado todas sus decisiones, <strong>presione “Siguiente” en la parte inferior de la pantalla </strong>para terminar esta fase.</p>
 
-			<p>At the end of the experiment, one person from each pair will be randomly chosen, and one of the decisions that this person made will be applied. This will determine the earnings you both receive in this stage. In other words, if you are selected, then one of your choices will determine the payoff that both you and the other person receive. If you are not selected, then a randomly selected choice made by the other person will be implemented, and your earnings will depend on the choice he/she made about the distribution of resources. The selection will be at random, and neither of you will know beforehand whose decision will be applied.</p>
+			<p>Al final del experimento, se decidirá al azar una persona de cada pareja, y se aplicará una de las decisiones que esta persona tomó. Esto determinará las ganancias que ambos recibirán en esta fase. En otras palabras, si se le selecciona a usted, una de sus decisiones determinará los pagos que recibirán usted y su contraparte. En caso contrario, serán las decisiones de su contraparte las que los determinen. La selección será al azar y ninguno de los dos sabrá de antemano qué decisión se aplicará.</p>
 
-			<p>Contact <a href="mailto:{{ email }}">{{ email }}</a> if you have any questions.</p>
+			<p>Contáctenos <a href="mailto:{{ email }}">{{ email }}</a> si tiene alguna pregunta.</p>
 
 				<div class="panel-body" style="margin-top: 2em; margin-bottom: 2em; border: 1px solid #ddd">
 			 <div class="row"">
-					 <div class="col-sm-2" align="center"><strong>EXAMPLE</strong></div>
+					 <div class="col-sm-2" align="center"><strong>EJEMPLO</strong></div>
 					 <div class="col-sm-1"></div>
 					 <div class="col-sm-7"></div>
 					 <div class="col-sm-2"></div>
 			 </div>
 			 <div class="row">
-					 <div class="col-sm-2" align="center">You receive</div>
+					 <div class="col-sm-2" align="center">Usted recibe</div>
 					 <div class="col-sm-1" align="center"><span class="slider-value">50</span></div>
 					 <div class="col-sm-7"><div class="slider-reference"><div class="value-start">30</div><div class="value-end">70</div></div></div>
 					 <div class="col-sm-2"></div>
@@ -42,10 +42,10 @@
 								<input id="example" type="text" data-slider-tooltip="hide" data-slider-min="0" data-slider-max="100" data-slider-step="0.1" data-slider-value=50 data-slider-enabled="false"/>
 						</div>
 						{% endif %}
-					 <div class="col-sm-2"><button type="button" class="btn btn-primary btn-large" disabled="True">Confirm</button></div>
+					 <div class="col-sm-2"><button type="button" class="btn btn-primary btn-large" disabled="True">Confirmar</button></div>
 			 </div>
 			 <div class="row">
-					 <div class="col-sm-2" align="center">Other receives</div>
+					 <div class="col-sm-2" align="center">Su contraparte recibe</div>
 					 <div class="col-sm-1" align="center"><span class="slider-value"">40</span></div>
 					 <div class="col-sm-7"><div class="slider-reference"><div class="value-start">80</div><div class="value-end">0</div></div></div>
 					 <div class="col-sm-2"></div>

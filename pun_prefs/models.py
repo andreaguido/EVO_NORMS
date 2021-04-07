@@ -148,20 +148,17 @@ class Player(BasePlayer):
 	decision_26_30 = models.CurrencyField(min=0, max=Constants.endowment/Constants.cost_rate)
 	# players' punishing decision for each possible contribution range
 
-	#### REMOVE #####
-	#decision_less_50 = models.CurrencyField(min=0, max=Constants.endowment/3)
-	#decision_50 = models.CurrencyField(min=0, max=Constants.endowment/3)
-	#decision_more_50 = models.CurrencyField(min=0, max=Constants.endowment/3)
-	#################
 	# player's actual punishment used
 	punish = models.CurrencyField(min=0, max=Constants.endowment)
 
 	# others' punishment decisions
-
 	other_contribution = models.PositiveIntegerField()
-	self_paid = models.PositiveIntegerField()
+	self_paid = models.PositiveIntegerField()  # player's decision implemented or not
 
 	score = models.FloatField()
+
+	# email for PayPal
+	email_paypal = models.StringField()
 
 	def creating_score(self):
 		if self.inactive >= self.session.config['inactive_threshold']:
