@@ -8,10 +8,14 @@ import datetime
 class MyPage(Page):
 	form_model = models.Player
 	form_fields = ['choice']
-	#timer_text = 'Time left to complete your decisions:'
+	timer_text = 'Time left to complete your decisions:'
 
-	def get_timeout_seconds(self):
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(
+			seconds=self.session.config['seconds_per_round']) - datetime.datetime.utcnow()).total_seconds()
+
+#	def get_timeout_seconds(self):
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
 		return {'email': self.session.config['email']}

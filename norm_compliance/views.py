@@ -7,15 +7,17 @@ import datetime
 
 
 class Info(Page):
+    # ANDREA
+    def set_extra_attributes(self):
+        self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']) - datetime.datetime.utcnow()).total_seconds()
 
-    def get_timeout_seconds(self):
-        self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(
-            seconds=self.session.config['seconds_per_round'])
-        print("This is EXPIRY ", self.participant.vars['expiry'])
-        print("this is TIME now ", datetime.datetime.utcnow())
-        print("This is what is DISPLAYED ",
-              (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds())
-        return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+#    def get_timeout_seconds(self):
+#        self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(
+#            seconds=self.session.config['seconds_per_round'])
+#        print("This is EXPIRY ", self.participant.vars['expiry'])
+#        print("this is TIME now ", datetime.datetime.utcnow())
+#        print("This is what is DISPLAYED ", self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds())
+#        return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
     def is_displayed(self):
         return self.subsession.round_number == 1

@@ -6,9 +6,9 @@ from otree.api import Submission
 
 
 class PlayerBot(Bot):
-
+	# AND
 	def play_round(self):
-		yield Submission(views.MyPage, timeout_happened=True, check_html=False)
+		yield Submission(views.MyPage)
 		
 #		if self.player.inactive < self.session.config['inactive_threshold']:
 #			yield (views.MyPage, {'feedback': "blah"})
