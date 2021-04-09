@@ -103,7 +103,7 @@ class Group(BaseGroup):
 			else:
 				p.payoff = p.payoff_svo + p.risk_lottery_payoff + p.payoff_norm_compliance +\
 						   p.game_total_payoff + p.punishment_payoff
-				p.payoff_euros = round(p.payoff/30, 0)
+				p.payoff_euros = round(p.payoff/self.session.config['puntos_euro_rate'], 0) + 5
 
 class Player(BasePlayer):
 	inactive = models.PositiveIntegerField()

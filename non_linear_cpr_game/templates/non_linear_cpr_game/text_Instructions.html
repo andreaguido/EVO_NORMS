@@ -88,12 +88,15 @@
 						instrucciones en la pantalla antes de tomar cada decisión.
 					</p>
 
-					<p>Al final del experimento, se seleccionará al azar a {{ num_subjects_win }} participantes entre todos
-						los que hayan completado todas las partes del experimento. Los/as seleccionados/as recibirán un
-						pago adicional, consistente en que sus ganancias se multiplicarán por 10.
-						Garantizamos que esta persona seleccionada al azar ganará al menos 100 euros, a añadir al resto de sus pagos.
+					<p>Al final del experimento, se seleccionará al azar a {{ num_subjects_win }} participantes entre todos los que hayan
+					completado todas las partes del experimento. Los/as seleccionados/as recibirán un pago adicional,
+					consistente en que sus ganancias en una ronda concreta elegida al azar se multiplicarán por {{ win_multiplier }} y se
+					añadirán al resto de sus pagos.</p>
 
-					<p>Recuerde, si deja de tomar {{ inactive_threshold }} decisiones durante el experimento será permanente y automáticamente excluido/a del experimento. Si una persona no toma su decisión en una ronda se le asignará una decisión de alguno de los otros miembros de su grupo elegida al azar.</p>
+					<p>Recuerde, si deja de tomar {{ inactive_threshold }} decisiones durante el experimento será
+						permanente y automáticamente excluido/a del experimento. Si una persona no toma su decisión
+						en una ronda se le asignará una decisión de alguno de los otros miembros de su grupo elegida
+						al azar.</p>
 
 					<p>Escriba a <a href="mailto:{{ email }}">{{ email }}</a> si tiene alguna pregunta.</p>
 

@@ -24,7 +24,7 @@ class Constants(BaseConstants):
     #0 = 3 x 1 week of same group and 1 week random group; 1 = 3 weeks random group, 1 week same group; 2 = 4 weeks random matching
     players_per_group = 6
     #Groups are formed dynamically in views.py. this constant is used to form groups there
-    num_rounds = 5  # change this before the XP (min 5 rounds -- since 5-week payment) / must be a mult. of 5
+    num_rounds = 5  # change this to 35 XXX before the XP (min 5 rounds -- since 5-week payment) / must be a mult. of 5
     stages = 5 # 5 weeks of the CPR game
     #stages are the number of discrete sections of the game (e.g. one week each)
     endowment = 30
@@ -151,8 +151,8 @@ class Group(BaseGroup):
                 p.fraction_contribution = 0  # if nobody contributed, you included, you get zero
             p.common_account_earnings = (Constants.p_a * self.total_contribution - Constants.p_b * self.total_contribution * self.total_contribution) * p.fraction_contribution
             p.unconditional_payoff = Constants.endowment - p.contribution + p.common_account_earnings
-            print("This is the player's fraction of contribution ", p.fraction_contribution)
-            print("This is the earning from the common account ", p.common_account_earnings, " and this is the total earning ", p.unconditional_payoff, "of player ", p)
+            #print("This is the player's fraction of contribution ", p.fraction_contribution)
+            #print("This is the earning from the common account ", p.common_account_earnings, " and this is the total earning ", p.unconditional_payoff, "of player ", p)
 
         #Combining unconditional payoffs, conditional payoffs, and belief payoffs, in the relevant periods
         for p in self.get_players():
@@ -349,7 +349,7 @@ class Player(BasePlayer):
         if self.inactive >= self.session.config['inactive_threshold']:
             self.score = 1
         else:
-            self.score = random.random()  # XXX assign random? Why?
+            self.score = random.random()  #  assign random? Why? because it's between 0/1 1 excluded.
 
     # function used to check control questions
     def control_calc(self):
@@ -373,7 +373,7 @@ class Player(BasePlayer):
             self.correct_answers += 1
 
     # define contributions of inactive players
-    def inactive_contribution(self):  # XXX
+    def inactive_contribution(self): # take any contribution decision from the whole session
         list = []
         for p in self.get_others_in_subsession():
             if p.timeout_Contribute_uncond == 0 and p.contribution is not None:
@@ -382,10 +382,10 @@ class Player(BasePlayer):
         if len(list) == 0:
             self.contribution = 0
         elif len(list) > 0:
-            self.contribution = random.choice(list)  # XXX change to mean?
+            self.contribution = random.choice(list)
 
-    # define pnb of inactive players
-    def inactive_pnb(self):  # XXX
+    # define pnb of inactive players (one random PNB from the whole session)
+    def inactive_pnb(self):
         list = []
         for p in self.get_others_in_subsession():
             if p.timeout_Beliefs_before_PNB == 0 and p.personal_normative_beliefs is not None:

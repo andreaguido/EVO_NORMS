@@ -25,6 +25,7 @@ class IntroClimateExperiment(Page):
 			'num_subjects_win': self.session.config['num_subjects_win'],
 			'win_multiplier': self.session.config['win_multiplier'],
 			'days': self.session.config['days'],
+			'rate': self.session.config['puntos_euro_rate']
 			}
 
 	def before_next_page(self):
@@ -63,6 +64,4 @@ class Results(Page):
 page_sequence = [
 	IntroClimateExperiment,
 	MyPage,
-#    ResultsWaitPage,
-#    Results
 ]

@@ -34,6 +34,7 @@ class Results(Page):
 			'email': self.session.config['email'],
 			'num_subjects_win': self.session.config['num_subjects_win'],
 			'win_multiplier': self.session.config['win_multiplier'],
+			'rate': self.session.config['puntos_euro_rate']
 		}
 
 

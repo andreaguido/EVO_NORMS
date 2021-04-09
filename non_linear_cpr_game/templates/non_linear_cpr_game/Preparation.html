@@ -20,7 +20,8 @@
 				<div class="panel panel-primary">
 					<div class="panel-body">
 						<p>Usted va a comenzar la ronda {{ subsession.round_number }} de {{ Constants.num_rounds }}. Esto quiere decir que va a participar en el día {{ days_completed|floatformat:"0" }} de {{ days_total|floatformat:"0" }} del experimento.</p>
-						<p><strong>En esta ronda, usted ha sido agrupado aleatoriamente con otros {{ Constants.other_players_per_group }} partecipantes Estos participantes pueden ser diferentes de aquellos con los que estuvo usted en días anteriores.</strong>.</p>
+						<p><strong>En esta ronda, usted ha sido agrupado aleatoriamente con otros {{ Constants.other_players_per_group }} participantes.
+							Estos participantes pueden ser diferentes de aquellos con los que estuvo usted en días anteriores.</strong>.</p>
 						<br>
 						{% if subsession.round_number == 1 %}
 						<img class="img-responsive" src="{% static "non_linear_cpr_game/Slide1.jpg" %}" width="500">

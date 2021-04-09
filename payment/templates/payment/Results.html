@@ -3,7 +3,7 @@
 
 {% block title %}
 	{% if player.inactive < inactive_threshold %}
-		Final Earnings
+		Pago
 	{% endif %}
 {% endblock %}
 
@@ -25,7 +25,7 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-sm-2" align="center"><strong>Parte 2</strong></div>
-						<div class="col-sm-6" align="left">Usted elige <strong>Apuesta {{ player.lottery_choice }}</strong>. El ordenador tiró una moneda virtual que resultó {% if player.lottery_win == 1 %}<strong>CARA</strong>{% else %}<strong>CRUZ</strong>{% endif %}.</div>
+						<div class="col-sm-6" align="left">Usted eligió <strong>Apuesta {{ player.lottery_choice }}</strong>. El ordenador tiró una moneda virtual que resultó {% if player.lottery_win == 1 %}<strong>CARA</strong>{% else %}<strong>CRUZ</strong>{% endif %}.</div>
 						<div class="col-sm-4" align="left">Usted gana <strong>{{ player.risk_lottery_payoff }}</strong> en la Parte 2.</div>
 					</div>
 					<br>
@@ -70,6 +70,7 @@
 						</div>
 						<div class="col-sm-4" align="left">Usted gana <strong>{{ player.punishment_payoff }}</strong> en la Fase 7.</div>
 					</div>
+					<br>
 					{% if player.winner == 1 %}
 						<div class="row">
 							<div class="col-sm-2" align="center"></div>
@@ -89,11 +90,17 @@
 					<br>
 					<div class="row">
 						<div class="col-sm-12" align="left">
-							Puesto que cada 30 puntos se convierten en 1€ y recibe también 5€ para su participación, su
+							Puesto que cada {{ rate }} puntos se convierten en 1€ y recibe también 5€ para su participación, su
 							<strong>pago total es de {{ player.payoff_euros }}€.</strong>
 							En breve recibirá este pago en su cuenta PayPal. Si no recibe su dinero en dos semanas, o si tiene alguna pregunta, por favor contáctenos a <a href="mailto:{{ email }}">{{ email }}</a>.
 
-							Por favor, introduzca su correo de PayPal en la caja de debajo. Introduzca un correo electrónico (si introduce una web paypal.me/ no recibirá su pago).
+							<br>
+
+							Por favor, introduzca su correo de PayPal que reciba pagos en euros sin comisiones en la
+							caja de debajo.
+							Introduzca un correo electrónico (si introduce una web paypal.me/ no recibirá su pago).
+
+							<br>
 
 							{% formfield player.email_paypal %}
 <!--							You will receive payment to your PayPal account shortly.

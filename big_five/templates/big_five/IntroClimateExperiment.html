@@ -20,13 +20,13 @@
 					<ul>
 						<li>Su participación es voluntaria y puede retirarse del experimento en cualquier momento. Eso sí, si se retira no recibirá ningún pago.</li>
 						<li>Le pedimos encarecidamente que no se comunique con ningún otro participante y, en general, que tome sus decisiones independientemente. Por favor, no comparta su enlace personal de participación con nadie. </li>
-						<li>Sus respuestas deben ser confidenciales. Los investigadores que analizarán los datos del experimento no podrán relacionar su identidad con sus decisiones de ninguna manera. </li>
+						<li>Sus respuestas son confidenciales. Los investigadores que analizarán los datos del experimento no podrán relacionar su identidad con sus decisiones de ninguna manera. </li>
 						<li>Durante todo el experimento no se le mentirá ni engañará en forma alguna: aquello que decimos, lo hacemos.</li>
 					</ul>
 
 					<h4>Pago</h4>
 					<p>Se le pagará al final del experimento vía PayPal. Su pago será la suma de todas sus ganancias de
-						cada parte. Por cada 10 puntos que usted gane recibirá 1 euro. Sus ganancias dependerán en parte
+						cada parte. Por cada {{ rate }} puntos que usted gane recibirá 1 euro. Sus ganancias dependerán en parte
 						de sus decisiones y en parte de las de otros participantes. Se le pagará directamente en su
 						cuenta de PayPal de manera que los otros participantes no podrán saber cuánto ha ganado. Se le
 						darán instrucciones adicionales sobre sus ganancias más adelante. </p>
@@ -34,12 +34,11 @@
 					<p>Si no completa las decisiones de hoy o deja de tomar <b>{{ inactive_threshold }} decisiones</b> durante el experimento, será
 						automática y permanentemente expulsado/a del experimento y, en ese caso, no recibirá ningún pago.
 
-					<p>Al final del experimento, se seleccionará al azar a {{ num_subjects_win }} participantes entre
-					todos los que hayan
+					<p>
+					Al final del experimento, se seleccionará al azar a {{ num_subjects_win }} participantes entre todos los que hayan
 					completado todas las partes del experimento. Los/as seleccionados/as recibirán un pago adicional,
-					consistente en que sus ganancias se multiplicarán por {{ win_multiplier }}. Garantizamos que esta
-					persona seleccionada
-					al azar ganará al menos 100 euros, a añadir al resto de sus pagos.
+					consistente en que sus ganancias en una ronda concreta elegida al azar se multiplicarán por {{ win_multiplier }} y se
+					añadirán al resto de sus pagos.
 
 
 					<h4>Información adicional</h4>
