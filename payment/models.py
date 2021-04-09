@@ -150,6 +150,11 @@ class Player(BasePlayer):
 
 	payoff_euros = models.IntegerField()
 
+	# email for PayPal
+	email_paypal = models.CharField(
+		verbose_name=""
+	)
+
 
 class Link(BaseLink):
 	pass

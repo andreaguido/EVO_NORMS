@@ -18,12 +18,7 @@ class PlayerBot(Bot):
 #			})
 #		assert self.player.slider2_self == 92		#slight rounding issue: to be sorted out
 #		assert self.player.slider2_other == 32
-		if self.participant.id_in_session == 1:
-			yield Submission(views.SliderPrimaryContinuous, check_html=False, timeout_happened=True)
-		elif self.participant.id_in_session == 9:
-			yield Submission(views.SliderPrimaryContinuous, check_html=False, timeout_happened=True)
-		else:
-			yield (views.SliderPrimaryContinuous, {
+		yield (views.SliderPrimaryContinuous, {
 				'slider1': random.randint(0, 100),
 				'slider2': random.randint(0, 100),
 				'slider3': random.randint(0, 100),
@@ -41,4 +36,4 @@ class PlayerBot(Bot):
 #			'slider6': 100,
 #			})
 		
-		yield Submission(views.WaitNextRound, timeout_happened=False, check_html=False)
+		yield Submission(views.WaitNextRound, check_html=False)

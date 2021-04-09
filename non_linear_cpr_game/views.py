@@ -60,7 +60,9 @@ class Instructions(Page):
 
 
 	def set_extra_attributes(self):
-		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']) - datetime.datetime.utcnow()).total_seconds()
+		self.timeout_seconds = (self.session.config['start_datetime'] +
+								datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1)) - datetime.datetime.utcnow()).total_seconds()
+
 
 #	XXX def get_timeout_seconds(self):
 #		self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1))
@@ -95,7 +97,7 @@ class Example(Page):
 
 
 	def set_extra_attributes(self):
-		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']) - datetime.datetime.utcnow()).total_seconds()
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1)) - datetime.datetime.utcnow()).total_seconds()
 
 #	XXX def get_timeout_seconds(self):
 #		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
@@ -238,6 +240,7 @@ class Answers(Page):
 		if self.timeout_happened:
 			self.player.timeout_Answers = 1
 
+
 class PreviousResults(Page):
 	timer_text = Constants.timer_text
 
@@ -306,6 +309,7 @@ class Preparation(Page):
 		if self.timeout_happened:
 			self.player.timeout_Preparation = 1
 
+
 class Beliefs_before_PNB(Page):
 	form_model = models.Player
 	form_fields = ['personal_normative_beliefs']
@@ -366,19 +370,19 @@ class Beliefs_before_EE(Page):
 	def error_message(self, values):
 		if Constants.other_players_per_group == 2:
 			if values["empirical_expectations0"] < values["empirical_expectations1"]:
-				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
+				return "Por favor, asegúrese de que sus entradas sean ordenadas de modo que el número más alto esté en la fila superior y el más bajo en la inferior."
 
 		if Constants.other_players_per_group == 3:
 			if values["empirical_expectations0"] < values["empirical_expectations1"] or values["empirical_expectations0"] < values["empirical_expectations2"] or values["empirical_expectations1"] < values["empirical_expectations2"]:
-				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
+				return "Por favor, asegúrese de que sus entradas sean ordenadas de modo que el número más alto esté en la fila superior y el más bajo en la inferior."
 
 		if Constants.other_players_per_group == 4:
 			if values["empirical_expectations0"] < values["empirical_expectations1"] or values["empirical_expectations0"] < values["empirical_expectations2"] or values["empirical_expectations0"] < values["empirical_expectations3"] or values["empirical_expectations1"] < values["empirical_expectations2"]	or values["empirical_expectations1"] < values["empirical_expectations3"] or values["empirical_expectations2"] < values["empirical_expectations3"]:
-				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
+				return "Por favor, asegúrese de que sus entradas sean ordenadas de modo que el número más alto esté en la fila superior y el más bajo en la inferior."
 			
 		if Constants.other_players_per_group == 5:
 			if values["empirical_expectations0"] < values["empirical_expectations1"] or values["empirical_expectations0"] < values["empirical_expectations2"] or values["empirical_expectations0"] < values["empirical_expectations3"] or values["empirical_expectations0"] < values["empirical_expectations4"] or values["empirical_expectations1"] < values["empirical_expectations2"] or values["empirical_expectations1"] < values["empirical_expectations3"] or values["empirical_expectations1"] < values["empirical_expectations4"] or values["empirical_expectations2"] < values["empirical_expectations3"] or values["empirical_expectations2"] < values["empirical_expectations4"] or values["empirical_expectations3"] < values["empirical_expectations4"]:
-				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
+				return "Por favor, asegúrese de que sus entradas sean ordenadas de modo que el número más alto esté en la fila superior y el más bajo en la inferior."
 
 class Beliefs_before_NE(Page):
 	form_model = models.Player
@@ -415,19 +419,19 @@ class Beliefs_before_NE(Page):
 	def error_message(self, values):
 		if Constants.other_players_per_group == 2:
 			if values["normative_expectations0"] < values["normative_expectations1"]:
-				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
+				return "Por favor, asegúrese de que sus entradas sean ordenadas de modo que el número más alto esté en la fila superior y el más bajo en la inferior."
 
 		if Constants.other_players_per_group == 3:
 			if values["normative_expectations0"] < values["normative_expectations1"] or values["normative_expectations0"] < values["normative_expectations2"] or values["normative_expectations1"] < values["normative_expectations2"]:
-				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
+				return "Por favor, asegúrese de que sus entradas sean ordenadas de modo que el número más alto esté en la fila superior y el más bajo en la inferior."
 
 		if Constants.other_players_per_group == 4:
 			if values["normative_expectations0"] < values["normative_expectations1"] or values["normative_expectations0"] < values["normative_expectations2"] or values["normative_expectations0"] < values["normative_expectations3"] or values["normative_expectations1"] < values["normative_expectations2"]	or values["normative_expectations1"] < values["normative_expectations3"] or values["normative_expectations2"] < values["normative_expectations3"]:
-				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
+				return "Por favor, asegúrese de que sus entradas sean ordenadas de modo que el número más alto esté en la fila superior y el más bajo en la inferior."
 			
 		if Constants.other_players_per_group == 5:
 			if values["normative_expectations0"] < values["normative_expectations1"] or values["normative_expectations0"] < values["normative_expectations2"] or values["normative_expectations0"] < values["normative_expectations3"] or values["normative_expectations0"] < values["normative_expectations4"] or values["normative_expectations1"] < values["normative_expectations2"] or values["normative_expectations1"] < values["normative_expectations3"] or values["normative_expectations1"] < values["normative_expectations4"] or values["normative_expectations2"] < values["normative_expectations3"] or values["normative_expectations2"] < values["normative_expectations4"] or values["normative_expectations3"] < values["normative_expectations4"]:
-				return "Please ensure that your inputs are orderer from high to low such that the highest number is in the top row and the lowest in the bottom"
+				return "Por favor, asegúrese de que sus entradas sean ordenadas de modo que el número más alto esté en la fila superior y el más bajo en la inferior."
 
 class Contribute_uncond(Page):
 	form_model = models.Player
@@ -481,6 +485,7 @@ class WaitNextRound1(Page):
 
 # need to have a waiting page here cause we need to wait for all participants to arrive.
 class ResultsWaitPage1(WaitPage):
+	wait_for_all_groups = True
 	pass
 
 

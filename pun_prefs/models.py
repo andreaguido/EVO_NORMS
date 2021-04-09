@@ -157,11 +157,6 @@ class Player(BasePlayer):
 
 	score = models.FloatField()
 
-	# email for PayPal
-	email_paypal = models.CharField(
-		verbose_name="Correo PayPal", blank=True
-	)
-
 	def creating_score(self):
 		if self.inactive >= self.session.config['inactive_threshold']:
 			self.score = 1

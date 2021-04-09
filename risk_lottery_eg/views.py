@@ -8,7 +8,7 @@ import datetime
 class MyPage(Page):
 	form_model = models.Player
 	form_fields = ['choice']
-	timer_text = 'Time left to complete your decisions:'
+	timer_text = 'Tiempo restante para completar sus decisiones:'
 
 	def set_extra_attributes(self):
 		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(

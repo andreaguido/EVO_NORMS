@@ -46,8 +46,12 @@ class SliderPrimaryContinuous(Page):
                 ]
     timer_text = 'Tiempo restante para completar sus decisiones:'
 
-    def get_timeout_seconds(self):
-        return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+    def set_extra_attributes(self):
+        self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(
+            seconds=self.session.config['seconds_per_round']) - datetime.datetime.utcnow()).total_seconds()
+
+    #    def get_timeout_seconds(self):
+#        return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
     def vars_for_template(self):
         return {
@@ -127,8 +131,12 @@ class WaitNextRound(Page):
 
     timer_text = 'Gracias por tomar sus decisiones. Podrá continuar con el experimento en:'
 
-    def get_timeout_seconds(self):
-        return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+    def set_extra_attributes(self):
+        self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(
+            seconds=self.session.config['seconds_per_round']) - datetime.datetime.utcnow()).total_seconds()
+
+#    def get_timeout_seconds(self):
+#        return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
     def vars_for_template(self):
         return {

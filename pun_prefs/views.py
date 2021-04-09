@@ -31,10 +31,15 @@ class ShuffleWaitPage(WaitPage):
 
 
 class PreviousResults(Page):
-	#timer_text = 'Time left to complete your decisions:'
-	def get_timeout_seconds(self):
-		self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.participant.vars['num_rounds']+2))
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+	timer_text = 'Tiempo restante para completar sus decisiones:'
+
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.participant.vars['num_rounds']+2)) - datetime.datetime.utcnow()).total_seconds()
+
+
+#	def get_timeout_seconds(self):
+#		self.participant.vars['expiry'] = self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.participant.vars['num_rounds']+2))
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
 		return {
@@ -70,10 +75,13 @@ class PreviousResults(Page):
 class MyPage1(Page):
 	form_model = models.Player
 	form_fields = ['decision_0', 'decision_1_5', 'decision_6_10', 'decision_11_15', 'decision_16_20', 'decision_21_25', 'decision_26_30']
-	#timer_text = 'Time left to complete your decisions:'
+	timer_text = 'Tiempo restante para completar sus decisiones:'
 
-	def get_timeout_seconds(self):
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.participant.vars['num_rounds']+2)) - datetime.datetime.utcnow()).total_seconds()
+
+#	def get_timeout_seconds(self):
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
 		return {
@@ -120,12 +128,13 @@ class MyPage2(Page):
 ##
 
 class WaitNextRound(Page):
-	#timer_text = 'Thank you for making your decisions. You will be shown your earnings in:'
-	form_model = models.Player
-	form_fields = ['email_paypal']
+	timer_text = 'Gracias por tomar sus decisiones. Podrá continuar con el experimento en:'
 
-	def get_timeout_seconds(self):
-		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
+	def set_extra_attributes(self):
+		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.participant.vars['num_rounds']+2)) - datetime.datetime.utcnow()).total_seconds()
+
+#	def get_timeout_seconds(self):
+#		return (self.participant.vars['expiry'] - datetime.datetime.utcnow()).total_seconds()
 
 	def vars_for_template(self):
 		return {
