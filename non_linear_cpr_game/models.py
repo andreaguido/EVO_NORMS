@@ -24,7 +24,7 @@ class Constants(BaseConstants):
     #0 = 3 x 1 week of same group and 1 week random group; 1 = 3 weeks random group, 1 week same group; 2 = 4 weeks random matching
     players_per_group = 6
     #Groups are formed dynamically in views.py. this constant is used to form groups there
-    num_rounds = 5  # change this to 35 XXX before the XP (min 5 rounds -- since 5-week payment) / must be a mult. of 5
+    num_rounds = 35  # change this to 35 XXX before the XP (min 5 rounds -- since 5-week payment) / must be a mult. of 5
     stages = 5 # 5 weeks of the CPR game
     #stages are the number of discrete sections of the game (e.g. one week each)
     endowment = 30

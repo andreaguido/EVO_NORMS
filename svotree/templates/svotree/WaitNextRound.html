@@ -24,11 +24,21 @@
 				</ul>
 
 				<h4>Pago</h4>
-				<p>Se le pagará al final del experimento. Su pago será la suma de lo que gane en cada fase, mas 5€ para su participación. Por cada <strong>30 puntos que gane recibirá 1€</strong>, redondeado al importe entero más próximo. Lo que gane dependerá en parte de sus elecciones, en parte de las elecciones de otros participantes, y en parte del azar. Se le pagará de manera individual y tramite su cuenta de PayPal, de manera que ninguno de los otros participantes podrá conocer lo que ha ganado usted. Instrucciones adicionales sobre como puede ganar puntos seguirán.</p>
+				<p>Se le pagará al final del experimento. Su pago será la suma de lo que gane en cada fase, mas 5€ para su participación.
+					Por cada <strong>30 puntos que gane recibirá 1€</strong>,
+					redondeado al importe entero más próximo. Lo que gane dependerá en parte de sus elecciones, en parte
+					de las elecciones de otros participantes, y en parte del azar.
+					Se le pagará de manera individual y tramite su cuenta de PayPal, de manera que ninguno de los otros
+					participantes podrá conocer lo que ha ganado usted. Instrucciones adicionales sobre como puede ganar puntos seguirán.</p>
 
-				<p>Si no termina sus elecciones de hoy o pierdes {{ inactive_threshold }} decisiones durante la fase seis será <b>automáticamente y permanentemente</b> excluido del experimento. <strong>Si se le excluye no se le pagará.</strong></p>
+				<p>Si no termina sus elecciones de hoy o pierdes {{ inactive_threshold }} decisiones durante la fase
+					seis será <b>automáticamente y permanentemente</b> excluido del experimento.
+					<strong>Si se le excluye no se le pagará.</strong></p>
 
-				<p><span style="color:blue">Al final del experimento, una persona entre todos los que terminan el experimento será seleccionada al azar para ganar un bonus. El bonus del sorteo multiplica todas las ganancias de esa persona por {{ win_multiplier }}. Nos aseguraremos de que <strong>la persona seleccionada al azar gane al menos 100€ y un maximo de 200€</strong>.</span></p>				
+				<p><span style="color:blue">Al final del experimento, se seleccionará al azar a {{ num_subjects_win }} participantes entre todos los que hayan
+					completado todas las partes del experimento. Los/as seleccionados/as recibirán un pago adicional,
+					consistente en que sus ganancias en una ronda concreta elegida al azar se multiplicarán por {{ win_multiplier }} y se
+					añadirán al resto de sus pagos.</span></p>
 					
 				<h4>Información adicional</h4>
 				<p>Por favor, lea cuidadosamente las instrucciones. Sin embargo, le mostraremos las instrucciones pertinentes a lo largo del experimento. Si tiene alguna pregunta durante el experimento, póngase en contacto con nosotros (<a href="mailto:{{ email }}">{{ email }}</a>).</p>

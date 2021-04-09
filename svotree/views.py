@@ -142,7 +142,8 @@ class WaitNextRound(Page):
         return {
             'email': self.session.config['email'],
             'win_multiplier': self.session.config['win_multiplier'],
-            'inactive_threshold': self.session.config['inactive_threshold']
+            'inactive_threshold': self.session.config['inactive_threshold'],
+            'num_subjects_win': self.session.config['num_subjects_win']
             }
 
     def before_next_page(self):

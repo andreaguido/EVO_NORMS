@@ -189,7 +189,7 @@ SESSION_CONFIGS = [
         app_sequence=['big_five', 'risk_lottery_eg', 'norm_compliance', 'questionnaire', 'svotree',
                       'non_linear_cpr_game', 'pun_prefs', 'payment'],
         use_browser_bots=False,
-        start_datetime=datetime.datetime(2021, 4, 8, 14,0), # datetime.datetime.utcnow() # UCT time -2hr recall time diff
+        start_datetime=datetime.datetime(2021, 4, 9, 8,0), # datetime.datetime.utcnow() # UCT time -2hr recall time diff
         seconds_per_round=86400,
         inactive_threshold=5,
         email='ibsen.gisc@gmail.com',
@@ -198,7 +198,7 @@ SESSION_CONFIGS = [
         days=37,
         treatment="N",
         puntos_euro_rate = 30,
-        doc=""" <h1>Checklist</h1><ul> <li>Treatmet setup: N if baseline, A if authority message; </li> 
+        doc=""" <h1>Checklist</h1><ul> <li>Treatment setup: N if baseline, A if authority message; </li> 
                        <li> seconds per round should be set to 86400 (1 day); </li>
                        <li> inactive threshold should be set to 5 </li>
                        <li> days should be set to 36 </li>
