@@ -189,7 +189,7 @@ SESSION_CONFIGS = [
         app_sequence=['big_five', 'risk_lottery_eg', 'norm_compliance', 'questionnaire', 'svotree',
                       'non_linear_cpr_game', 'pun_prefs', 'payment'],
         use_browser_bots=False,
-        start_datetime=datetime.datetime(2021, 4, 9, 8,0), # datetime.datetime.utcnow() # UCT time -2hr recall time diff
+        start_datetime=datetime.datetime(2021, 4, 9, 18,14), # datetime.datetime.utcnow() # UCT time -2hr recall time diff
         seconds_per_round=86400,
         inactive_threshold=5,
         email='ibsen.gisc@gmail.com',

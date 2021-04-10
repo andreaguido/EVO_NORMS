@@ -297,7 +297,7 @@ class Preparation(Page):
 				#'diff_group_rounds': self.session.vars['diff_group_rounds'],
 				'inactive_threshold': self.session.config['inactive_threshold'],
 				'days_completed': (self.round_number + 1),
-				'days_total': (Constants.num_rounds + 1),
+				'days_total': (Constants.num_rounds + 2),
 				'email': self.session.config['email'],
 				'num_subjects_win': self.session.config['num_subjects_win'],
 				'win_multiplier': self.session.config['win_multiplier'],
