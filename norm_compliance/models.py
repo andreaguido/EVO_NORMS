@@ -27,8 +27,8 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     # timeout for decision page
-    timeout_Questions = models.IntegerField()
-    missed_decisions = models.IntegerField(initial=0)
+    timeout_Questions = models.IntegerField(initial=0)
+    missed_decisions = models.IntegerField()
 
     # Modelos para guardar las participant vars
     payoff_norm = models.FloatField()
@@ -42,8 +42,11 @@ class Player(BasePlayer):
         self.payoff_norm = sum([0.5 for p in self.in_all_rounds(
         ) if p.selectionYellow == 1]) + sum([1 for p in self.in_all_rounds() if p.selectionBlue == 1])
         self.participant.vars['payoffNormCompliance'] = self.payoff_norm
-        self.participant.vars['normcompliancemisseddecisions'] = self.missed_decisions
         print("PRINT PAYOFF NORM COMPLIANCE ", self.participant.vars['payoffNormCompliance'])
+
+    def count_total_decisions(self):
+        self.missed_decisions = sum([p.timeout_Questions for p in self.in_all_rounds()])
+
 
 #    def total_payment(self):
 #        self.participant.vars['total_pay'] = self.participant.vars['global_payoff'] + \

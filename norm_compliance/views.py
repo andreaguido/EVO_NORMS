@@ -61,7 +61,9 @@ class Questions(Page):
         self.player.storePayments()
         if self.timeout_happened:
             self.player.timeout_Questions = 1
-            self.player.missed_decisions += 1
+        if self.round_number == Constants.num_rounds:
+            self.player.count_total_decisions()
+            self.participant.vars['normcompliancemisseddecisions'] = self.player.missed_decisions
 
 
 #class Final(Page):

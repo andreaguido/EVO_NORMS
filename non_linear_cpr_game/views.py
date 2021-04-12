@@ -462,9 +462,9 @@ class Contribute_uncond(Page):
 			self.player.inactive_contribution()
 
 class WaitNextRound1(Page):
-	timer_text = 'Gracias por tomar sus decisiones. Podrá continuar con el experimento en:'
 
 	def set_extra_attributes(self):
+		self.timer_text = 'Gracias por tomar sus decisiones. Podrá continuar con el experimento en:'
 		self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(seconds=self.session.config['seconds_per_round']*(self.round_number+1)) - datetime.datetime.utcnow()).total_seconds()
 
 #	def get_timeout_seconds(self):

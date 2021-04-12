@@ -89,17 +89,25 @@ return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
 function myTask(){
-var slider = document.getElementById("mycontribution").value;
-var slider2 = document.getElementById("othcontribution").value;
-var sum = 1*slider + 1*slider2;
+var slider = +document.getElementById("mycontribution").value;
+var slider2 = +document.getElementById("othcontribution").value;
+var sum = parseInt(slider + slider2);
 var par_a = 15;
 var par_b = 0.083;
 var commonaccount = (par_a*sum - par_b*sum*sum)*(slider/sum);
 var personalaccount = 30-slider;
-var tot = commonaccount + (30 -slider)
+var tot = commonaccount + personalaccount
+
+if (slider2==0){
+	document.getElementById("print_othcontribution").innerHTML = 0;
+	}
 
 if (Number.isNaN(commonaccount)){
-	document.getElementById("print_payoff").innerHTML = 0;
+	document.getElementById("print_payoff_accountpersonal").innerHTML = 30;
+	document.getElementById("print_payoff_accountcommon").innerHTML = 0;
+	document.getElementById("print_mycontribution").innerHTML = 0;
+	document.getElementById("print_payoff").innerHTML = 30;
+
 } else {
 	document.getElementById("print_payoff_accountcommon").innerHTML = round(round(commonaccount, 2), 1);
 	document.getElementById("print_payoff_accountpersonal").innerHTML = round(round(personalaccount, 2), 1);

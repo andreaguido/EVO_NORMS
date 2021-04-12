@@ -100,6 +100,7 @@ class Group(BaseGroup):
 
 			if p.inactive >= self.session.config['inactive_threshold']:
 				p.payoff = 0
+				p.payoff_euros = 0
 			else:
 				p.payoff = p.payoff_svo + p.risk_lottery_payoff + p.payoff_norm_compliance +\
 						   p.game_total_payoff + p.punishment_payoff

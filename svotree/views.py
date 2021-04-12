@@ -129,9 +129,9 @@ class Results(Page):
 
 class WaitNextRound(Page):
 
-    timer_text = 'Gracias por tomar sus decisiones. Podrá continuar con el experimento en:'
 
     def set_extra_attributes(self):
+        self.timer_text = 'Gracias por tomar sus decisiones. Podrá continuar con el experimento en:'
         self.timeout_seconds = (self.session.config['start_datetime'] + datetime.timedelta(
             seconds=self.session.config['seconds_per_round']) - datetime.datetime.utcnow()).total_seconds()
 
